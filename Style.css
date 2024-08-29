@@ -442,3 +442,66 @@ label{
     font-weight: bold;
     vertical-align: middle;
 }
+
+.navbar{
+    background-color: rgba(56,56,56,1);
+
+    form {
+        max-width: 900px;
+        select {
+            appearance: none;
+            background-color: transparent;
+            border: 0;
+            color: #fff; 
+            font-family: "Krona One", sans-serif; 
+            font-size: 0.9rem;
+            padding-right: 1.5rem;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%2386bd7b" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
+        }
+        button {
+            width: 40px;
+            border-top-left-radius: 0.375rem;
+            border-bottom-left-radius: 0.375rem;
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            background-color: #fff;
+            border: 0;
+
+            img {
+                height: 12px;
+                width: 12px;
+            }
+        }
+        button:focus {
+            border-color: #86b7fe;
+            outline: 0;
+        }
+        input:focus {
+            box-shadow: none;
+        }
+    }
+
+    a .logo {
+        height: 43px;
+        width: 79px;
+        margin-left: 21px;
+    }
+    a .icon {
+        height: 35px;
+        width: 35px;
+    }
+    button.profile{
+        background-color: rgb(39, 20, 73);
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: 3px solid #86bd7b;
+        img {
+            height: 40px;
+            width: 40px;
+        }
+    }
+}
