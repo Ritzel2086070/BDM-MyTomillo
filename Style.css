@@ -505,3 +505,32 @@ label{
         }
     }
 }
+
+
+h6 {
+    font-family: Krona One;
+    font-size:larger;
+    color: rgb(134, 189, 123);
+}
+small-darkgreen-text{
+    font-family: Krona One;
+    font-size: x-small;
+    color: rgba(134, 189, 123, 0.596);
+}
+
+.categorias {
+    padding-left: 3rem;
+    padding-top: 1rem;
+    
+    max-width: 288px;
+    p, a {
+        display: inline;
+        color: #ffffff;
+    }
+    description {
+        display: inline-block;
+        font-size: small;
+        color: #ffffff;
+        margin-left: 14px;
+    }
+}
