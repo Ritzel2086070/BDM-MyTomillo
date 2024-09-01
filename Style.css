@@ -111,6 +111,7 @@ h6{
 
 .card{
     background-color: #333333;
+    border: 0rem;
     border-radius: 1.5rem;
     border-bottom: 0.13rem solid rgb(134, 189, 123);
     border-left: 0.13rem solid rgb(134, 189, 123);
@@ -120,7 +121,7 @@ h6{
     z-index: 10;
     margin: 2rem;
 
-    button{
+    .main-btn{
         background-color: rgb(93, 168, 78);
         color: rgb(255, 255, 255);
         border: none;
@@ -131,98 +132,266 @@ h6{
         margin: 2rem;
         transition: .15s ease;
         width: 50%;
-
+        appearance: none;
+        box-shadow: none;
         &:hover{
             background-color: rgba(0, 0, 0, 0);
             border: 0.1rem solid rgb(93, 168, 78);
-            color: rgb(93, 168, 78)
+            outline: none;
+            color: rgb(93, 168, 78);
+            font-size: 1rem;
         }
     }
 
-}
-
-.card .sub-btn{
-    background-color: rgba(0, 0, 0, 0);
-    color: rgb(255, 255, 255);
-    border: none;
-    outline: none;
-    font-family: "Krona One", sans-serif;
-    font-size: small;
-    transition: .15s ease;
-    width: 50%;
-    border-radius: 0.5rem;
-
-    &:hover{
-        background-color: rgba(93, 168, 78, 0);
+    .sub-btn{
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(93, 168, 78);
         border: 0.1rem solid rgb(93, 168, 78);
         outline: none;
+        font-family: "Krona One", sans-serif;
         font-size: small;
-        border-radius: 0.5rem;
+        transition: .15s ease;
         width: 50%;
+        border-radius: 0.5rem;
+        appearance: none;
+        box-shadow: none;
+        &:hover{
+            background-color: rgb(93, 168, 78);
+            color: rgb(255, 255, 255);
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            width: 50%;
+        }
     }
-    
-}
 
-.card .form-control {
-    appearance: none;
-    box-shadow: none;
-    background-color: #d3d3d3;
-    border: none;
-    outline: none;
-    color: #000000;
-    border-radius: 0.5rem;
-    transition: .15s ease;
-    font-size: small;
-    width: 80%;
-    height: 1.9rem;
-    padding: 0.5rem;
-
-    &:hover{
-        background-color: #ffffff;
+    .log-in{
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(255, 255, 255);
         border: none;
         outline: none;
+        font-family: "Krona One", sans-serif;
+        font-size: small;
+        transition: .15s ease;
+        width: 50%;
+        border-radius: 0.5rem;
+        appearance: none;
+        box-shadow: none;
+        &:hover{
+            background-color: rgba(93, 168, 78, 0);
+            border: 0.1rem solid rgb(93, 168, 78);
+            color: rgb(93, 168, 78);
+            outline: none;
+            font-size: small;
+            border-radius: 0.5rem;
+            width: 50%;
+        }
     }
-}
 
-.card .form-select {
-    appearance: none;
-    box-shadow: none;
-    background-color: #d3d3d3;
-    border: none;
-    outline: none;
-    color: #000000;
-    border-radius: 0.5rem;
-    transition: .15s ease;
-    font-size: small;
-    width: 80%;
-    height: 1.9rem;
-    padding: 0.5rem;
+    .card-img-top {
+        max-width: 450px;
+        width: 100%;
+        border: none;
+        border-radius: 0rem;
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+        overflow: hidden;
+        background-color: #333;
+        color: white;
+        margin: auto;
+        height: 12.5rem;
+        object-fit: cover;
+    }
 
-    option{
+    .form-control {
+        appearance: none;
+        box-shadow: none;
+        background-color: #d3d3d3;
+        border: none;
+        outline: none;
         color: #000000;
-        font-size: 0.9rem;
-        height: 20px;
-    cursor: pointer;
+        border-radius: 0.5rem;
+        transition: .15s ease;
+        font-size: small;
+        width: 80%;
+        height: 1.9rem;
+        padding: 0.5rem;
+    
+        &:hover{
+            background-color: #ffffff;
+            border: none;
+            outline: none;
+        }
     }
 
-    option::after, ::before{
-        background-color: #86BD7B;
-    }
-
-    option:hover, :focus{
-        background-color: #86BD7B;
-    }
-    
-    option:checked{
-        background-color: #86BD7B;
-    }
-    
-    &:hover {
-        background-color: #ffffff;
+    .form-select {
+        appearance: none;
+        box-shadow: none;
+        background-color: #d3d3d3;
         border: none;
         outline: none;
+        color: #000000;
+        border-radius: 0.5rem;
+        transition: .15s ease;
+        font-size: small;
+        width: 80%;
+        height: 1.9rem;
+        padding: 0.5rem;
+    
+        option{
+            color: #000000;
+            font-size: 0.9rem;
+            height: 20px;
+        cursor: pointer;
+        }
+    
+        option::after, ::before{
+            background-color: #86BD7B;
+        }
+    
+        option:hover, :focus{
+            background-color: #86BD7B;
+        }
+        
+        option:checked{
+            background-color: #86BD7B;
+        }
+        
+        &:hover {
+            background-color: #ffffff;
+            border: none;
+            outline: none;
+        }
+    
+    }
+}
+
+.class-description{
+    border-radius: 1rem;
+    border: 0.1rem solid rgb(93, 168, 78);
+    background: #00000000;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.list-container {
+    border-radius: 1rem;
+    border: 0.1rem solid rgb(93, 168, 78);
+    background: #00000000;
+    padding: 2rem;
+    padding-bottom: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+        list-style-type: none;
+        padding: 0rem;
+        margin: 0rem;
     }
 
+    ul li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+.levels-container{
+    border-radius: 1rem;
+    border: 0.1rem solid rgb(93, 168, 78);
+    border-top: 0;
+    background: #00000000;
+    padding-bottom: 0.5rem;
+    margin: 1rem;
+    position: relative;
+
+    .header{
+        left: -0.1rem;
+        width: 100.4%;
+        position: relative;
+        margin: 0rem;
+        border-radius: 1rem;
+        border: 0.1rem solid rgb(93, 168, 78);
+        padding: 0.5rem;
+        p{
+            margin: 0rem;
+        }
+    }
+
+    .level{
+        font-weight: bold;
+        background-color: #130924;
+        display: block;
+        text-align: left;
+        color: white;
+        outline: none;
+        box-shadow: none;
+        padding-left: 2.2rem;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="%2386bd7b" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+        background-repeat: no-repeat;
+        background-position: left 0.5rem center;
+        background-size: 2rem;
+        p{
+            margin-bottom: 0rem;
+            margin: 0.5rem
+        }
+    }
+}
+
+.comments{
+    margin: 0.2rem;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    font-family: "Krona One", sans-serif;
+    font-weight: bold;
+    vertical-align: middle;
+
+    .comment{
+        background: #1D132F;
+        border-radius: 1rem;
+        border-top-left-radius: 0rem;
+        margin: 0rem;
+        text-align: left;
+        padding: 1.2rem;
+        color: rgb(255, 255, 255);
+        font-family: "Krona One", sans-serif;
+        vertical-align: middle;
+    }
+
+    p{
+        margin: 0.5rem;
+        margin-top: 0rem;
+    }
+
+    .info{
+        margin-bottom: 0rem;
+        -webkit-text-stroke: 0.03rem;
+        letter-spacing: 0.15rem;
+        font-size: smaller;
+        color: rgba(255, 255, 255, 0.281);
+    }
+
+    button.profile{
+        margin: 0.5rem;
+        outline: none;
+        background-color: rgb(39, 20, 73);
+        border-radius: 50%;
+        height: 2.9rem;
+        width: 2.9rem;
+        border: 0.1rem solid #86bd7b;
+        padding: 0.2rem;
+        margin-left: 1.5rem;
+        img {
+            height: auto;
+            width: 90%;
+        }
+    }
+}
+
+.collapse{
+    padding: 0.5rem;
+    padding-left: 2.2rem;
 }
 
 ::-webkit-input-placeholder{
@@ -430,12 +599,12 @@ label{
     margin: 0.5rem;
     display: inline-block;
     text-align: center;
-}
 
-.green-circle span{
-    color: rgb(255, 255, 255);
-    font-family: "Krona One", sans-serif;
-    vertical-align: middle;
+    span{
+        color: rgb(255, 255, 255);
+        font-family: "Krona One", sans-serif;
+        vertical-align: middle;
+    }
 }
 
 .box-info{
@@ -445,21 +614,22 @@ label{
     text-align: center;
     padding: 1.2rem;
     width: 10rem;
+
+    .number{
+        color: rgb(134, 189, 123);
+        font-family: "Krona One", sans-serif;
+        font-size: 1.4rem;
+        vertical-align: middle;
+        margin-bottom: 0rem;
+    }
+
+    span{
+        color: rgb(255, 255, 255);
+        font-family: "Krona One", sans-serif;
+        vertical-align: middle;
+    }
 }
 
-.box-info .number{
-    color: rgb(134, 189, 123);
-    font-family: "Krona One", sans-serif;
-    font-size: 1.4rem;
-    vertical-align: middle;
-    margin-bottom: 0rem;
-}
-
-.box-info span{
-    color: rgb(255, 255, 255);
-    font-family: "Krona One", sans-serif;
-    vertical-align: middle;
-}
 
 .phd-login{
     width: 100%; 
@@ -490,6 +660,14 @@ label{
 }
 
 /*Navbar wiiiii :D*/
+header{
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    left:0;
+    top:0;
+  }
+
 .navbar{
     background-color: rgba(56,56,56,1);
     background-size: cover;
@@ -536,6 +714,7 @@ label{
     a .logo {
         height: auto;
         width: 4rem;
+        margin: 0.1rem;
     }
     a .icon {
         cursor: pointer;
