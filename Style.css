@@ -121,51 +121,6 @@ h6{
     z-index: 10;
     margin: 2rem;
 
-    .main-btn{
-        background-color: rgb(93, 168, 78);
-        color: rgb(255, 255, 255);
-        border: none;
-        outline: none;
-        font-family: "Krona One", sans-serif;
-        font-size: small;
-        border-radius: 0.5rem;
-        margin: 2rem;
-        transition: .15s ease;
-        width: 50%;
-        appearance: none;
-        box-shadow: none;
-        &:hover{
-            background-color: rgba(0, 0, 0, 0);
-            border: 0.1rem solid rgb(93, 168, 78);
-            outline: none;
-            color: rgb(93, 168, 78);
-            font-size: 1rem;
-        }
-    }
-
-    .sub-btn{
-        background-color: rgba(0, 0, 0, 0);
-        color: rgb(93, 168, 78);
-        border: 0.1rem solid rgb(93, 168, 78);
-        outline: none;
-        font-family: "Krona One", sans-serif;
-        font-size: small;
-        transition: .15s ease;
-        width: 50%;
-        border-radius: 0.5rem;
-        appearance: none;
-        box-shadow: none;
-        &:hover{
-            background-color: rgb(93, 168, 78);
-            color: rgb(255, 255, 255);
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            border-radius: 0.5rem;
-            width: 50%;
-        }
-    }
-
     .log-in{
         background-color: rgba(0, 0, 0, 0);
         color: rgb(255, 255, 255);
@@ -286,6 +241,51 @@ h6{
             background-color: rgb(134, 189, 123);
             border-radius: 1rem;   
         }
+    }
+}
+
+.main-btn{
+    background-color: rgb(93, 168, 78);
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    font-family: "Krona One", sans-serif;
+    font-size: small;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    transition: .15s ease;
+    width: 50%;
+    appearance: none;
+    box-shadow: none;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0);
+        border: 0.1rem solid rgb(93, 168, 78);
+        outline: none;
+        color: rgb(93, 168, 78);
+        font-size: 1rem;
+    }
+}
+
+.sub-btn{
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(93, 168, 78);
+    border: 0.1rem solid rgb(93, 168, 78);
+    outline: none;
+    font-family: "Krona One", sans-serif;
+    font-size: small;
+    transition: .15s ease;
+    width: 50%;
+    border-radius: 0.5rem;
+    appearance: none;
+    box-shadow: none;
+    &:hover{
+        background-color: rgb(93, 168, 78);
+        color: rgb(255, 255, 255);
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        width: 50%;
     }
 }
 
@@ -410,35 +410,7 @@ h6{
         }
     }
 
-    .pagination{
-        display: flex;
-        align-content: center;
-        position: relative;
-        
-    }
-
-    .page-item{
-        background-color: #00000000;
-        background: #00000000;
-        color: rgb(134, 189, 123);
-    }
-    .page-link{
-        background-color: #00000000;
-        background: #00000000;
-        color: rgb(134, 189, 123);
-        border: none;
-
-        &:hover{
-            color: white;
-            font-size: 1.2rem;
-        }
-        .span{
-            color: rgb(134, 189, 123);
-            &:hover{
-                color: white;
-            }
-        }
-    }
+    
 
     textarea{
         appearance: none;
@@ -513,6 +485,36 @@ h6{
         }
     }
     
+}
+
+.pagination{
+    display: flex;
+    align-content: center;
+    position: relative;
+    
+}
+
+.page-item{
+    background-color: #00000000;
+    background: #00000000;
+    color: rgb(134, 189, 123);
+}
+.page-link{
+    background-color: #00000000;
+    background: #00000000;
+    color: rgb(134, 189, 123);
+    border: none;
+
+    &:hover{
+        color: white;
+        font-size: 1.2rem;
+    }
+    .span{
+        color: rgb(134, 189, 123);
+        &:hover{
+            color: white;
+        }
+    }
 }
 
 .collapse{
