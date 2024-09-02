@@ -265,6 +265,28 @@ h6{
         }
     
     }
+
+    .text{
+        margin: 0.1rem;
+        color: rgb(134, 189, 123);;
+    }
+
+    .data{
+        margin: 0.1rem;
+        color: white;
+        -webkit-text-stroke: 0.02rem;
+    }
+
+    .progress{
+        width: 80%;
+        height: 1.25rem;
+        background-color: #130924;
+        border-radius: 1rem;
+        .progress-bar{
+            background-color: rgb(134, 189, 123);
+            border-radius: 1rem;   
+        }
+    }
 }
 
 .class-description{
@@ -356,6 +378,7 @@ h6{
         padding: 1.2rem;
         color: rgb(255, 255, 255);
         font-family: "Krona One", sans-serif;
+        font-weight: 100;
         vertical-align: middle;
     }
 
@@ -387,6 +410,73 @@ h6{
             width: 90%;
         }
     }
+
+    .pagination{
+        display: flex;
+        align-content: center;
+        position: relative;
+        
+    }
+
+    .page-item{
+        background-color: #00000000;
+        background: #00000000;
+        color: rgb(134, 189, 123);
+    }
+    .page-link{
+        background-color: #00000000;
+        background: #00000000;
+        color: rgb(134, 189, 123);
+        border: none;
+
+        &:hover{
+            color: white;
+            font-size: 1.2rem;
+        }
+        .span{
+            color: rgb(134, 189, 123);
+            &:hover{
+                color: white;
+            }
+        }
+    }
+
+    textarea{
+        appearance: none;
+        font-family: Montserrat;
+        font-size: 0.9rem;
+        color: white;
+        width: 100%;
+        outline: none;
+        background: #1D132F;
+        border-radius: 1rem;
+        border-top-left-radius: 0rem;
+        border: 0.1rem solid rgb(134, 189, 123);
+        padding: 1rem;
+        resize: none;
+        content: "Deja";
+
+        &:hover{
+            border: 0.08rem solid rgb(255, 255, 255);
+        }
+    }
+
+    ::-webkit-input-placeholder {
+        font-family: Montserrat;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.705);
+        transition: opacity 250ms ease-in-out;
+      }
+
+    .experience{
+        margin: 0rem;
+        margin-left: 1.5rem;
+        font-size: smaller; 
+        font-style: italic; 
+        font-weight: 100;
+        color: rgba(255, 255, 255, 0.418); 
+    }
+    
 }
 
 .collapse{
@@ -564,16 +654,13 @@ label{
 }
 
 .star-container{
-    display: inline-block;
-    margin: 0rem;
-    text-align: left;
-    width: 12rem;
-    height: auto;
+    width: 20%;
     img{
         height: auto;
         width: 10%;
     }
 }
+
 
 .grade{
     color: rgb(134, 189, 123);
