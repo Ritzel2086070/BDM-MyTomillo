@@ -862,3 +862,69 @@ header{
         }
     }
 }
+
+
+h6 {
+    font-family: Krona One;
+    font-size:larger;
+    color: rgb(134, 189, 123);
+}
+small-darkgreen-text{
+    font-family: Krona One;
+    font-size: x-small;
+    color: rgba(134, 189, 123, 0.596);
+}
+
+.categorias {
+    padding-left: 3rem;
+    padding-top: 1rem;
+    min-height: 80vh;
+    max-width: 240px;
+    p, a {
+        display: inline;
+        color: #ffffff;
+    }
+    description {
+        display: inline-block;
+        font-size: small;
+        color: #ffffff;
+        margin-left: 14px;
+    }
+}
+
+.card.curso {
+    max-width: 320px;
+    min-width: 250px;
+    position: relative;
+    margin: 0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    img{
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        width: 100%;
+        height: 60%;
+        max-height: 182px;
+        object-fit: cover;
+    }
+    h6 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    .estrella {
+        height: .8rem;
+        width: auto;
+        margin-top: .1rem;
+        margin-left: .2rem;
+    }
+    .precio {
+        font-weight: 800;
+        font-size: larger;
+        color: white;
+    }
+    
+}
+
