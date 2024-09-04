@@ -43,7 +43,6 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 3rem;
 }
 
 h1{
@@ -472,8 +471,6 @@ h6{
         }
     }
 
-    
-
     textarea{
         appearance: none;
         font-family: Montserrat;
@@ -834,6 +831,78 @@ label{
 }
 
 /*Contenido del curso Vista cursos / lesson*/
+.video-content{
+    width: 100%;
+}
+
+.lesson-description {
+    border: 0.1rem solid rgb(134, 189, 123);
+    border-radius: 0.6rem;
+    width: 94%;
+    padding: 0.9rem;
+    margin: 1.5rem;
+}
+
+.tab-content{
+    width: 100%;
+    h3{
+        margin: 1.5rem;
+    }
+}
+
+.downloads {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.download-item {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    input {
+        width: 50%;
+        background: none;
+        border: 0.1rem solid rgb(134, 189, 123);
+        border-radius: 0.6rem;
+        padding: 0.5rem;
+    }
+    button{
+        width: 15%;
+        margin: 0.5rem;
+    }
+}
+
+.tab-menu {
+    display: flex;
+    width: 100%;
+    border: none;
+
+    .nav-item{
+        appearance: none;
+        width: 50%;
+        align-content: center;
+        text-align: center;
+        border: 0rem;
+        .nav-link {
+            appearance: none;
+            background: none;
+            border: none;
+            padding: 0.6rem 0.4rem;
+            cursor: pointer;
+            color: #ffffff;
+            font-weight: bold;
+            width: 100%;
+        }
+    
+        .nav-link.active {
+            border-bottom: 0.1rem solid #ffffff;
+            color: #FFFFFF;
+        }
+    }
+
+}
+
 .content{
     background: rgb(39, 20, 73);
     background-size: cover;
@@ -841,6 +910,7 @@ label{
     background-attachment: fixed;
     padding: 1.1rem;
     height: 100%;
+    width: 100%;
     h2{
         color: rgb(134, 189, 123);
         font-family: "Krona One", sans-serif;
@@ -885,9 +955,7 @@ label{
             }
         }
     }
-
     }
-
 }
 
 /*Detalitos*/

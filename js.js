@@ -1,3 +1,4 @@
+//redirecciones
 function toLogin() {
     window.location.href = 'login.html';
   }
@@ -6,6 +7,25 @@ function toLogin() {
     window.location.href = 'signIn.html';
   }
 
+//Lessons, descargas Esto me lo di
+function downloadFile(filename) {
+    const link = document.createElement('a');
+    link.href = filename;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function downloadAll() {
+    const files = ['Doc.pdf', 'Doc2.pdf'];
+    files.forEach(file => downloadFile(file));
+}
+
+function goToLink() {
+    const link = document.getElementById('videoLink').value;
+    window.open(link, '_blank');
+}
 
 //ALERTS
 /**/
