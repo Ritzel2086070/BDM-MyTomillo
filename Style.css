@@ -172,51 +172,6 @@ h6{
     z-index: 10;
     margin: 2rem;
 
-    .main-btn{
-        background-color: rgb(93, 168, 78);
-        color: rgb(255, 255, 255);
-        border: none;
-        outline: none;
-        font-family: "Krona One", sans-serif;
-        font-size: small;
-        border-radius: 0.5rem;
-        margin: 2rem;
-        transition: .15s ease;
-        width: 50%;
-        appearance: none;
-        box-shadow: none;
-        &:hover{
-            background-color: rgba(0, 0, 0, 0);
-            border: 0.1rem solid rgb(93, 168, 78);
-            outline: none;
-            color: rgb(93, 168, 78);
-            font-size: 1rem;
-        }
-    }
-
-    .sub-btn{
-        background-color: rgba(0, 0, 0, 0);
-        color: rgb(93, 168, 78);
-        border: 0.1rem solid rgb(93, 168, 78);
-        outline: none;
-        font-family: "Krona One", sans-serif;
-        font-size: small;
-        transition: .15s ease;
-        width: 50%;
-        border-radius: 0.5rem;
-        appearance: none;
-        box-shadow: none;
-        &:hover{
-            background-color: rgb(93, 168, 78);
-            color: rgb(255, 255, 255);
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            border-radius: 0.5rem;
-            width: 50%;
-        }
-    }
-
     .log-in{
         background-color: rgba(0, 0, 0, 0);
         color: rgb(255, 255, 255);
@@ -340,6 +295,62 @@ h6{
     }
 }
 
+.main-btn{
+    background-color: rgb(93, 168, 78);
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    font-family: "Krona One", sans-serif;
+    font-size: small;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    transition: .15s ease;
+    width: 50%;
+    appearance: none;
+    box-shadow: none;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0);
+        border: 0.1rem solid rgb(93, 168, 78);
+        outline: none;
+        color: rgb(93, 168, 78);
+        font-size: 1rem;
+    }
+}
+
+.sub-btn{
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(93, 168, 78);
+    border: 0.1rem solid rgb(93, 168, 78);
+    outline: none;
+    font-family: "Krona One", sans-serif;
+    font-size: small;
+    transition: .15s ease;
+    width: 50%;
+    border-radius: 0.5rem;
+    appearance: none;
+    box-shadow: none;
+    &:hover{
+        background-color: rgb(93, 168, 78);
+        color: rgb(255, 255, 255);
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        width: 50%;
+    }
+}
+.sub-btn.custom {
+    width: 100%;
+    color: rgba(134, 189, 123, 1);
+    &:hover{
+        color: white;
+    }
+}
+.main-btn.custom{
+    width: min-content;
+    height: min-content;
+}
+
 .class-description{
     border-radius: 1rem;
     border: 0.1rem solid rgb(93, 168, 78);
@@ -460,35 +471,7 @@ h6{
         }
     }
 
-    .pagination{
-        display: flex;
-        align-content: center;
-        position: relative;
-        
-    }
-
-    .page-item{
-        background-color: #00000000;
-        background: #00000000;
-        color: rgb(134, 189, 123);
-    }
-    .page-link{
-        background-color: #00000000;
-        background: #00000000;
-        color: rgb(134, 189, 123);
-        border: none;
-
-        &:hover{
-            color: white;
-            font-size: 1.2rem;
-        }
-        .span{
-            color: rgb(134, 189, 123);
-            &:hover{
-                color: white;
-            }
-        }
-    }
+    
 
     textarea{
         appearance: none;
@@ -563,6 +546,36 @@ h6{
         }
     }
     
+}
+
+.pagination{
+    display: flex;
+    align-content: center;
+    position: relative;
+    
+}
+
+.page-item{
+    background-color: #00000000;
+    background: #00000000;
+    color: rgb(134, 189, 123);
+}
+.page-link{
+    background-color: #00000000;
+    background: #00000000;
+    color: rgb(134, 189, 123);
+    border: none;
+
+    &:hover{
+        color: white;
+        font-size: 1.2rem;
+    }
+    .span{
+        color: rgb(134, 189, 123);
+        &:hover{
+            color: white;
+        }
+    }
 }
 
 .collapse{
@@ -738,13 +751,65 @@ label{
     }
   }
 
-/*Checkbox*/
-.fc {
-    font-family: system-ui, sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.1;
-  }
+  .checkbox {
+    position: relative;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #eee;
+    border-radius: 0.25rem; /* Use square edges for checkboxes */
+    margin: 0.3rem;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &::after {
+        position: absolute;
+        display: none;
+        width: 0.5rem;
+        height: 0.25rem;
+        border: solid rgb(134, 189, 123);
+        border-width: 0 0.2rem 0.2rem 0;
+        transform: rotate(45deg);
+        left: 0.25rem;
+        top: 0.3rem;
+        transition: all .3s;
+    }
+}
+
+.bulgy-checkboxes {
+    width: 100%;
+    background: none;
+
+    label {
+        background-color: #00000000;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover input:not(:checked) ~ .checkbox {
+            opacity: 0.8;
+        }
+    }
+
+    input {
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        left: -2000px;
+
+        &:checked {
+            ~ .checkbox {
+                background-color: rgb(134, 189, 123);
+                box-shadow: 0rem 0rem 0.1rem 0.15rem rgb(134, 189, 123);
+                transition: all .3s;
+                margin: 0.3rem;
+
+            }
+        }
+    }
+}
+
+
 
 .footer{
     font-family: "Krona One", sans-serif;
@@ -821,6 +886,12 @@ label{
     border-radius: 0.5rem;
     height: 0.1rem;
     width: 70%;
+}
+.green-line{
+    background-color: rgba(134, 189, 123, 1);
+    border-radius: 0.5rem;
+    height: 0.1rem;
+    width: 100%;
 }
 
 .green-circle{
@@ -966,5 +1037,207 @@ header{
             height: auto;
             width: 90%;
         }
+    }
+}
+
+
+h6 {
+    font-family: Krona One;
+    font-size:larger;
+    color: rgb(134, 189, 123);
+}
+small-darkgreen-text{
+    font-family: Krona One;
+    font-size: x-small;
+    color: rgba(134, 189, 123, 0.596);
+}
+
+.categorias {
+    padding-left: 3rem;
+    padding-top: 1rem;
+    min-height: 80vh;
+    max-width: 240px;
+    p, a {
+        display: inline;
+        color: #ffffff;
+    }
+    description {
+        display: inline-block;
+        font-size: small;
+        color: #ffffff;
+        margin-left: 14px;
+    }
+}
+
+.card.curso {
+    max-width: 320px;
+    min-width: 250px;
+    position: relative;
+    margin: 0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    img{
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        width: 100%;
+        height: 60%;
+        max-height: 182px;
+        object-fit: cover;
+    }
+    h6 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    .estrella {
+        height: .8rem;
+        width: auto;
+        margin-top: .1rem;
+        margin-left: .2rem;
+    }
+    .precio {
+        font-weight: 800;
+        font-size: larger;
+        color: white;
+    }
+    
+}
+
+form.dark {
+    button {
+        width: 2rem;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.4rem 0.4rem;
+        background-color: rgba(19, 9, 36, 1);
+        border: none;
+        border-bottom: 1px solid rgba(134, 189, 123, 1);
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    button:focus {
+        border-color: #86febc;
+        outline: 0;
+    }
+    input {
+        color: white;
+        background-color: rgba(19, 9, 36, 1);
+        border: none;
+        border-bottom: 1px solid rgba(134, 189, 123, 1);
+    }
+    input:focus {
+        color: white;
+        background-color: rgba(19, 9, 36, 1);
+        outline: none;
+        border-bottom: 1px solid rgba(134, 189, 123, 1);
+        box-shadow: none;
+    }
+    input::placeholder {
+        color: white;
+    }
+    select {
+        appearance: none;
+        background-color: rgba(19, 9, 36, 1);
+        border: none;
+        color: white; 
+        padding-left: .5rem;
+        font-family: 'krona one', sans-serif;
+        outline: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="%2386bd7b" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+    }
+}
+
+img.profile{
+    outline: none;
+    background-color: rgb(39, 20, 73);
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    border: 0.1rem solid #86bd7b;
+    padding: 0.2rem;
+}
+img.profile-head{
+    outline: none;
+    background-color: rgb(39, 20, 73);
+    border-radius: 50%;
+    height: 4.5rem;
+    width: 4.5rem;
+    border: 0.1rem solid #86bd7b;
+    padding: 0.2rem;
+}
+img.profile-chat{
+    outline: none;
+    background-color: rgb(39, 20, 73);
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 0.1rem solid #86bd7b;
+    padding: 0.2rem;
+}
+.chat-container {
+    .message-box{
+        max-width: 75%;
+        border-radius: 0px 20px 20px 20px;
+        background: rgba(29, 19, 47, 1);
+        p {
+            font-size: small;
+        }
+        h4 {
+            font-size: smaller;
+            color: rgba(255, 255, 255, 0.58);
+        }
+        
+    }
+    .message-box-inverse{
+        max-width: 75%;
+        border-radius: 20px 0px 20px 20px;
+        background: rgba(29, 19, 47, 1);
+        p {
+            font-size: small;
+        }
+        h4 {
+            font-size: smaller;
+            color: rgba(255, 255, 255, 0.58);
+        }
+        input {
+            background-color: rgba(29, 19, 47, 1);
+            color: white;
+            border: none;
+        }
+        input:focus{
+            outline: none;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.58);
+        }
+    }
+    
+}
+.message-box-input{
+    border-radius: 20px 0px 20px 20px;
+    background: rgba(29, 19, 47, 1);
+    border: 1px solid rgba(134, 189, 123, 1);
+    h4 {
+        font-size: smaller;
+        color: rgba(255, 255, 255, 0.58);
+    }
+    textarea {
+        background-color: rgba(29, 19, 47, 1);
+        color: white;
+        border: none;
+        font-size: small;
+    }
+    textarea:focus{
+        outline: none;
+    }
+    textarea::placeholder {
+        color: rgba(255, 255, 255, 0.58);
     }
 }

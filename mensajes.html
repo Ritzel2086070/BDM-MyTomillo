@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>MyTomillo</title>
+        <link rel="icon"  type="image/png" href="images/Logo.png">
+
+        <!--Bootstrap-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!--Style-->
+        <link rel="stylesheet" href="Style.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+
+    </head>
+    <header>
+        <nav class="row navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="login.html">
+                    <img class="logo" src="images/LogoBDM.png" alt="Logo">
+                </a>
+                <form class="col container">
+                    <select class="col-auto form-select">
+                        <option selected>Cursos</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <div class="col input-group">
+                        <button>
+                            <img class="icon" src="images/buscar.png" alt="Logo">
+                        </button>
+                        <input type="text" class="form-control" placeholder="Buscar clases, categorías..." >
+                    </div>
+                </form>
+                <a class="mx-2">
+                    <img class="icon" src="images/carro-de-la-compra.png" alt="Logo">
+                </a>
+                <a class="mx-2">
+                    <img class="icon" src="images/conversacion.png" alt="Logo">
+                </a>
+                <button type="button" class="profile mx-2 d-flex justify-content-center align-items-center">
+                    <img src="images/tomilloprofile.png" alt="Logo">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <body class="container-fluid" style="display: flex; flex-direction: column; min-height: 100vh;">
+        <div class="row background-gradient mt-5 pl-5 pt-5 pb-4">
+            <h1>Mensajes</h1>
+        </div>
+        <div class="row" style="flex-grow: 1; height: 100%;">
+            <div class="col-4 background-grape pt-3">
+                <div class="row">
+                    <button class="btn sub-btn custom">Redactar nuevo mensaje</button>
+                </div>
+                <div class="row pt-3 pb-3">
+                    <form class="dark input-group">
+                        <button>
+                            <img class="icon" src="images/buscar.png" alt="Logo">
+                        </button>
+                        <input type="text" class="form-control" placeholder="Buscar..." >
+                    </form>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-auto p-0">
+                        <img class="profile" src="images/tomilloprofile.png" alt="Logo">
+                    </div>
+                    <div class="col">
+                        <h5 class="p-0 pt-2 m-0">Heber Abiel Perez Jimenez</h5>
+                        <p class="p-0 m-0">UwU soy Heber</p>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="green-line"></div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-auto p-0">
+                        <img class="profile" src="images/tomilloprofile.png" alt="Logo">
+                    </div>
+                    <div class="col">
+                        <h5 class="p-0 pt-2 m-0">Heber Abiel Perez Jimenez</h5>
+                        <p class="p-0 m-0">UwU soy Heber</p>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="green-line"></div>
+                </div>
+
+            </div>
+            <div class="col-8 background-violet pt-4 pb-3" style="display: flex; flex-direction: column;">
+                <div class="row align-items-center">
+                    <div class="col-auto p-0">
+                        <img class="profile-head" src="images/tomilloprofile.png" alt="Logo">
+                    </div>
+                    <div class="col">
+                        <h3>Heber Abiel Pérez Jiménez</h5>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="green-line"></div>
+                </div>
+                <div class="row chat-container" style="flex-grow: 1;">
+                    <div class="col">
+                        <div class="row pb-3 justify-content-start">
+                            <div class="col-auto p-0">
+                                <img class="profile-chat" src="images/tomilloprofile.png" alt="Logo">
+                            </div>
+                            <div class="col message-box pt-3 pl-3 pr-3 mx-2">
+                                <h4>Heber Abiel Perez Jimenez</h4>
+                                <h4>4:25 pm 09/02/2020</h4>
+                                <p>
+                                    Cuando me muera y me tengan que enterrar
+                                    Quiero que sea con una de tus fotografías
+                                    Para que no me de miedo estar abajo
+                                    Para que no se me olvide como es tu cara
+                                    Para imaginar que estoy contigo
+                                    Y sentirme un poquito vivo
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row pb-3 justify-content-end">
+                            <div class="col message-box-inverse pt-3 pl-3 pr-3 mx-2">
+                                <h4>Marla Judith Estrada Valdez</h4>
+                                <h4>4:27 pm 09/02/2020</h4>
+                                <p>
+                                    Fan de caifanes spotted
+                                </p>
+                            </div>
+                            <div class="col-auto p-0">
+                                <img class="profile-chat" src="images/tomilloprofile.png" alt="Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="row message-box-input p-3">
+                    <div class="col">
+                        <h4>4:27 pm 09/02/2020</h4>
+                        <textarea class="w-100" type="text" placeholder="Escribe un mensaje"></textarea>
+                    </div>
+                    <div class="col-auto p-0 d-flex align-items-center">
+                        <button class="main-btn custom rounded-pill py-1 m-0">
+                            <img class="icon" src="images/buscar.png" alt="" width="30px">
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </body>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="js.js"></script>
+</html>
