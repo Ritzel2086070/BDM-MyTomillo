@@ -311,6 +311,7 @@ h6{
     &:hover{
         background-color: rgba(0, 0, 0, 0);
         border: 0.1rem solid rgb(93, 168, 78);
+        box-shadow: none;
         outline: none;
         color: rgb(93, 168, 78);
         font-size: 1rem;
@@ -755,9 +756,9 @@ label{
     position: relative;
     height: 1.2rem;
     width: 1.2rem;
-    background-color: #eee;
+    border: 0.1rem solid #eee;
     border-radius: 0.25rem; /* Use square edges for checkboxes */
-    margin: 0.3rem;
+    margin: 0.5rem;
     outline: none;
     cursor: pointer;
     -webkit-appearance: none;
@@ -802,7 +803,8 @@ label{
                 background-color: rgb(134, 189, 123);
                 box-shadow: 0rem 0rem 0.1rem 0.15rem rgb(134, 189, 123);
                 transition: all .3s;
-                margin: 0.3rem;
+                margin: 0.5rem;
+                border: 0;
 
             }
         }
@@ -838,7 +840,7 @@ label{
     background-position: center;
     background-attachment: fixed;
     padding: 1.1rem;
-
+    height: 100%;
     h2{
         color: rgb(134, 189, 123);
         font-family: "Krona One", sans-serif;
@@ -856,7 +858,7 @@ label{
 
     .header{
         left: -0.1rem;
-        width: 100.4%;
+        width: 100.7%;
         position: relative;
         margin: 0rem;
         border-radius: 1rem;
@@ -873,7 +875,15 @@ label{
         position: relative;
         p{
             color: white;
-        }   
+        }
+        label{
+            width: 97%;
+            font-size: 0.95rem;
+            &:hover{
+                background-color: #130924;
+
+            }
+        }
     }
 
     }
@@ -994,6 +1004,7 @@ header{
             background-size: 1rem;
         }
         button {
+            appearance: none;
             width: 2rem;
             border-top-left-radius: 0.5rem;
             border-bottom-left-radius: 0.5rem;
@@ -1001,6 +1012,7 @@ header{
             padding: 0.4rem 0.4rem;
             background-color: #fff;
             border: 0;
+            box-shadow: none;
             img {
                 width: 100%;
                 height: auto;
@@ -1008,6 +1020,8 @@ header{
         }
         button:focus {
             border-color: #86febc;
+            box-shadow: none;
+
             outline: 0;
         }
         input:focus {
