@@ -29,7 +29,9 @@
                     </select>
                     <div class="col input-group">
                         <button>
-                            <img class="icon" src="images/search.png" alt="Logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
                         </button>
                         <input type="text" class="form-control" placeholder="Buscar clases, categorías..." >
                     </div>
@@ -113,15 +115,36 @@
                 <div class="row pt-3 pl-3 w-100">
                     <h6>Todos los cursos</h6>
                     <div class="row w-100">
-                        <div class="col d-flex">
-                            <small-darkgreen-text class="pt-2">Ordenar por</small-darkgreen-text>
-                            <p class="pl-1">Mejor calificados</p>
+                        <div class="col d-flex align-items-center filter">
+                            <small-darkgreen-text class="pt-1 mr-2">Ordenar por</small-darkgreen-text>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Categoría</a>
+                                <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
+                                  <a class="dropdown-item" href="#">Diseño</a>
+                                  <a class="dropdown-item" href="#">Arte e ilustración</a>
+                                  <a class="dropdown-item" href="#">Dibujo y pintura</a>
+                                  <a class="dropdown-item" href="#">Cine y video</a>
+                                  <a class="dropdown-item" href="#">Música y audio</a>
+                                  <a class="dropdown-item" href="#">Fotografía</a>
+                                  <a class="dropdown-item" href="#">Modelado y animación 3D</a>
+                                  <a class="dropdown-item" href="#">Concept y animación 2D</a>
+                                  <a class="dropdown-item" href="#">Inteligencia y ciencia de datos</a>
+                                  <a class="dropdown-item" href="#">Software</a>
+                                  <a class="dropdown-item" href="#">Web</a>
+                                  <a class="dropdown-item" href="#">Ventas</a>
+                                  <a class="dropdown-item" href="#">Administración y finanzas</a>
+                                  <a class="dropdown-item" href="#">Marketing y negocios</a>
+                                  <a class="dropdown-item" href="#">Manualidades y cocina</a>
+                                  <a class="dropdown-item" href="#">Escribir y publicar</a>
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="col d-flex justify-content-end">
+                        <div class="col d-flex justify-content-end filter">
                             <small-darkgreen-text class="pt-2">Desde</small-darkgreen-text>
-                            <p class="pl-1">24/Dic/2023</p>
+                            <input type="date" class="date-range ml-2 mr-4" style="width: 27%;">
                             <small-darkgreen-text class="pt-2 pl-2">Hasta</small-darkgreen-text>
-                            <p class="pl-1">24/Dic/2023</p>
+                            <input type="date" class="date-range ml-2 mr-4" style="width: 27%;">
                         </div>
                     </div>
                     
