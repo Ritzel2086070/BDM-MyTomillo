@@ -118,6 +118,13 @@ cardCvc.mount('#card-cvc-element');
             listItem.onclick = function() {
                 document.getElementById('selected-card').style.display = 'flex';
                 document.getElementById('card-last-num').textContent = `Tarjeta de débito con terminación ${card.card.last4}`;
+                if(card.card.brand == 'visa') {
+                    document.getElementById('img-card').src = 'images/visa.png';
+                } else if (card.card.brand == 'mastercard') {
+                    document.getElementById('img-card').src = 'images/mastercard.png';
+                } else if (card.card.brand == 'amex') {
+                    document.getElementById('img-card').src = 'images/americanexpress.png';
+                }
             };
             
             listItem.style.display = 'flex';
@@ -138,11 +145,11 @@ cardCvc.mount('#card-cvc-element');
             text.style.width = '50%';
             text.textContent = `Tarjeta de débito con terminación ${card.card.last4}`;
             if(card.card.brand == 'visa') {
-                img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png';
+                img.src = 'images/visa.png';
             } else if (card.card.brand == 'mastercard') {
-                img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png';
+                img.src = 'images/mastercard.png';
             } else if (card.card.brand == 'amex') {
-                img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo.svg/1200px-American_Express_logo.svg.png';
+                img.src = 'images/americanexpress.png';
             } else {
             }
             savedCardsList.appendChild(listItem);
