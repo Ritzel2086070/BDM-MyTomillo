@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>MyTomillo</title>
+        <link rel="icon"  type="image/png" href="images/Logo.png">
+
+        <!--Bootstrap-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!--Style-->
+        <link rel="stylesheet" href="Style.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+
+    </head>
+    <header>
+        <nav class="row navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="login.html">
+                    <img class="logo" src="images/LogoBDM.png" alt="Logo">
+                </a>
+                <form class="col container">
+                    <select class="col-auto form-select">
+                        <option selected>Cursos</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <div class="col input-group">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                        </button>
+                        <input type="text" class="form-control" placeholder="Buscar clases, categorías..." >
+                    </div>
+                </form>
+                <a class="mx-2">
+                    <img class="icon" src="images/carro-de-la-compra.png" alt="Logo">
+                </a>
+                <a class="mx-2">
+                    <img class="icon" src="images/conversacion.png" alt="Logo">
+                </a>
+                <button type="button" class="profile mx-2 d-flex justify-content-center align-items-center">
+                    <img src="images/tomilloprofile.png" alt="Logo">
+                </button>
+            </div>
+        </nav>
+    </header>
+    <body class="container-fluid background-grape" style="display: flex; flex-direction: column; min-height: 100vh;">
+        <div class="row background-gradient mt-5 pl-5 pt-5 pb-5 pb-4" style="height: 12rem;">
+        </div>
+        
+        <div class="row w-100 p-4">
+            <div class="col-12">
+                <div class="row">
+                    <a href="profile_teacher.html" class="data p-0 mx-2"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+                          </svg>
+                        Regresar
+                    </a>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <h3>Nuevo curso</h3>
+                </div>
+                <form action="" class="dark row w-100 pl-5 ml-5">
+                    <div class="col-8">
+                        <div class="form-group d-flex justify-content-center mt-4">
+                            <input style="width: 100%;" type="text" class="form-control" placeholder="Ingrese nombre del curso">
+                        </div>
+                        <div class="form-group d-flex justify-content-center mt-4 filter">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle form-control" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Seleccione categoría del nuevo curso</a>
+                                <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
+                                    <a class="dropdown-item" href="#">Diseño</a>
+                                    <a class="dropdown-item" href="#">Arte e ilustración</a>
+                                    <a class="dropdown-item" href="#">Dibujo y pintura</a>
+                                    <a class="dropdown-item" href="#">Cine y video</a>
+                                    <a class="dropdown-item" href="#">Música y audio</a>
+                                    <a class="dropdown-item" href="#">Fotografía</a>
+                                    <a class="dropdown-item" href="#">Modelado y animación 3D</a>
+                                    <a class="dropdown-item" href="#">Concept y animación 2D</a>
+                                    <a class="dropdown-item" href="#">Inteligencia y ciencia de datos</a>
+                                    <a class="dropdown-item" href="#">Software</a>
+                                    <a class="dropdown-item" href="#">Web</a>
+                                    <a class="dropdown-item" href="#">Ventas</a>
+                                    <a class="dropdown-item" href="#">Administración y finanzas</a>
+                                    <a class="dropdown-item" href="#">Marketing y negocios</a>
+                                    <a class="dropdown-item" href="#">Manualidades y cocina</a>
+                                    <a class="dropdown-item" href="#">Escribir y publicar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group d-flex justify-content-center mt-2 mb-2">
+                            <label class="d-flex bulgy-checkboxes align-items-center justify-content-start">
+                                <input type="checkbox" name="options"/>
+                                <span class="checkbox"></span>
+                                Ofertar gratis
+                            </label>
+                        </div>
+                        <div class="form-group d-flex justify-content-center align-items-center mt-0">
+                            <p style="margin: 0;" class="pr-2">$</p>
+                            <input style="width: 92%;" type="text" class="form-control" placeholder="Costo total del curso">
+                            <p style="margin: 0;" class="pl-2">MXN</p>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group d-flex justify-content-start mt-3">
+                            <div class="d-flex flex-column justify-content-end align-items-center">
+                                <span class="course-image">
+                                    <img src="">
+                                </span>
+                                <input type="file" name="file" id="file" class="inputfile">
+                                <small class="pt-1 pr-2">La imagen debe ser de 300x200</small>
+                                <label class="label-file" for="file" style="height: 1.7rem; margin-bottom: 1rem;"></label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pr-5">
+                        <div class="form-group d-flex flex-column align-items-start">
+                            <p>¿Qué aprenderá el alumno?</p>
+                            <input style="width: 94%;" type="text" class="form-control" placeholder="Lección concreta qué aprenderá el alumno. Ejemplo: “Crear tu propia página”">
+                        </div>
+                        <div class="form-group d-flex flex-column align-items-center mt-4">
+                            <a class="btn sub-btn btn-block" style="width: 20%;">Agregar aprendizaje</a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pr-5 mt-2">
+                        <div class="form-group d-flex flex-column align-items-start">
+                            <textarea class="mb-3" rows="35" cols="158" maxlength="9000" placeholder="Descripción del curso..."></textarea>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </body>

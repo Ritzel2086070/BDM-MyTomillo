@@ -281,6 +281,9 @@ h6{
     margin: 0.1rem;
     color: white;
     -webkit-text-stroke: 0.02rem;
+    &:hover{
+        color: rgb(158, 211, 128);
+    }
 }
 
 .progress{
@@ -337,6 +340,14 @@ h6{
         font-size: 1rem;
         border-radius: 0.5rem;
         width: 50%;
+    }
+    &:disabled{
+        width: 80%;
+        font-size: small;
+        color: rgb(93, 168, 78);
+        background-color: rgba(0, 0, 0, 0);
+        border: 0.1rem solid rgb(93, 168, 78);
+
     }
 }
 .sub-btn.custom {
@@ -652,6 +663,19 @@ h6{
         font-size: small;
         height: 1.9rem;
     }
+    .dropdown{
+        width: 100%;
+    }
+    .form-control{
+        font-family: Montserrat;
+        color: white;
+        background-color: rgba(19, 9, 36, 1);
+        border: none;
+        border-bottom: 1px solid rgba(134, 189, 123, 1);
+        border-radius: 0.6rem;
+        font-size: 0.8rem;
+        width: 100%;
+    }
     
     .date-range{
         appearance: none;
@@ -675,6 +699,39 @@ h6{
     }
 }
 
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(22, 0, 32, 0.425);
+}
+
+.table th, .table td{
+    border: none;
+}
+
+.table th{
+    color: #86BD7B;
+}
+
+textarea {
+    appearance: none;
+    font-family: Montserrat;
+    font-size: 0.9rem;
+    color: white;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    background: rgb(12, 2, 24);
+    border: none;
+    font-size: small;
+    resize: none;
+    border-bottom: 1px solid rgba(134, 189, 123, 1);
+
+}
+textarea:focus{
+    outline: none;
+}
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.771);
+}
+
 /*Botón para abrir el explorador*/
 .signin-image{
     width: 6rem;
@@ -691,6 +748,27 @@ h6{
         max-width: 100%;
         width: 100%;
         border-radius: 50%;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0.5rem;
+      }
+}
+
+.course-image{
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background: #130924;
+    background: linear-gradient(180deg, rgba(29,6,43,1) 0%, rgba(26,24,28,1) 100%);
+    border-bottom: 0.15rem solid #86BD7B;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    img{
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
         vertical-align: middle;
         margin: 0;
         padding: 0.5rem;

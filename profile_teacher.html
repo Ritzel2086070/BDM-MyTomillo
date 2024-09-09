@@ -57,19 +57,24 @@
         
         <div class="row flex-row-reverse">
             <div class="col-12" style="padding-left: 5.7rem;">
-                <ul class="nav nav-tabs tab-menu" id="myTab" role="tablist" style="width: 92%;">
-                    <li class="nav-item" role="presentation" style="width: 33%;">
-                        <a class="nav-link" id="profile-data-tab" data-toggle="tab" href="#profile-data" role="tab" aria-controls="profile-data" aria-selected="true">Perfil</a>
-                    </li>
-                    <li class="nav-item" style="width: 33%;">
-                        <a class="nav-link active" id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Tus cursos</a>
-                    </li>
-                    <li class="nav-item" style="width: 33%;">
-                        <a class="nav-link" id="payment-tab" data-toggle="tab" href="#payment" role="tab" aria-controls="payment" aria-selected="false">Métodos de pago</a>
-                    </li>
-                </ul>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                    <div class="col-9">
+                        <ul class="nav nav-tabs tab-menu" id="myTab" role="tablist" style="width: 92%;">
+                            <li class="nav-item" role="presentation" style="width: 33%;">
+                                <a class="nav-link active" id="profile-data-tab" data-toggle="tab" href="#profile-data" role="tab" aria-controls="profile-data" aria-selected="false">Perfil</a>
+                            </li>
+                            <li class="nav-item" style="width: 33%;">
+                                <a class="nav-link" id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="true">Tus cursos</a>
+                            </li>
+                            <li class="nav-item" style="width: 33%;">
+                                <a class="nav-link" id="payment-tab" data-toggle="tab" href="#payment" role="tab" aria-controls="payment" aria-selected="false">Métodos de pago</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade" id="profile-data" role="tabpanel" aria-labelledby="profile-data">
+                    <div class="tab-pane fade show active" id="profile-data" role="tabpanel" aria-labelledby="profile-data">
                         <div class="col-4 flex-column justify-content-end align-items-center">
                             <div class="card flex-column d-flex justify-content-center" style="position: absolute; top: -13rem; left: -1rem;  width: 22rem; padding: 2rem;">
                                 <div class="d-flex flex-column justify-content-end align-items-center">
@@ -140,9 +145,18 @@
                                 </form>
                             </div>
                         </div>
-                        
                     </div>
-                    <div class="tab-pane fade show active" id="courses" role="tabpanel" aria-labelledby="kardex">
+                    <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="kardex">
+                        <div class="col-4 flex-column justify-content-end align-items-center">
+                            <div class="card flex-column d-flex justify-content-center" style="position: absolute; top: -13rem; left: -2.4rem;  width: 23rem; padding: 1rem;">
+                                <div class="d-flex flex-column justify-content-end align-items-center">
+                                    <div class="text-center mt-3">
+                                        <h1 style="font-size: 1.5rem;">Heber Abiel Perez Jimenez</h1>
+                                        <p class="mt-2">¡Aquí puedes ver las estadísticas de tus cursos!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="row w-100">
                             <div class="row p-2 w-100">
@@ -208,8 +222,12 @@
                                                 <div class="row w-100 filter">
                                                     <div class="col-12">
                                                         <div class="levels-container d-flex flex-column">
-                                                            <div class="header d-flex flex-wrap" style="width: 100.25%;">
+                                                            <div class="header d-flex flex-wrap justify-content-between" style="width: 100.25%;">
                                                                 <p>8 cursos publicados</p>
+                                                                <a href="new_class.html" class="p-0 mx-2" style="height: 1.5rem;">
+                                                                    <img src="images/add.png" alt="+" width="19">
+                                                                    Crear nuevo curso
+                                                                </a>
                                                             </div>
                                                             <div class="row ml-0 mr-0" style="background-color: #130924;">
                                                                 <div class="col-12 d-flex justify-content-start align-items-center d-flex bd-highlight">
@@ -332,8 +350,12 @@
                                             <div class="row w-100 filter">
                                                 <div class="col-12">
                                                     <div class="levels-container d-flex flex-column">
-                                                        <div class="header d-flex flex-wrap" style="width: 100.25%;">
+                                                        <div class="header d-flex flex-wrap justify-content-between" style="width: 100.25%;">
                                                             <p>8 cursos publicados</p>
+                                                            <a href="new_class.html" class="p-0 mx-2" style="height: 1.5rem;">
+                                                                <img src="images/add.png" alt="+" width="19">
+                                                                Crear nuevo curso
+                                                            </a>
                                                         </div>
                                                         <div class="row ml-0 mr-0" style="background-color: #130924;">
                                                             <div class="col-12 d-flex justify-content-start align-items-center d-flex bd-highlight">
@@ -356,6 +378,7 @@
                                                         </div>
                                                                 
                                                         <div id="lesson10" class="collapse pl-2">
+
                                                             <table class="table table-striped">
                                                                 <thead>
                                                                   <tr>
@@ -371,8 +394,8 @@
                                                                   <tr>
                                                                     <td>Heber Abiel Perez Jimenez</td>
                                                                     <td>24/12/2023</td>
-                                                                    <td>
-                                                                        <div class="progress" style="width: 93%;">
+                                                                    <td class="d-flex bd-highlight justify-content-center">
+                                                                        <div class="progress mr-2" style="width: 80%;">
                                                                             <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                                         </div>
                                                                         75%
@@ -380,29 +403,29 @@
                                                                     <td>$500.00 MXN</td>
                                                                     <td>Efectivo</td>
                                                                     <td>
-                                                                        <button class="btn sub-btn btn-block m-0">Generar diploma</button>
+                                                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" disabled>Generar diploma</button>
                                                                     </td>
                                                                   </tr>
                                                                   <tr>
-                                                                    <td>Heber Abiel Perez Jimenez</td>
+                                                                    <td>Marla Judith Estrada Valdez</td>
                                                                     <td>24/12/2023</td>
-                                                                    <td>
-                                                                        <div class="progress" style="width: 93%;">
-                                                                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <td class="d-flex bd-highlight justify-content-center">
+                                                                        <div class="progress mr-2" style="width: 80%;">
+                                                                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                                         </div>
-                                                                        75%
+                                                                        100%
                                                                     </td>
                                                                     <td>$500.00 MXN</td>
                                                                     <td>Efectivo</td>
                                                                     <td>
-                                                                        <button class="btn sub-btn btn-block m-0">Generar diploma</button>
+                                                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;">Generar diploma</button>
                                                                     </td>
                                                                   </tr>
                                                                   <tr>
-                                                                    <td>Heber Abiel Perez Jimenez</td>
+                                                                    <td>Carlos Daniel Pinkus Martinez</td>
                                                                     <td>24/12/2023</td>
-                                                                    <td>
-                                                                        <div class="progress" style="width: 93%;">
+                                                                    <td class="d-flex bd-highlight justify-content-center">
+                                                                        <div class="progress mr-2" style="width: 80%;">
                                                                             <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                                         </div>
                                                                         75%
@@ -410,7 +433,7 @@
                                                                     <td>$500.00 MXN</td>
                                                                     <td>Efectivo</td>
                                                                     <td>
-                                                                        <button class="btn sub-btn btn-block m-0">Generar diploma</button>
+                                                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" disabled>Generar diploma</button>
                                                                     </td>
                                                                   </tr>
                                                                 </tbody>
@@ -451,10 +474,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment">
-                    <h3>money money</h3>
-                    
+                    <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment">
+                        <div class="col-4 flex-column justify-content-end align-items-center"></div>
+                            <div class="card flex-column d-flex justify-content-center" style="position: absolute; top: -9rem; left: 4.3rem;  width: 23rem; padding: 1rem;">
+                                <div class="d-flex flex-column justify-content-end align-items-center">
+                                    <div class="text-center mt-3">
+                                        <h1 style="font-size: 1.5rem;">Heber Abiel Perez Jimenez</h1>
+                                        <p class="mt-2">¡Tú eliges como cobrar!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>money money</h3>
+                    </div>
                 </div>
             </div>
         </div>
