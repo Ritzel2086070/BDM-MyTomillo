@@ -430,6 +430,7 @@ h6{
             margin: 0rem;
         }
         .categoria{
+            font-weight: bold;
             padding: 0rem;
             margin: 0rem;
             color: #86BD7B;
@@ -672,10 +673,6 @@ h6{
     ::-webkit-calendar-picker-indicator {
         filter: invert(1);
     }
-}
-
-.kardex{
-
 }
 
 /*Botón para abrir el explorador*/
@@ -984,6 +981,43 @@ label{
     
         .nav-link.active {
             border-bottom: 0.1rem solid #ffffff;
+            color: #FFFFFF;
+        }
+    }
+
+}
+
+.tab-sub-menu {
+    display: flex;
+    width: 100%;
+    border: none;
+
+    .nav-item{
+        appearance: none;
+        width: 50%;
+        height: auto;
+        align-content: center;
+        text-align: center;
+        
+        .nav-link {
+            font-family: "Krona One", sans-serif;
+            font-size: small;
+            appearance: none;
+            background: none;
+            border: 0.1rem solid #86BD7B;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            color: #86BD7B;
+            width: 50%;
+        }
+
+        .nav-link:hover{
+            border: 0.1rem solid #ffffff;
+            color: #FFFFFF;
+        }
+    
+        .nav-link.active{
+            border: 0.1rem solid #ffffff;
             color: #FFFFFF;
         }
     }
