@@ -52,7 +52,7 @@ cardCvc.mount('#card-cvc-element');
     });
 
     async function createCustomer() {
-        const response = await fetch('/cards.php', {
+        const response = await fetch('/stripeAPI.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'create_customer' })
@@ -72,7 +72,7 @@ cardCvc.mount('#card-cvc-element');
     
 
     async function createSetupIntent(customerId) {
-        const response = await fetch('/cards.php', {
+        const response = await fetch('/stripeAPI.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'create_setup_intent', customerId })
@@ -83,7 +83,7 @@ cardCvc.mount('#card-cvc-element');
     }
 
     async function saveCard(customerId, paymentMethodId) {
-        const response = await fetch('/cards.php', {
+        const response = await fetch('/stripeAPI.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'save_card', customerId, paymentMethodId })
@@ -94,7 +94,7 @@ cardCvc.mount('#card-cvc-element');
     }
 
     async function listSavedCards(customerId) {
-        const response = await fetch('/cards.php', {
+        const response = await fetch('/stripeAPI.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'list_cards', customerId })

@@ -16,10 +16,10 @@ document
 
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-  const { clientSecret, dpmCheckerLink } = await fetch("/carrito_pay.php", {
+  const { clientSecret, dpmCheckerLink } = await fetch('/stripeAPI.php', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
+    body: JSON.stringify({ action: 'checkout', items }),
   }).then((r) => r.json());
 
   const appearance = {
@@ -45,8 +45,7 @@ async function initialize() {
   const paymentElement = elements.create("payment", paymentElementOptions);
   paymentElement.mount("#payment-element");
 
-  // [DEV] For demo purposes only
-  setDpmCheckerLink(dpmCheckerLink);
+  
 }
 
 async function handleSubmit(e) {
@@ -103,6 +102,3 @@ function setLoading(isLoading) {
   }
 }
 
-function setDpmCheckerLink(url) {
-  document.querySelector("#dpm-integration-checker").href = url;
-}

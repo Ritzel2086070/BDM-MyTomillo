@@ -1,11 +1,53 @@
+
 //redirecciones
 function toLogin() {
-    window.location.href = 'login.html';
-  }
+    window.location.href = '/login';
+}
 
-  function toSignIn() {
-    window.location.href = 'signIn.html';
-  }
+function toSignIn() {
+    window.location.href = '/signin';
+}
+
+function toProfile() {
+    
+    window.location.href = '/profile';
+}
+
+function toPay() {
+    
+    window.location.href = '/pay';
+}
+
+function toLast(){
+    window.history.back();
+}
+
+function toClass(){
+    window.location.href = '/class';
+}
+
+function toLesson(){
+    window.location.href = '/lesson';
+}
+//Validaciones
+function login(){
+
+    return true;
+
+}
+function register() {
+    if ($("#labelNombres").val().trim() == "") {
+        alert("El campo de nombres no puede estar vacío");
+        return false;
+    }
+    if ($("#labelApellidoPaterno").val().trim() == "") {
+        alert("El campo de apellidos no puede estar vacío");
+        return false;
+    }
+    
+
+    return true;
+}
 
 //Lessons, descargas Esto me lo di
 function downloadFile(filename) {
@@ -54,3 +96,4 @@ function LockComent(){
   });
 }
   
+
