@@ -11,20 +11,20 @@
                             <p style="font-size: small;">Inicia sesión o regístrate</p>
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <input type="text" class="form-control" placeholder="Ingrese correo electrónico">
+                            <input type="text" id="inputCorreo" class="form-control" placeholder="Ingrese correo electrónico">
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <input type="password" class="form-control" placeholder="Ingrese contraseña">
+                            <input type="password" id="inputContra" class="form-control" placeholder="Ingrese contraseña">
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            <button type="submit" class="btn main-btn btn-block mt-3">Log In</button>
+                            <button type="submit" class="btn main-btn btn-block mt-3">Iniciar Sesión</button>
                         </div>
                         <div class="d-flex justify-content-center align-items-center mb-1">
                             <div class="white-line"></div>
                         </div>
                     </form>
                     <div class="d-flex justify-content-center align-items-center">
-                        <button class="btn log-in btn-block mt-4" onclick="toSignIn()">Sign Up</button>
+                        <button class="btn log-in btn-block mt-4" onclick="toSignIn()">Registrarse</button>
                     </div>
                 </div>
             </div>

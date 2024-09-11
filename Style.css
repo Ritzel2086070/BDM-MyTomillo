@@ -86,6 +86,9 @@ h6{
     margin: 0rem;
 }
 
+a:hover{
+    cursor: pointer;
+}
 /*ESTILOS DE LOS ALERTS WIII*/
 .confirm-button-class {
     background-color: rgb(93, 168, 78);
@@ -1383,7 +1386,11 @@ small-darkgreen-text{
         font-size: larger;
         color: white;
     }
-    
+}
+
+.card.curso:hover {
+    box-shadow: 0 0 1rem 0.1rem rgba(134, 189, 123, 0.5);
+    cursor: pointer;
 }
 
 form.dark {

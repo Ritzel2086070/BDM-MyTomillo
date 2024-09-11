@@ -29,24 +29,76 @@ function toClass(){
 function toLesson(){
     window.location.href = '/lesson';
 }
+
+function toDashboard(){
+    window.location.href = '/dashboard';
+}
 //Validaciones
 function login(){
-
+    if($("#inputCorreo").val().trim() == ""){
+        alertInput("correo");
+        return false;
+    }
+    if($("#inputContra").val().trim() == ""){
+        alertInput("contraseña");
+        return false;
+    }
     return true;
 
 }
 function register() {
-    if ($("#labelNombres").val().trim() == "") {
-        alert("El campo de nombres no puede estar vacío");
+    if ($("#inputNombres").val().trim() == "") {
+        alertInput("nombre");
         return false;
     }
-    if ($("#labelApellidoPaterno").val().trim() == "") {
-        alert("El campo de apellidos no puede estar vacío");
+    if ($("#inputApellidoPaterno").val().trim() == "") {
+        alertInput("apellido paterno");
         return false;
     }
-    
+    if ($("#inputApellidoMaterno").val().trim() == "") {
+        alertInput("apellido materno");
+        return false;
+    }
+    var fecha = $("#inputFecha").val().trim();
+    if (fecha == "") {
+        alertInput("fecha de nacimiento");
+        return false;
+    }
+    var minDate = new Date('1900-01-01');
+    var today = new Date();
+    var inputDate = new Date(fecha);
+    if (inputDate < minDate || inputDate > today) {
+        alertCustom("La fecha debe estar entre el 1 de enero de 1900 y hoy.");
+        return false;
+    }
+    if($("#inputCorreo").val().trim() == ""){
+        alertInput("correo");
+        return false;
+    }
+    if($("#inputContra").val().trim() == ""){
+        alertInput("contraseña");
+        return false;
+    }
+    alert($('input[name="options"]:checked').attr('id'));
 
-    return true;
+    Swal.fire({
+        title: "Registro exitoso",
+        color: '#86bd7b',
+        background: '#11041F',
+        confirmButtonOutline: 'none',
+        confirmButtonText: "Aceptar",
+        icon: "success",
+        customClass: {
+            confirmButton: 'confirm-button-class',
+            title: 'title-class',
+            icon: 'icon-class'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            toDashboard();
+        }
+    });
+    return false;
 }
 
 //Lessons, descargas Esto me lo di
@@ -71,6 +123,36 @@ function goToLink() {
 
 //ALERTS
 /**/
+function alertInput(campo){
+    Swal.fire({
+        title: "Ingrese su " + campo,
+        color: '#86bd7b',
+        background: '#11041F',
+        confirmButtonOutline: 'none',
+        confirmButtonText: "Aceptar",
+        customClass: {
+          confirmButton: 'confirm-button-class',
+          title: 'title-class',
+          icon: 'icon-class'
+        },
+      });
+}
+function alertCustom(title){
+    Swal.fire({
+        title: title,
+        color: '#86bd7b',
+        background: '#11041F',
+        confirmButtonOutline: 'none',
+        confirmButtonText: "Aceptar",
+        customClass: {
+          confirmButton: 'confirm-button-class',
+          title: 'title-class',
+          icon: 'icon-class'
+        },
+        });
+}
+
+
 function LockComent(){
   Swal.fire({
     title: "¿Está seguro de bloquear el usuario?",
