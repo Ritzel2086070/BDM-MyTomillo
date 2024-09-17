@@ -137,6 +137,62 @@ h6{
         }
   }
 
+  .input-alert{
+    appearance: none;
+    box-shadow: none;
+    background-color: #d3d3d3;
+    border: none;
+    outline: none;
+    color: #000000;
+    border-radius: 0.5rem;
+    transition: .15s ease;
+    font-size: small;
+    width: 100%;
+    height: 1.9rem;
+    padding: 0.5rem;
+    &:hover{
+        background-color: #ffffff;
+        border: none;
+        outline: none;
+    }
+    &:read-only{
+        background-color: #00000000;
+        border: none;
+        outline: none;
+        color: #86bd7b;
+        font-size: medium;
+        border-bottom: 0.1rem solid white;
+    }
+  }
+
+  .textarea-alert{
+    appearance: none;
+    box-shadow: none;
+    background-color: #d3d3d3;
+    border: none;
+    outline: none;
+    color: #000000;
+    border-radius: 0.5rem;
+    transition: .15s ease;
+    font-size: small;
+    width: 100%;
+    padding: 0.5rem;
+    resize: none;
+    &:hover{
+        background-color: #ffffff;
+        border: none;
+        outline: none;
+    }
+    &:read-only{
+        background-color: #00000000;
+        border: none;
+        outline: none;
+        color: #86bd7b;
+        font-size: medium;
+        border-bottom: 0.1rem solid white;
+    }
+  }
+
 /*Cosas del log In / Sign In*/
 .banner-img{
     width: 100%;
@@ -286,6 +342,15 @@ h6{
     }
 }
 
+.data-rv{
+    margin: 0.1rem;
+    color: rgb(158, 211, 128);
+    -webkit-text-stroke: 0.02rem;
+    &:hover{
+        color: rgb(77, 134, 44);
+    }
+}
+
 .progress{
     width: 80%;
     height: 1.25rem;
@@ -416,6 +481,8 @@ h6{
     .level{
         font-weight: bold;
         background-color: #130924;
+        border: none;
+        height: auto;
         display: block;
         text-align: left;
         color: white;
@@ -712,6 +779,7 @@ h6{
 }
 
 textarea {
+    width: 100%;
     appearance: none;
     font-family: Montserrat;
     font-size: 0.9rem;
@@ -1330,7 +1398,7 @@ h6 {
 small-darkgreen-text{
     font-family: Krona One;
     font-size: x-small;
-    color: rgba(134, 189, 123, 0.596);
+    color: rgba(134, 189, 123, 0.753);
 }
 
 .categorias {
@@ -1405,6 +1473,52 @@ form.dark {
         border-color: #86febc;
         outline: 0;
     }
+    .main-btn{
+        background-color: rgb(93, 168, 78);
+        color: rgb(255, 255, 255);
+        border: none;
+        outline: none;
+        font-family: "Krona One", sans-serif;
+        font-size: small;
+        border-radius: 0.5rem;
+        margin: 2rem;
+        transition: .15s ease;
+        width: 50%;
+        appearance: none;
+        box-shadow: none;
+        &:hover{
+            background-color: rgba(0, 0, 0, 0);
+            border: 0.1rem solid rgb(93, 168, 78);
+            box-shadow: none;
+            outline: none;
+            color: rgb(93, 168, 78);
+            font-size: 1rem;
+        }
+    }
+
+    .sub-btn{
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(93, 168, 78);
+        border: 0.1rem solid rgb(93, 168, 78);
+        outline: none;
+        font-family: "Krona One", sans-serif;
+        font-size: small;
+        transition: .15s ease;
+        width: 100%;
+        border-radius: 0.5rem;
+        appearance: none;
+        box-shadow: none;
+        &:hover{
+            background-color: rgb(93, 168, 78);
+            color: rgb(255, 255, 255);
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            width: 50%;
+        }
+    }
+
     input {
         color: white;
         background-color: rgba(19, 9, 36, 1);
@@ -1413,6 +1527,17 @@ form.dark {
         border-radius: 0.6rem;
         font-size: 0.8rem;
     }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
     input:focus {
         color: white;
         background-color: rgba(19, 9, 36, 1);
@@ -1464,6 +1589,12 @@ form.dark {
         background-image: none;
     }
     
+}
+
+/*Curso nuevo*/
+.form-container{
+    width: 70%;
+    margin: 0 auto;
 }
 
 img.profile{

@@ -101,7 +101,7 @@ function register() {
     return false;
 }
 
-//Lessons, descargas Esto me lo di
+//Lessons, descargas Esto me lo dio chatgpt xd
 function downloadFile(filename) {
     const link = document.createElement('a');
     link.href = filename;
@@ -176,6 +176,26 @@ function LockComent(){
       Swal.fire("Este mensaje se mantiene", "", "info");
     }
   });
+}
+
+async function  EditCategory() {
+    const { value: formValues } = await Swal.fire({
+        title: "Multiple inputs",
+        html: `
+        <input id="category1" class="swal2-input">
+        <input id="description1" class="swal2-input">
+        `,
+        focusConfirm: false,
+        preConfirm: () => {
+        return [
+            document.getElementById("category1").value,
+            document.getElementById("description1").value
+        ];
+        }
+    });
+    if (formValues) {
+        Swal.fire(JSON.stringify(formValues));
+    }
 }
   
 
