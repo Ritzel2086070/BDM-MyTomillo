@@ -96,7 +96,7 @@
                         </div>
                         <div class="col d-flex justify-content-end filter">
                             <small-darkgreen-text class="pt-2">Desde</small-darkgreen-text>
-                            <input type="date" class="date-range ml-2 mr-4" style="width: 27%;">
+                            <input type="date" onchange="validarFecha()" id="inputFecha" class="date-range ml-2 mr-4" style="width: 27%;">
                             <small-darkgreen-text class="pt-2 pl-2">Hasta</small-darkgreen-text>
                             <input type="date" class="date-range ml-2 mr-4" style="width: 27%;">
                         </div>
@@ -129,12 +129,9 @@
                         </a>
                       </li>
                     </ul>
-                  </nav>
+                </nav>
 
             </div>
-
-        </div>
-
 
 
         

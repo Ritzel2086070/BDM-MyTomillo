@@ -10,10 +10,10 @@
                             <p style="font-size: small;">Regístrate</p>
                         </div>
                         <div class="d-flex flex-column justify-content-end align-items-center">
-                            <span class="signin-image" style="margin: 0rem;">
-                                <img src="images/tomilloprofile.png" alt="Foto de perfil">
-                            </span>
-                            <input type="file" name="file" id="file" class="inputfile">
+                        <span class="signin-image" style="margin: 0rem;">
+                            <img id="profileImage" src="images/tomilloprofile.png" alt="Foto de perfil" style="width: 100px; height: 100px; object-fit: cover;">
+                        </span>
+                            <input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="updateImage(event)">
                             <label class="label-file" for="file" style="height: 1.7rem; margin-bottom: 1rem;"></label>
                         </div>
 

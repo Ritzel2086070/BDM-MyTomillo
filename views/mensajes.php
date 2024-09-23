@@ -8,7 +8,7 @@
         <div class="row" style="flex-grow: 1; height: 100%;">
             <div class="col-4 background-grape pt-3" style="padding: 2rem;">
                 <div class="row">
-                    <button class="btn sub-btn custom">Redactar nuevo mensaje</button>
+                    <button onclick="BuscarDestinatario()" class="btn sub-btn custom">Redactar nuevo mensaje</button>
                 </div>
                 <div class="row pt-3 pb-3">
                     <form class="dark input-group">
@@ -89,14 +89,14 @@
                         </div>
                     </div>
                 </div>
-                <form class="row message-box-input p-3">
+                <form onsubmit="return sendMessage()" class="row message-box-input p-3">
                     <div class="col">
                         <h4>4:27 pm 09/02/2020</h4>
-                        <textarea class="w-100" type="text" placeholder="Escribe un mensaje"></textarea>
+                        <textarea id="textareaMensaje" class="w-100" type="text" placeholder="Escribe un mensaje"></textarea>
                     </div>
                     <div class="col-auto p-0 d-flex align-items-center">
                         <button class="main-btn custom rounded-pill py-1 m-0">
-                            <img class="icon" src="images/buscar.png" alt="" width="30px">
+                            <img class="icon" src="images/paper.png" alt="" width="30px">
                         </button>
                     </div>
                 </form>

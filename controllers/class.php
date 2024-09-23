@@ -1,6 +1,5 @@
 <?php
 
-
-$estado = "oferta";
-$rol = "admin";
+//cursando oferta terminado
+$estado = "terminado";
 require 'views/class.php';

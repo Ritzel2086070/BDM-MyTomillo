@@ -1,5 +1,5 @@
 <?php
 
 
-require 'views/profile.student.php';
+require 'views/profile.php';
 

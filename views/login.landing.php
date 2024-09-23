@@ -11,7 +11,7 @@
                             <p style="font-size: small;">Inicia sesión o regístrate</p>
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <input type="text" id="inputCorreo" class="form-control" placeholder="Ingrese correo electrónico">
+                            <input type="email" id="inputCorreo" class="form-control" placeholder="Ingrese correo electrónico">
                         </div>
                         <div class="form-group d-flex justify-content-center">
                             <input type="password" id="inputContra" class="form-control" placeholder="Ingrese contraseña">

@@ -12,6 +12,9 @@ $routes = [
     '/pay' => 'controllers/pay.php',
     '/class' => 'controllers/class.php',
     '/lesson' => 'controllers/lesson.php',
+    '/nuevo_curso' => 'controllers/nuevo_curso.php',
+    '/editar_curso' => 'controllers/editar_curso.php',
+    '/nueva_clase' => 'controllers/nueva_clase.php',
 ];
 
 function abort($code = 404) {
