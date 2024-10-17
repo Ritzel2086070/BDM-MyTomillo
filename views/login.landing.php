@@ -1,20 +1,33 @@
 
 <?php require 'partials/head.php'?>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    <?php
+    if ($errors ?? false) {
+        $formattedErrors = nl2br($errors);
+        $safeErrors = json_encode($formattedErrors);
+        echo "alertCustom($safeErrors);";
+    }
+    ?>
+});
+</script>
+
+
     <body class="container-fluid background-gradient align-self-center">
         <div class="row background-gradient-grey">
             <div class="col-5 d-flex flex-row-reverse">
                 <div class="card p-4 d-flex justify-content-center" style="top: 5.5rem; left: 7rem; height: 27rem; width: 22rem;">
-                    <form action="/dashboard" onsubmit="return login()">
+                    <form action="/login" method="POST" onsubmit="return login()">
                         <div class="text-center mb-4">
                             <img src="images/LogoBDM.png" alt="Logo My Tomillo" class="mb-2" style="width: 30%;">
                             <p style="font-size: small;">Inicia sesión o regístrate</p>
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <input type="email" id="inputCorreo" class="form-control" placeholder="Ingrese correo electrónico">
+                            <input type="email" id="inputCorreo" name="inputCorreo" class="form-control" placeholder="Ingrese correo electrónico">
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <input type="password" id="inputContra" class="form-control" placeholder="Ingrese contraseña">
+                            <input type="password" id="inputContra" name="inputContra" class="form-control" placeholder="Ingrese contraseña">
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
                             <button type="submit" class="btn main-btn btn-block mt-3">Iniciar Sesión</button>

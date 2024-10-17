@@ -1,3 +1,3 @@
 <?php
 
-require 'views/login.landing.php';
+view("login.landing.php");
