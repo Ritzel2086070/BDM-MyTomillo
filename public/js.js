@@ -56,10 +56,89 @@ function login(){
     return true;
 }
 
+function logout(){
+    Swal.fire({
+        title: "¿Está seguro de cerrar sesión?",
+        color: '#86bd7b',
+        background: '#2D2D2D',
+        confirmButtonOutline: 'none',
+        showCancelButton: true,
+        confirmButtonText: "Cerrar sesión",
+        cancelButtonText: "Cancelar",
+        customClass: {
+            confirmButton: 'confirm-button-class',
+            cancelButton: 'cancel-button-class',
+            title: 'title-class',
+            icon: 'icon-class'
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '/logout';
+        }
+    });
+}
+
+function edit(){
+    let alert = "";
+
+    if ($("#inputNombres").val().trim() == "") {
+        alert+= "Ingrese su nombre\n";
+    }
+    if ($("#inputNombres").val().trim().length > 50) {
+        alert+= "El nombre no debe exceder los 50 caracteres\n";
+    }
+    if ($("#inputApellidoPaterno").val().trim() == "") {
+        alert+= "Ingrese su apellido paterno\n";
+    }
+    if ($("#inputApellidoPaterno").val().trim().length > 50) {
+        alert+= "El apellido paterno no debe exceder los 50 caracteres\n";
+    }
+    if ($("#inputApellidoMaterno").val().trim() == "") {
+        alert+= "Ingrese su apellido materno\n";
+    }
+    if ($("#inputApellidoMaterno").val().trim().length > 50) {
+        alert+= "El apellido materno no debe exceder los 50 caracteres\n";
+    }
+    var fecha = $("#inputFecha").val().trim();
+    if (fecha == "") {
+        alert+= "Ingrese su fecha de nacimiento\n";
+    }
+    var minDate = new Date('1900-01-01');
+    var today = new Date();
+    var inputDate = new Date(fecha);
+    if (inputDate < minDate || inputDate > today) {
+        alert+= "La fecha debe estar entre el 1 de enero de 1900 y hoy.\n";
+    }
+    if($("#inputCorreo").val().trim() == ""){
+        alert+= "Ingrese su correo\n";
+    }
+    let regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+([a-z0-9\.!#$%&'*+/=?^_`{|}~-]+)*@([a-z0-9]+\.)+[a-z0-9]+/;
+    if(!regex.test($("#inputCorreo").val().trim())){
+        alert+= "El correo es inválido\n";
+    }
+    if($("#inputCorreo").val().trim().length > 50){
+        alert+= "El correo no debe exceder los 50 caracteres\n";
+    }
+
+    if(alert != ""){
+        alertCustom(alert);
+        return false;
+    }
+
+    return true;
+}
+
 function register() {
     let alert = "";
+    let maxSize = 64 * 1024; // 64 KB for BLOB
+
     if ($("#file").get(0).files.length === 0) {
-        alert+= "Seleccione una imagen\n";
+        alert += "Seleccione una imagen\n";
+    } else {
+        let file = $("#file").get(0).files[0];
+        if (file.size > maxSize) {
+            alert += "El archivo es demasiado grande. El tamaño máximo es de 64 KB.\n";
+        }
     }
 
     if ($("#inputNombres").val().trim() == "") {
@@ -113,30 +192,14 @@ function register() {
     }
 
     
-    alert($('input[name="options"]:checked').attr('id'));
+    //alert($('input[name="options"]:checked').attr('id'));
 
     if(alert != ""){
         alertCustom(alert);
         return false;
     }
-    Swal.fire({
-        title: "Registro exitoso",
-        color: '#86bd7b',
-        background: '#11041F',
-        confirmButtonOutline: 'none',
-        confirmButtonText: "Aceptar",
-        icon: "success",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            title: 'title-class',
-            icon: 'icon-class'
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            toDashboard();
-        }
-    });
-    return false;
+
+    return true;
 }
 
 function selectCategory(category) {
@@ -243,50 +306,7 @@ function enableDisableProfile(){
         $("#selectGenero").prop('disabled', false);
         $("#btnEnableDisable").text("Guardar cambios");
     } else {
-        if ($("#inputNombres").val().trim() == "") {
-            alertInput("nombre");
-            return false;
-        }
-        if ($("#inputNombres").val().trim().length > 50) {
-            alertCustom("El nombre no debe exceder los 50 caracteres");
-            return false;
-        }
-        if ($("#inputApellidoPaterno").val().trim() == "") {
-            alertInput("apellido paterno");
-            return false;
-        }
-        if ($("#inputApellidoPaterno").val().trim().length > 50) {
-            alertCustom("El apellido paterno no debe exceder los 50 caracteres");
-            return false;
-        }
-        if ($("#inputApellidoMaterno").val().trim() == "") {
-            alertInput("apellido materno");
-            return false;
-        }
-        if ($("#inputApellidoMaterno").val().trim().length > 50) {
-            alertCustom("El apellido materno no debe exceder los 50 caracteres");
-            return false;
-        }
-        var fecha = $("#inputFecha").val().trim();
-        if (fecha == "") {
-            alertInput("fecha de nacimiento");
-            return false;
-        }
-        var minDate = new Date('1900-01-01');
-        var today = new Date();
-        var inputDate = new Date(fecha);
-        if (inputDate < minDate || inputDate > today) {
-            alertCustom("La fecha debe estar entre el 1 de enero de 1900 y hoy.");
-            return false;
-        }
-        if($("#inputCorreo").val().trim() == ""){
-            alertInput("correo");
-            return false;
-        }
-        if($("#inputCorreo").val().trim().length > 50){
-            alertCustom("El correo no debe exceder los 50 caracteres");
-            return false;
-        }
+        
         $("#inputNombres").prop('readonly', true);
         $("#inputApellidoPaterno").prop('readonly', true);
         $("#inputApellidoMaterno").prop('readonly', true);
@@ -294,7 +314,7 @@ function enableDisableProfile(){
         $("#inputCorreo").prop('readonly', true);
         $("#selectGenero").prop('readonly', false);
         $("#btnEnableDisable").text("Editar perfil");
-
+        $("#editForm").submit();
     }
     
 }
@@ -393,6 +413,22 @@ function alertCustom(title){
         },
         });
 }
+function alertSuccess(title){
+    Swal.fire({
+        title: title,
+        color: '#86bd7b',
+        background: '#11041F',
+        confirmButtonOutline: 'none',
+        confirmButtonText: "Aceptar",
+        icon: "success",
+        customClass: {
+            confirmButton: 'confirm-button-class',
+            title: 'title-class',
+            icon: 'icon-class'
+        }
+    });
+}
+
 async function BuscarDestinatario(){
     const { value: usuario } = await Swal.fire({
         color: '#86bd7b',
@@ -789,29 +825,40 @@ async function changePassword(){
         if (newPassword) {
             if(newPassword.trim() == ""){
                 alertInput("contraseña");
-                return false;
+                return;
             }
             if(newPassword.trim().length > 64){
                 alertCustom("La contraseña no debe exceder los 64 caracteres");
-                return false;
+                return;
             }
             var pass = newPassword.trim();
             var re = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[(¡”#$%&/=’?¡¿:;,.\-_+*{\][})])(?=.{8,64})/;
             if(!re.test(pass)){
                 alertCustom("La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial.");
-                return false;
+                return;
             }
-            Swal.fire({
-                color: '#ccc',
-                background: '#2D2D2D',
-                title: "Contraseña cambiada",
-                text: "Tu contraseña ha sido cambiada exitosamente",
-                icon: "success",
-                customClass: {
-                    confirmButton: 'confirm-button-class',
-                    title: 'title-class',
+
+            fetch('/changePassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'  // This is missing
+                },
+                body: JSON.stringify({ password, newPassword })
+            }).then((response) => {
+                if(!response.ok){
+                    throw response;
                 }
+                return response.json();
+            }).then((response) => {
+                if(response.message === "success"){
+                    alertSuccess("Contraseña cambiada correctamente");
+                } else {
+                    alertCustom(response.message);
+                }
+            }).catch((error) => {
+                alertCustom("Error al cambiar la contraseña:" + error);
             });
+            
         }
     }
 }

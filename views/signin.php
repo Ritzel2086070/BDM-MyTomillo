@@ -4,7 +4,7 @@
         <div class="row background-gradient-grey">
             <div class="col-5 d-flex flex-row-reverse">
                 <div class="card p-4">
-                    <form onsubmit="return register()">
+                    <form action="/signin" method="POST" onsubmit="return register()" enctype="multipart/form-data">
                         <div class="text-center mb-4">
                             <img src="images/LogoBDM.png" alt="Logo My Tomillo" class="mb-2" style="width: 30%;">
                             <p style="font-size: small;">Regístrate</p>
@@ -18,48 +18,47 @@
                         </div>
 
                         <div class="form-group d-flex justify-content-center">
-                            <input type="text" class="form-control" id="inputNombres" placeholder="Ingrese nombre(s)">
+                            <input type="text" class="form-control" name="inputNombres" id="inputNombres" placeholder="Ingrese nombre(s)">
                         </div>
                         <div class="form-row">
                             <div class="col d-flex justify-content-end">
-                                <input type="text" class="form-control" id="inputApellidoPaterno" placeholder="Apellido Paterno">
+                                <input type="text" class="form-control" name="inputApellidoPaterno" id="inputApellidoPaterno" placeholder="Apellido Paterno">
                             </div>
                             <div class="col d-flex justify-content-start">
-                                <input type="text" class="form-control" id="inputApellidoMaterno" placeholder="Apellido Materno">
+                                <input type="text" class="form-control" name="inputApellidoMaterno" id="inputApellidoMaterno" placeholder="Apellido Materno">
                             </div>
                         </div>
                         <div class="form-row mt-3">
                             <div class="col d-flex flex-column align-items-end">
                                 <label for="form-control" class="label-form-control">Seleccione género:</label>
-                                <select class="form-select" id="selectGenero">
-                                    <option>Masculino</option>
-                                    <option>Femenino</option>
-                                    <option>Walmart bag</option>
-                                    <option>Otro</option>
+                                <select class="form-select" name="selectGenero" id="selectGenero">
+                                    <?php foreach($generos as $genero): ?>
+                                        <option value="<?= htmlspecialchars($genero['ID_genero']) ?>"><?= htmlspecialchars($genero['genero']) ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col d-flex flex-column align-items-start">
                                 <label for="form-control" class="label-form-control">Fecha de nacimiento:</label>
-                                <input type="date" id="inputFecha" class="form-control">
+                                <input type="date" name="inputFecha" id="inputFecha" class="form-control">
                             </div>
                         </div>
                         <div class="form-group mt-3 d-flex justify-content-center">
-                            <input type="email" id="inputCorreo" class="form-control" placeholder="Correo electrónico">
+                            <input type="email" name="inputCorreo" id="inputCorreo" class="form-control" placeholder="Correo electrónico">
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <input type="password" id="inputContra" class="form-control" placeholder="Ingrese contraseña">
+                            <input type="password" name="inputContra" id="inputContra" class="form-control" placeholder="Ingrese contraseña">
                         </div>
                         
                         <div class="bulgy-radios d-flex flex-column align-items-center" role="radiogroup">
                             <p style="font-size: small; margin-bottom: 0.1rem;">¿Qué deseas hacer en MyTomillo?</p>
                             <div class="col d-flex justify-content-center align-items-center">
                                 <label class="d-flex justify-content-center align-items-center">
-                                    <input type="radio" id="Aprender" name="options" checked/>
+                                    <input type="radio" id="Aprender" value="estudiante" name="options" checked/>
                                     <span class="radio"></span>
                                     <span class="label">Aprender</span>
                                 </label>
                                 <label class="d-flex justify-content-center align-items-center">
-                                    <input type="radio" id="Enseñar" name="options"/>
+                                    <input type="radio" id="Enseñar" value="maestro" name="options"/>
                                     <span class="radio"></span>
                                     <span class="label">Enseñar</span>
                                 </label>

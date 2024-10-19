@@ -1,13 +1,26 @@
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+
+<script src="cards.js" defer></script>
+    
+    <body class="container-fluid background-grape" style="display: flex; flex-direction: column; min-height: 100vh;">
+      
 <div class="row background-gradient mt-5 pl-5 pt-5 pb-5 pb-4" style="height: 12rem;">
     <div class="col-4 flex-column justify-content-end align-items-center">
         <div class="card flex-column d-flex justify-content-center" style="position: absolute; ; top: -2rem; left: 2rem;  width: 22rem; padding: 2rem;">
             <div class="d-flex flex-column justify-content-end align-items-center">
                 <span class="signin-image" style="margin: 0rem; width: 10rem; height: 10rem;">
-                    <img src="images/tomilloprofile.png" alt="Foto de perfil">
+                    <?php if (isset($_SESSION['user']['foto'])): ?>
+                        <img src="data:image/png;base64,<?= base64_encode($_SESSION['user']['foto']) ?>" alt="pfp">
+                    <?php else: ?>
+                        <img src="images/tomilloprofile.png" alt="pfp">
+                    <?php endif; ?>
                 </span>
             </div>
             <div class="text-center mt-3">
-                <h1 style="font-size: 1.5rem;">Marla Judith Estrada Valdez</h1>
+                <h1 style="font-size: 1.5rem;">
+                <?=$usuario['nombres'] . " " . $usuario['apellido_paterno'] . " " . $usuario['apellido_materno'] ?>
+                </h1>
             </div>
             <div class="d-flex justify-content-center align-items-center mt-2">
                 <img width="20" src="images/estudiante.png" alt="books">
@@ -34,7 +47,10 @@
                 <button class="btn main-btn btn-block" onclick="enableDisableProfile()" id="btnEnableDisable" style="margin: 0rem; width: 70%;">Editar perfil</button>
             </div>
             <div class="d-flex justify-content-center align-items-center mt-3">
-                <button class="btn sub-btn btn-block" onclick="" style="margin: 0rem; width: 70%; margin-bottom: 0.5rem;">Cerrar sesión</button>
+                <button class="btn main-btn btn-block" onclick="changePassword()" style="margin: 0rem; width: 70%;">Cambiar contraseña</button>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <button class="btn sub-btn btn-block" onclick="logout()" style="margin: 0rem; width: 70%; margin-bottom: 0.5rem;">Cerrar sesión</button>
             </div>
         </div>
 
@@ -57,7 +73,7 @@
             <div class="tab-pane fade" id="profile-data" role="tabpanel" aria-labelledby="profile-data">
                 <div class="d-flex flex-column justify-content-center" style="width: 92%; text-align: center; padding: 1rem;">
                     <h3>Información básica</h3>
-                    <form class="dark">
+                    <form action="/editProfile" method="POST" id="editForm" onsubmit="return edit()" enctype="multipart/form-data" class="dark">
                         <?php require 'form.php'?>
                     </form>
                 </div>
@@ -245,3 +261,5 @@
         </div>
     </div>
 </div>
+
+<?php require base_path('views/partials/footer.php'); ?>

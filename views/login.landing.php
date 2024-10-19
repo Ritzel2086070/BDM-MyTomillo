@@ -1,19 +1,6 @@
 
 <?php require 'partials/head.php'?>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    <?php
-    if ($errors ?? false) {
-        $formattedErrors = nl2br($errors);
-        $safeErrors = json_encode($formattedErrors);
-        echo "alertCustom($safeErrors);";
-    }
-    ?>
-});
-</script>
-
-
     <body class="container-fluid background-gradient align-self-center">
         <div class="row background-gradient-grey">
             <div class="col-5 d-flex flex-row-reverse">

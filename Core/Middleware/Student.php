@@ -1,9 +1,9 @@
 <?php
 namespace Core\Middleware;
 
-class Admin {
+class Student {
     public function handle() {
-        if ($_SESSION['user_role'] !== 'student') {
+        if ($_SESSION['user']['rol'] !== 'estudiante') {
             header('location: /');
             exit();
         }

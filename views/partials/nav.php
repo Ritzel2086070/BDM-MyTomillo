@@ -26,7 +26,11 @@
                     <img class="icon" src="images/conversacion.png" alt="Logo">
                 </a>
                 <button onclick="toProfile()" type="button" class="profile mx-2 d-flex justify-content-center align-items-center">
-                    <img src="images/tomilloprofile.png" alt="Logo">
+                    <?php if (isset($_SESSION['user']['foto'])): ?>
+                        <img src="data:image/png;base64,<?= base64_encode($_SESSION['user']['foto']) ?>" alt="pfp">
+                    <?php else: ?>
+                        <img src="images/tomilloprofile.png" alt="pfp">
+                    <?php endif; ?>
                 </button>
             </div>
         </nav>

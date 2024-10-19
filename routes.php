@@ -1,8 +1,17 @@
 <?php
 
 $router->get('/', 'controllers/index.php');
-$router->post('/login', 'controllers/login.php');
-
+$router->post('/login', 'controllers/usuario/login.php');
+$router->get('/signin', 'controllers/usuario/signin.php');
+$router->post('/signin', 'controllers/usuario/registro.php');
+$router->get('/dashboard', 'controllers/dashboard.php')->only('auth');
+$router->get('/profile', 'controllers/usuario/profile.php')->only('auth');
+$router->get('/profile-student', 'controllers/usuario/profile/student.php')->only('auth')->only('student');
+$router->get('/profile-teacher', 'controllers/usuario/profile/teacher.php')->only('auth')->only('teacher');
+$router->get('/profile-admin', 'controllers/usuario/profile/admin.php')->only('auth')->only('admin');
+$router->post('/editProfile', 'controllers/usuario/profile/edit.php')->only('auth');
+$router->get('/logout', 'controllers/usuario/logout.php')->only('auth');
+$router->post('/changePassword', 'APIs/changePassword.php')->only('auth');
 
 /*
 

@@ -20,3 +20,24 @@
         <script src="https://js.stripe.com/v3/"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    <?php
+    if ($_SESSION['errors'] ?? false) {
+        $formattedErrors = nl2br($_SESSION['errors']);
+        $safeErrors = json_encode($formattedErrors);
+        echo "alertCustom($safeErrors);";
+        $_SESSION['errors'] = null;
+    }
+    if ($_SESSION['success'] ?? false) {
+        $formattedSuccess = nl2br($_SESSION['success']);
+        $safeSuccess = json_encode($formattedSuccess);
+        echo "alertSuccess($safeSuccess);";
+        $_SESSION['success'] = null;
+    }
+
+    ?>
+});
+</script>
