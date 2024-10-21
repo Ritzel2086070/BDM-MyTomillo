@@ -1386,6 +1386,7 @@ header{
         border: 0.15rem solid #86bd7b;
         padding: 0;
         img {
+            border-radius: 50%;
             height: auto;
             width: 90%;
         }
