@@ -713,12 +713,11 @@ async function  EditCategory() {
     }
 }
 
-function nuevaCategoria(){
-    Swal.fire({
+async function nuevaCategoria(){
+    const { isConfirmed, value: result } = await Swal.fire({
         color: '#ccc',
         background: '#2D2D2D',
         title: "Nueva categoría",
-        confirmButtonOutline: 'none',
         showCancelButton: true,
         confirmButtonText: "Guardar",
         cancelButtonText: "Cancelar",
@@ -729,38 +728,61 @@ function nuevaCategoria(){
             icon: 'icon-class'
         },
         html: `
-        <input id="category1" class="input-alert" placeholder="Nombre de la categoría">
-        <textarea rows="6" id="description1" class="textarea-alert mt-4" placeholder="Descripción de la categoría"></textarea>
+        <input id="input_category" class="input-alert" placeholder="Nombre de la categoría">
+        <textarea rows="6" id="input_description" class="textarea-alert mt-4" placeholder="Descripción de la categoría"></textarea>
         `,
         focusConfirm: false,
         preConfirm: () => {
-            return [
-                category = document.getElementById("category1").value,
-                description = document.getElementById("description1").value
-            ];
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            if ($(("#category1")).val().trim() == "") {
-                alertInput("nombre de la categoría");
-                return false;
-            }
-            if (category.val().trim().length > 50) {
-                alertCustom("El nombre de la categoría no debe exceder los 50 caracteres");
-                return false;
-            }
-            Swal.fire({
-                color: '#ccc',
-                background: '#2D2D2D',
-                title: "Categoría guardada",
-                confirmButtonOutline: 'none',
-                icon: "success",
-                text: "Categoría guardada correctamente",
-                showConfirmButton: false,
-                timer: 1500
-            });
+            const category = document.getElementById("input_category").value;
+            const description = document.getElementById("input_description").value;
+    
+            return { category, description };
         }
     });
+    if(isConfirmed){
+        if (result) {
+            const { category, description } = result;
+            if (category.trim() == "") {
+                alertCustom("Ingrese el nombre de la categoría");
+                return;
+            }
+            if (category.trim().length > 50) {
+                alertCustom("El nombre de la categoría no debe exceder los 50 caracteres");
+                return;
+            }
+            if (description.trim() == "") {
+                alertCustom("Ingrese la descripción de la categoría");
+                return;
+            }
+            if (description.trim().length > 512) {
+                alertCustom("La descripción de la categoría no debe exceder los 512 caracteres");
+                return;
+            }
+
+            fetch('/newCategory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ category, description })
+            }).then((response) => {
+                if(!response.ok){
+                    throw response;
+                }
+                return response.json();
+            }).then((response) => {
+                if(response.message === "success"){
+                    alertSuccess("Categoría creada correctamente");
+                } else {
+                    alertCustom(response.message);
+                }
+            }).catch((error) => {
+                alertCustom("Error al crear la categoría:" + error);
+            });
+        }
+    }
+    
+    
 }
 
 function readDescription(){
@@ -841,7 +863,7 @@ async function changePassword(){
             fetch('/changePassword', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'  // This is missing
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ password, newPassword })
             }).then((response) => {

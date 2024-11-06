@@ -12,7 +12,7 @@ $router->get('/profile-admin', 'controllers/usuario/profile/admin.php')->only('a
 $router->post('/editProfile', 'controllers/usuario/profile/edit.php')->only('auth');
 $router->get('/logout', 'controllers/usuario/logout.php')->only('auth');
 $router->post('/changePassword', 'APIs/changePassword.php')->only('auth');
-
+$router->post('/newCategory', 'APIs/newCategory.php')->only('auth')->only('admin');
 /*
 
 

@@ -24,11 +24,6 @@ $valid = $db->query('SELECT ID_usuario FROM USUARIOS WHERE ID_usuario = ? AND co
     $password
 ])->find();
 
-if (!$valid) {
-    echo json_encode(['message' => 'Contraseña incorrecta']);
-    exit();
-}
-
 
 if (!$valid) {
     echo json_encode(['message' => 'Contraseña incorrecta']);
