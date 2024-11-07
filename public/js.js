@@ -202,23 +202,11 @@ function register() {
     return true;
 }
 
-function selectCategory(category) {
-    $("#categoryDropdown").textContent = category;
+function selectCategory(category, id) {
+    document.getElementById(id).textContent = category;
 }
 
-window.onload = function() {
-    let checkbox = document.getElementById('checkbox-gratis');
-    let precioInput = document.getElementById('inputPrecio');
 
-    checkbox.addEventListener('change', function() {
-        if (this.checked) {
-            precioInput.value = 0;
-            precioInput.readOnly = true;
-        } else {
-            precioInput.readOnly = false;
-        }
-    });
-};
 
 /*function validarFecha(){
     var fecha = $("#inputFecha").val().trim();
@@ -237,64 +225,7 @@ window.onload = function() {
 
 
 
-function validacionCurso(){
-    if($("#inputNombreCurso").val().trim() == ""){
-        alertInput("nombre del curso");
-        return false;
-    }
-    if($("#inputNombreCurso").val().trim().length > 100){
-        alertCustom("El nombre del curso no debe exceder los 100 caracteres");
-        return false;
-    }
-    if($("#inputDescripcion").val().trim() == ""){
-        alertInput("descripción del curso");
-        return false;
-    }
-    if($("#inputDescripcion").val().trim().length > 65535){
-        alertCustom("La descripción del curso no debe exceder los 65,535 caracteres");
-        return false;
-    }
 
-    var selectedCategory = document.getElementById('categoryDropdown').textContent;
-    var defaultText = "Seleccione categoría del nuevo curso";
-    if (selectedCategory === defaultText) {
-        alert("Por favor, seleccione una categoría válida.");
-        return false; 
-    }
-    
-    const precio = parseFloat($("#inputPrecio").val().trim());
-    if(isNaN(precio) || precio == ""){
-        alertInput("precio del curso");
-        return false;
-    }
-    if(precio < 0){
-        alertCustom("El precio del curso no puede ser negativo");
-        return false;
-    }
-    if(precio > 100000){
-        alertCustom("El precio del curso no puede ser mayor a 100,000");
-        return false;
-    }
-    
-    Swal.fire({
-        title: "Curso creado",
-        color: '#86bd7b',
-        background: '#11041F',
-        confirmButtonOutline: 'none',
-        confirmButtonText: "Aceptar",
-        icon: "success",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            title: 'title-class',
-            icon: 'icon-class'
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            toProfile();
-        }
-    });
-    return false;
-}
 
 function enableDisableProfile(){
     if($("#btnEnableDisable").text() === "Editar perfil"){
@@ -492,81 +423,6 @@ function LockComent(){
       });
   }
   
-function LockUser(){
-    Swal.fire({
-    title: "¿Está seguro de bloquear el usuario?",
-    color: '#86bd7b',
-    background: '#2D2D2D',
-    confirmButtonOutline: 'none',
-    showCancelButton: true,
-    confirmButtonText: "Bloquear",
-    cancelButtonText: "Cancelar",
-    customClass: {
-        confirmButton: 'confirm-button-class',
-        cancelButton: 'cancel-button-class',
-        title: 'title-class',
-        icon: 'icon-class'
-    },
-    }).then((result) => {
-        if (result.isConfirmed) {
-        Swal.fire({
-            color: '#86bd7b',
-            background: '#2D2D2D',
-            icon: "success",
-            text: "Usuario bloqueado correctamente",
-            showConfirmButton: false,
-            timer: 1500
-            });
-        } else if (result.isDenied) {
-        Swal.fire({
-            color: '#86bd7b',
-            background: '#2D2D2D',
-            icon: "error",
-            text: "El usuario no pudo ser bloqueado",
-            showConfirmButton: false,
-            timer: 1500
-            });
-        }
-    });
-}
-
-function UnlockUser(){
-    Swal.fire({
-    title: "¿Está seguro de desbloquear el usuario?",
-    color: '#86bd7b',
-    background: '#2D2D2D',
-    confirmButtonOutline: 'none',
-    showCancelButton: true,
-    confirmButtonText: "Desbloquear",
-    cancelButtonText: "Cancelar",
-    customClass: {
-        confirmButton: 'confirm-button-class',
-        cancelButton: 'cancel-button-class',
-        title: 'title-class',
-        icon: 'icon-class'
-    },
-    }).then((result) => {
-        if (result.isConfirmed) {
-        Swal.fire({
-            color: '#ccc',
-            background: '#2D2D2D',
-            icon: "success",
-            text: "Usuario desbloqueado correctamente",
-            showConfirmButton: false,
-            timer: 1500
-            });
-        } else if (result.isDenied) {
-        Swal.fire({
-            color: '#ccc',
-            background: '#2D2D2D',
-            icon: "error",
-            text: "El usuario no pudo ser desbloqueado",
-            showConfirmButton: false,
-            timer: 1500
-            });
-        }
-    });
-}
 
 function borrarCurso(){
     Swal.fire({
@@ -606,198 +462,6 @@ function borrarCurso(){
     });
 }
 
-function DeleteCategory(){
-    category = document.getElementById("category1").value;
-    Swal.fire({
-    title: "¿Está seguro de eliminar esta categoría?",
-    color: '#86bd7b',
-    background: '#2D2D2D',
-    html: `
-        <p value="">`+ category + `</p>
-        `,
-    confirmButtonOutline: 'none',
-    showCancelButton: true,
-    confirmButtonText: "Confirmar",
-    cancelButtonText: "Cancelar",
-    customClass: {
-        confirmButton: 'confirm-button-class',
-        cancelButton: 'cancel-button-class',
-        title: 'title-class',
-        icon: 'icon-class'
-    },
-    }).then((result) => {
-    if (result.isConfirmed) {
-        Swal.fire({
-            color: '#86bd7b',
-            background: '#2D2D2D',
-            icon: "success",
-            text: "Categoría eliminada correctamente",
-            showConfirmButton: false,
-            timer: 1500
-            });
-    } else if (result.isDenied) {
-        Swal.fire({
-            color: '#86bd7b',
-            background: '#2D2D2D',
-            icon: "error",
-            text: "La categoría no puedo ser eliminada",
-            showConfirmButton: false,
-            timer: 1500
-            });
-    }
-    });
-}
-
-async function  EditCategory() {
-    category = document.getElementById("category1").value;
-    description = document.getElementById("description1").value;
-
-    const { value: formValues } = await Swal.fire({
-        color: '#86bd7b',
-        background: '#2D2D2D',
-        title: "Editar categoria",
-        confirmButtonOutline: 'none',
-        showCancelButton: true,
-        confirmButtonText: "Guardar",
-        cancelButtonText: "Cancelar",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            cancelButton: 'cancel-button-class',
-            title: 'title-class',
-            icon: 'icon-class'
-        },
-        html: `
-        <input id="category1.1" class="input-alert" value="`+ category + `">
-        <textarea rows="6" id="description1.1" class="textarea-alert mt-4">`+ description + `</textarea>
-        `,
-        focusConfirm: false,
-        preConfirm: () => {
-        return [
-            category = document.getElementById("category1.1").value,
-            description = document.getElementById("description1.1").value
-        ];
-        }
-    });
-    if (formValues) {
-        if (category.trim() == "") {
-            alertInput("nombre de la categoría");
-            return false;
-        }
-        if (category.trim().length > 50) {
-            alertCustom("El nombre de la categoría no debe exceder los 50 caracteres");
-            return false;
-        }
-        Swal.fire({
-            color: '#86bd7b',
-            background: '#2D2D2D',
-            title: "Guardar cambios",
-            confirmButtonOutline: 'none',
-            showCancelButton: true,
-            confirmButtonText: "Confirmar",
-            cancelButtonText: "Cancelar",
-            customClass: {
-                confirmButton: 'confirm-button-class',
-                cancelButton: 'cancel-button-class',
-                title: 'title-class',
-                icon: 'icon-class'
-            },
-            html: `
-            <div class="d-flex flex-column align-items-start">
-            <p>Nombre de la categoría: </p>
-            <input readonly id="category1.1" class="input-alert" value="`+ category + `">
-            <p class="mt-4">Descripcción de la categoría: </p>
-            <textarea rows="6" readonly id="description1.1" class="textarea-alert"> `+ description + ` </textarea>
-            </div>
-            `,
-        }, JSON.stringify(formValues));
-    }
-}
-
-async function nuevaCategoria(){
-    const { isConfirmed, value: result } = await Swal.fire({
-        color: '#ccc',
-        background: '#2D2D2D',
-        title: "Nueva categoría",
-        showCancelButton: true,
-        confirmButtonText: "Guardar",
-        cancelButtonText: "Cancelar",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            cancelButton: 'cancel-button-class',
-            title: 'title-class',
-            icon: 'icon-class'
-        },
-        html: `
-        <input id="input_category" class="input-alert" placeholder="Nombre de la categoría">
-        <textarea rows="6" id="input_description" class="textarea-alert mt-4" placeholder="Descripción de la categoría"></textarea>
-        `,
-        focusConfirm: false,
-        preConfirm: () => {
-            const category = document.getElementById("input_category").value;
-            const description = document.getElementById("input_description").value;
-    
-            return { category, description };
-        }
-    });
-    if(isConfirmed){
-        if (result) {
-            const { category, description } = result;
-            if (category.trim() == "") {
-                alertCustom("Ingrese el nombre de la categoría");
-                return;
-            }
-            if (category.trim().length > 50) {
-                alertCustom("El nombre de la categoría no debe exceder los 50 caracteres");
-                return;
-            }
-            if (description.trim() == "") {
-                alertCustom("Ingrese la descripción de la categoría");
-                return;
-            }
-            if (description.trim().length > 512) {
-                alertCustom("La descripción de la categoría no debe exceder los 512 caracteres");
-                return;
-            }
-
-            fetch('/newCategory', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ category, description })
-            }).then((response) => {
-                if(!response.ok){
-                    throw response;
-                }
-                return response.json();
-            }).then((response) => {
-                if(response.message === "success"){
-                    alertSuccess("Categoría creada correctamente");
-                } else {
-                    alertCustom(response.message);
-                }
-            }).catch((error) => {
-                alertCustom("Error al crear la categoría:" + error);
-            });
-        }
-    }
-    
-    
-}
-
-function readDescription(){
-    Swal.fire({
-        color: '#ccc',
-        background: '#2D2D2D',
-        title: "Descripción de categoría",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        icon: "info",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            title: 'title-class',
-        }
-    });
-}
 
 async function changePassword(){
     const { value: password } = await Swal.fire({
@@ -925,3 +589,4 @@ function seeDegree() {
 function downloadDiploma() {
     downloadFile("DiplomaBDM.png");
 }
+

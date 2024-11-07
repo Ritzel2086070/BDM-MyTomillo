@@ -12,7 +12,14 @@ $router->get('/profile-admin', 'controllers/usuario/profile/admin.php')->only('a
 $router->post('/editProfile', 'controllers/usuario/profile/edit.php')->only('auth');
 $router->get('/logout', 'controllers/usuario/logout.php')->only('auth');
 $router->post('/changePassword', 'APIs/changePassword.php')->only('auth');
-$router->post('/newCategory', 'APIs/newCategory.php')->only('auth')->only('admin');
+$router->post('/newCategory', 'controllers/categoria/agregar.php')->only('auth')->only('admin');
+$router->post('/editCategory', 'controllers/categoria/editar.php')->only('auth')->only('admin');
+$router->post('/deleteCategory', 'controllers/categoria/eliminar.php')->only('auth')->only('admin');
+$router->post('/unlockUser', 'controllers/usuario/desbloquear.php')->only('auth')->only('admin');
+$router->post('/blockedUsers', 'controllers/usuario/v_bloqueados.php')->only('auth')->only('admin');
+$router->get('/nuevo_curso', 'controllers/curso/nuevo.php')->only('auth')->only('teacher');
+$router->post('/crearCurso', 'controllers/curso/agregar.php')->only('auth')->only('teacher');
+
 /*
 
 

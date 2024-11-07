@@ -64,13 +64,11 @@ if ($user) {
     }
 
     if(isset($user['n_intentos'])){
-        if($user['n_intentos'] == 3){
+        if($user['n_intentos'] >= 3){
             $errors = "Usuario bloqueado";
             $db->query('CALL sp_update_usuarios("desactivar",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,?)', [
                 $user['ID_usuario']
             ]);
-        } else if ($user['n_intentos'] > 3){
-            $errors = "Usuario bloqueado";
         } else {
             $errors = "Contraseña incorrecta";
         }

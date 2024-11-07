@@ -86,7 +86,7 @@
                     <div class="card flex-column d-flex justify-content-center" style="position: absolute; top: -13rem; left: -2.4rem;  width: 23rem; padding: 1rem;">
                         <div class="d-flex flex-column justify-content-end align-items-center">
                             <div class="text-center mt-3">
-                                <h1 style="font-size: 1.5rem;">Heber Abiel Perez Jimenez</h1>
+                                <h1 style="font-size: 1.5rem;"><?=$usuario['nombres'] . " " . $usuario['apellido_paterno'] . " " . $usuario['apellido_materno'] ?></h1>
                                 <p class="mt-2">¡Aquí puedes ver las estadísticas de tus cursos!</p>
                             </div>
                         </div>
@@ -127,24 +127,11 @@
                                         <div class="col d-flex align-items-center">
                                             <small-darkgreen-text class="pl-2 col-2">Ordenar por</small-darkgreen-text>
                                             <div class="dropdown">
-                                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Categoría</a>
+                                                <a class="dropdown-toggle" id="categoryDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Categoría</a>
                                                 <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
-                                                    <a class="dropdown-item" href="#">Diseño</a>
-                                                    <a class="dropdown-item" href="#">Arte e ilustración</a>
-                                                    <a class="dropdown-item" href="#">Dibujo y pintura</a>
-                                                    <a class="dropdown-item" href="#">Cine y video</a>
-                                                    <a class="dropdown-item" href="#">Música y audio</a>
-                                                    <a class="dropdown-item" href="#">Fotografía</a>
-                                                    <a class="dropdown-item" href="#">Modelado y animación 3D</a>
-                                                    <a class="dropdown-item" href="#">Concept y animación 2D</a>
-                                                    <a class="dropdown-item" href="#">Inteligencia y ciencia de datos</a>
-                                                    <a class="dropdown-item" href="#">Software</a>
-                                                    <a class="dropdown-item" href="#">Web</a>
-                                                    <a class="dropdown-item" href="#">Ventas</a>
-                                                    <a class="dropdown-item" href="#">Administración y finanzas</a>
-                                                    <a class="dropdown-item" href="#">Marketing y negocios</a>
-                                                    <a class="dropdown-item" href="#">Manualidades y cocina</a>
-                                                    <a class="dropdown-item" href="#">Escribir y publicar</a>
+                                                <?php foreach($categorias as $categoria): ?>
+                                                    <a class="dropdown-item" onclick="selectCategory('<?=$categoria['nombre']?>', 'categoryDropdown')"><?=$categoria['nombre']?></a>
+                                                <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,24 +246,11 @@
                                         <div class="col d-flex align-items-center">
                                             <small-darkgreen-text class="pl-2 col-2">Ordenar por</small-darkgreen-text>
                                             <div class="dropdown">
-                                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Categoría</a>
+                                                <a class="dropdown-toggle" id="categoryDropdown2" role="button" data-toggle="dropdown" aria-expanded="false">Categoría</a>
                                                 <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
-                                                    <a class="dropdown-item" href="#">Diseño</a>
-                                                    <a class="dropdown-item" href="#">Arte e ilustración</a>
-                                                    <a class="dropdown-item" href="#">Dibujo y pintura</a>
-                                                    <a class="dropdown-item" href="#">Cine y video</a>
-                                                    <a class="dropdown-item" href="#">Música y audio</a>
-                                                    <a class="dropdown-item" href="#">Fotografía</a>
-                                                    <a class="dropdown-item" href="#">Modelado y animación 3D</a>
-                                                    <a class="dropdown-item" href="#">Concept y animación 2D</a>
-                                                    <a class="dropdown-item" href="#">Inteligencia y ciencia de datos</a>
-                                                    <a class="dropdown-item" href="#">Software</a>
-                                                    <a class="dropdown-item" href="#">Web</a>
-                                                    <a class="dropdown-item" href="#">Ventas</a>
-                                                    <a class="dropdown-item" href="#">Administración y finanzas</a>
-                                                    <a class="dropdown-item" href="#">Marketing y negocios</a>
-                                                    <a class="dropdown-item" href="#">Manualidades y cocina</a>
-                                                    <a class="dropdown-item" href="#">Escribir y publicar</a>
+                                                <?php foreach($categorias as $categoria): ?>
+                                                    <a class="dropdown-item" onclick="selectCategory('<?=$categoria['nombre']?>', 'categoryDropdown2')"><?=$categoria['nombre']?></a>
+                                                <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -292,7 +266,7 @@
                                             <div class="levels-container d-flex flex-column">
                                                 <div class="header d-flex flex-wrap justify-content-between" style="width: 100.25%;">
                                                     <p>8 cursos publicados</p>
-                                                    <a href="new_class.html" class="p-0 d-flex align-items-center">
+                                                    <a href="/nuevo_curso" class="p-0 d-flex align-items-center">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle mr-2" viewBox="0 0 16 16">
                                                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                                                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
@@ -424,7 +398,7 @@
                     <div class="card flex-column d-flex justify-content-center" style="position: absolute; top: -9rem; left: 4.3rem;  width: 23rem; padding: 1rem;">
                         <div class="d-flex flex-column justify-content-end align-items-center">
                             <div class="text-center mt-3">
-                                <h1 style="font-size: 1.5rem;">Heber Abiel Perez Jimenez</h1>
+                                <h1 style="font-size: 1.5rem;"><?=$usuario['nombres'] . " " . $usuario['apellido_paterno'] . " " . $usuario['apellido_materno'] ?></h1>
                                 <p class="mt-2">¡Tú eliges como cobrar!</p>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 <?php require base_path('views/partials/nav.php'); ?>
 
 <script src="cards.js" defer></script>
+<script src="js/admin.js"></script>
     
     <body class="container-fluid background-grape" style="display: flex; flex-direction: column; min-height: 100vh;">
         
@@ -64,12 +65,7 @@
                         <div class="input-group mb-3" style="width: fit-content;">
                             <form action="" class="dark">
                                 <div class="input-group">
-                                    <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="grey" class="bi bi-search" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                                        </svg>
-                                    </button>
-                                    <input type="text" class="form-control" style="height: 2.4rem; width: 31rem;" placeholder="Buscar clases, categorías..." >
+                                    <input type="text" class="form-control" style="height: 2.4rem; width: 31rem;" id="searchInput" placeholder="Buscar nombre de usuario..." oninput="filterUsers()">
                                 </div>
                             </form>
                         </div>
@@ -79,21 +75,10 @@
                         <div class="col d-flex align-items-center">
                             <small-darkgreen-text class="pl-2 col-3">Ordenar por</small-darkgreen-text>
                             <div class="dropdown d-flex justify-content-start">
-                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Nombre</a>
+                                <a class="dropdown-toggle" role="button" data-toggle="dropdown" id="btnOrderBy" aria-expanded="false">Nombre</a>
                                 <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
-                                    <a class="dropdown-item" href="#">Nombre</a>
-                                    <a class="dropdown-item" href="#">Último inicio de sesión</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col d-flex align-items-center">
-                            <small-darkgreen-text class="pl-2 col-2">mostrar</small-darkgreen-text>
-                            <div class="dropdown d-flex justify-content-start">
-                                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">Todos</a>
-                                <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
-                                    <a class="dropdown-item" href="#">Todos</a>
-                                    <a class="dropdown-item" href="#">Bloqueados</a>
-                                    <a class="dropdown-item" href="#">Activos</a>
+                                    <a class="dropdown-item" onclick="changeOrderBy('nombre')" >Nombre</a>
+                                    <a class="dropdown-item" onclick="changeOrderBy('fecha')" >Último inicio de sesión</a>
                                 </div>
                             </div>
                         </div>
@@ -108,111 +93,15 @@
                                 <tr>
                                 <th scope="col">Usuario</th>
                                 <th scope="col">Último inicio de sesión</th>
-                                <th scope="col">Estado</th>
-                                <th scope="col">Acción</th>
+                                <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Heber Abiel Perez Jimenez</td>
-                                    <td>24/12/2023</td>
-                                    <td>Bloqueado</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="UnlockUser()">Desbloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Marla Judith Estrada Valdez</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Carlos Daniel Pinkus Martinez</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ximena Guadalupe Rosales</td>
-                                    <td>24/12/2023</td>
-                                    <td>Bloqueado</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="UnlockUser()">Desbloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>María Mercedes Thomas Rivadulla</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Barak Obama</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Heber Abiel Perez Jimenez</td>
-                                    <td>24/12/2023</td>
-                                    <td>Bloqueado</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="UnlockUser()">Desbloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Marla Judith Estrada Valdez</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Carlos Daniel Pinkus Martinez</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ximena Guadalupe Rosales</td>
-                                    <td>24/12/2023</td>
-                                    <td>Bloqueado</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="UnlockUser()">Desbloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>María Mercedes Thomas Rivadulla</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Barak Obama</td>
-                                    <td>24/12/2023</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn sub-btn btn-block m-0" style="width: 90%;" onclick="LockUser()">Bloquear</button>
-                                    </td>
-                                </tr>
+                            <tbody id="contenedorUsuariosBloqueados">
                             </tbody>
                         </table>
                     </div>
 
+                    <!-- TO DO -->
                     <nav aria-label="Page navigation example d-flex justify-content-center">
                         <ul class="pagination d-flex justify-content-center align-items-center">
                             <li class="page-item">
@@ -223,7 +112,7 @@
                             </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item">de</li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
                                     <span aria-hidden="true" class="span">&raquo;</span>
@@ -473,7 +362,7 @@
             <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="categories">
                 <div class="levels-container filter d-flex flex-column">
                     <div class="header d-flex flex-wrap justify-content-between">
-                        <p><?=$usuario['nombres'] . " " . $usuario['apellido_paterno'] . " " . $usuario['apellido_materno'] ?></p>
+                        <p>Categorías creadas por <?=$usuario['nombres'] . " " . $usuario['apellido_paterno'] . " " . $usuario['apellido_materno'] ?></p>
                     </div>
                     <table class="table table-striped">
                         <thead>
@@ -485,55 +374,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    Diseño
-                                    <input type="text" value="Diseño" id="category1" name="category1" hidden>
-                                </td>
-                                <td>24/12/2023 12:00 hrs</td>
-                                <td>
-                                    <a onclick="readDescription()" class="text p-0 ml-0 bd-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-                                        </svg>
-                                        Ver descripción
-                                    </a>
-                                    <textarea type="text" id="description1" name="description1" hidden>Descripción blah blah blah</textarea>
-                                </td>
-                                <td>
-                                    <button class="btn sub-btn btn-block m-0" style="width: 100%;" onclick="EditCategory()">
-                                        Editar
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn sub-btn btn-block m-0" style="width: 100%;" onclick="DeleteCategory()">Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Marketing
-                                    <input type="text" value="Diseño" id="category2" name="category1" hidden>
-                                </td>
-                                <td>24/12/2023 12:00 hrs</td>
-                                <td>
-                                    <a onclick="readDescription()" class="text p-0 ml-0 bd-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-                                        </svg>
-                                        Ver descripción
-                                    </a>
-                                    <textarea type="text" id="description2" name="description1" hidden>Descripción blah blah blah</textarea>
-                                </td>
-                                <td>
-                                    <button class="btn sub-btn btn-block m-0" style="width: 100%;" onclick="EditCategory()">
-                                        Editar
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn sub-btn btn-block m-0" style="width: 100%;" onclick="DeleteCategory()">Eliminar</button>
-                                </td>
-                            </tr>
-
+                            <?php foreach($categorias as $categoria): ?>
+                                <tr>
+                                    <td>
+                                        <?=$categoria['nombre']?>
+                                    </td>
+                                    <td><?=date('d/m/Y H:i', strtotime($categoria['f_registro']))?></td> 
+                                    <td>
+                                        <a onclick="readDescription('<?=$categoria['descripcion']?>')" class="text p-0 ml-0 bd-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                                            </svg>
+                                            Ver descripción
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button class="btn sub-btn btn-block m-0" style="width: 100%;" onclick="EditCategory('<?=$categoria['ID_categoria']?>','<?=$categoria['nombre']?>','<?=$categoria['descripcion']?>')">
+                                            Editar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn sub-btn btn-block m-0" style="width: 100%;" onclick="DeleteCategory('<?=$categoria['ID_categoria']?>','<?=$categoria['nombre']?>')">Eliminar</button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -563,5 +427,6 @@
         </div>
     </div>
 </div>
+
 
 <?php require base_path('views/partials/footer.php'); ?>
