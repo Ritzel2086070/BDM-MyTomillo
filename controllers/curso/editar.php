@@ -9,5 +9,5 @@ $categorias = $db->query("SELECT ID_categoria, nombre FROM CATEGORIAS")->get();
 
 view("curso.php", [
     'categorias' => $categorias,
-    'title' => 'Nuevo curso'
+    'title' => 'Editar curso'
 ]);
