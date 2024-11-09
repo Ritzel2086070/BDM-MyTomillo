@@ -17,18 +17,28 @@
                 <div class="row d-flex justify-content-center">
                     <h3><?= $title ?></h3>
                 </div>
-                <form class="dark row w-100" action="/crearCurso" method="POST" onsubmit="return validacionCurso()" enctype="multipart/form-data">
+                <form class="dark row w-100" action="/updateCurso" method="POST" onsubmit="return validacionCurso()" enctype="multipart/form-data">
+                    <?php if($title == 'Editar curso'): ?>
+                        <input type="hidden" id="ID_cur" name="ID_cur" value="<?=$curso.ID_curso?>">
+                    <?php endif; ?>
                     <div class="col-8">
                         <div class="form-group d-flex justify-content-center mt-4">
-                            <input style="width: 100%;" type="text" class="form-control" id="inputNombreCurso" placeholder="Ingrese nombre del curso">
+                            <input style="width: 100%;" type="text" class="form-control" name="inputNombreCurso" id="inputNombreCurso" placeholder="Ingrese nombre del curso">
                         </div>
                         <div class="form-group d-flex justify-content-center mt-4 filter">
                             <div class="dropdown">
-                                <a class="dropdown-toggle form-control" id="categoryDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Seleccione categoría del nuevo curso</a>
+                                <a class="dropdown-toggle form-control" id="categoryDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <?php if($title == 'Editar curso'): ?>
+                                        <?= aaaaaaaaa?>
+                                    <?php else: ?>
+                                        Seleccione categoría del nuevo curso
+                                    <?php endif; ?>
+                                </a>
                                 <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
                                     <?php foreach($categorias as $categoria): ?>
-                                        <a class="dropdown-item" onclick="selectCategory('<?=$categoria['nombre']?>', 'categoryDropdown')"><?=$categoria['nombre']?></a>
-                                    <?php endforeach; ?>    
+                                        <a class="dropdown-item" onclick="selectCategory('<?=$categoria['nombre']?>', 'categoryDropdown', 'inputCategoria' ,'<?=$categoria['ID_categoria']?>')"><?=$categoria['nombre']?></a>
+                                    <?php endforeach; ?>
+                                    <input type="hidden" id="inputCategoria" name="inputCategoria">
                                 </div>
                             </div>
                         </div>
@@ -42,7 +52,7 @@
                         </div>
                         <div class="form-group d-flex justify-content-center align-items-center mt-0">
                             <p style="margin: 0;" class="pr-2">$</p>
-                            <input style="width: 92%;" type="text" id="inputPrecio" class="form-control" placeholder="Costo total del curso">
+                            <input style="width: 92%;" type="text" name="inputPrecio" id="inputPrecio" class="form-control" placeholder="Costo total del curso">
                             <input type="hidden" id="inputPrecioHidden" name="inputPrecioHidden">
                             <p style="margin: 0;" class="pl-2">MXN</p>
                         </div>
@@ -52,7 +62,7 @@
                         <div class="form-group d-flex justify-content-end mt-3">
                             <div class="d-flex flex-column justify-content-end align-items-center">
                                 <span class="course-image">
-                                    <img src="">
+                                    <img id="preview-image" src="">
                                 </span>
                                 <input type="file" name="file" id="file" class="inputfile">
                                 <small class="pt-1 pr-2">La imagen debe ser de 300x200</small>
@@ -73,7 +83,7 @@
 
                     <div class="col-12 mt-2">
                         <div class="form-group d-flex flex-column align-items-start">
-                            <textarea class="mb-3" rows="35" maxlength="9000" id="inputDescripcion" placeholder="Descripción del curso..."></textarea>
+                            <textarea class="mb-3" rows="35" maxlength="9000" name="inputDescripcion" id="inputDescripcion" placeholder="Descripción del curso..."></textarea>
                         </div>
                     </div>
 

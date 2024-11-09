@@ -14,7 +14,7 @@ window.onload = function() {
     });
 
     if (localStorage.getItem('nivel')) {
-        document.getElementById('nNivel').textContent = localStorage.getItem('nivel');
+        document.getElementById('nNivel').textContent = "Nivel " + localStorage.getItem('nivel');
     }
 
     document.getElementById('NumNiveles').addEventListener('change', function() {
@@ -104,6 +104,7 @@ window.onload = function() {
             input1.type = 'text';
             input1.classList.add('form-control');
             input1.placeholder = 'Ingrese nombre de la clase';
+            input1.name = 'nombreClase[]';
             formGroup1.appendChild(input1);
 
             const formGroup2 = document.createElement('div');
@@ -118,6 +119,7 @@ window.onload = function() {
             fileInput.accept = 'video/*';
             fileInput.style.display = 'none';
             fileInput.id = 'videoFileInput';
+            fileInput.name = 'videoClase[]';
 
             const button2 = document.createElement('button');
             button2.classList.add('btn', 'sub-btn', 'btn-block', 'col-3');
@@ -136,36 +138,9 @@ window.onload = function() {
                 
                 if (file) {
                     p2.textContent = file.name;
-            
-                    compressAndValidateVideo(file);
                 }
             });
             
-            function compressAndValidateVideo(file) {
-                const formData = new FormData();
-                formData.append('video', file);
-            
-                fetch('/compress-video', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        if (data.compressedSize <= maxVideoSize) {
-                            alert('El video se ha comprimido con éxito y ahora es apto para la base de datos.');
-                        } else {
-                            alert('Incluso después de la compresión, el video es demasiado grande.');
-                        }
-                    } else {
-                        alert('Hubo un error al comprimir el video: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error during compression:', error);
-                    alert('Error durante la compresión del video.');
-                });
-            }
 
             const formGroup3 = document.createElement('div');
             formGroup3.classList.add('form-group', 'd-flex', 'justify-content-center', 'mt-4');
@@ -176,6 +151,7 @@ window.onload = function() {
             textarea.maxLength = 9000;
             textarea.style.width = '90%';
             textarea.placeholder = 'Descripción de la clase...';
+            textarea.name = 'descripcionClase[]';
             formGroup3.appendChild(textarea);
 
             const formGroup4 = document.createElement('div');
@@ -184,6 +160,7 @@ window.onload = function() {
             const button3 = document.createElement('button');
             button3.classList.add('btn', 'sub-btn');
             button3.style.width = '25%';
+            button3.type = 'button';
 
             const svg3 = document.createElement('svg');
             svg3.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -205,6 +182,7 @@ window.onload = function() {
             const button4 = document.createElement('button');
             button4.classList.add('btn', 'sub-btn');
             button4.style.width = '25%';
+            button4.type = 'button';
 
             const svg4 = document.createElement('svg');
             svg4.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -265,31 +243,119 @@ window.onload = function() {
             
         }
     });
-};
-
-function validacionClase(){
+}; 
+async function validacionClase(event) {
+    event.preventDefault();
     let alert = "";
-    if($("#inputNombreNivel").val().trim() == ""){
+    const nombresClases = document.querySelectorAll("input[name='nombreClase[]']");
+    const descripcionesClases = document.querySelectorAll("textarea[name='descripcionClase[]']");
+    const videoFiles = document.querySelectorAll("input[name='videoClase[]']");
+
+    const nombreNivel = $("#inputNombreNivel").val().trim();
+    if (nombreNivel === "") {
         alert += "Ingrese el nombre del nivel\n";
     }
-    if($("#inputNombreNivel").val().trim().length > 100){
+    if (nombreNivel.length > 100) {
         alert += "El nombre del nivel no debe exceder los 100 caracteres\n";
     }
 
     const precio = parseFloat($("#inputPrecio").val().trim());
-    if(isNaN(precio) || precio === ""){
+    if (isNaN(precio) || precio === "") {
         alert += "Ingrese el precio del nivel\n";
     }
-    if(precio < 0){
+    if (precio < 0) {
         alert += "El precio del nivel no puede ser negativo\n";
     }
-    if(precio > 100000){
+    if (precio > 100000) {
         alert += "El precio del nivel no puede ser mayor a 100,000\n";
     }
 
-    if(alert != ""){
+    nombresClases.forEach((nombre, index) => {
+        if (nombre.value.trim() === '') {
+            alert += `Ingrese el nombre de la clase ${index + 1}\n`;
+        }
+        if (nombre.value.trim().length > 100) {
+            alert += `El nombre de la clase ${index + 1} no debe exceder los 100 caracteres\n`;
+        }
+    });
+
+    descripcionesClases.forEach((descripcion, index) => {
+        if (descripcion.value.trim() === '') {
+            alert += `Ingrese la descripción de la clase ${index + 1}\n`;
+        }
+        if (descripcion.value.trim().length > 65535) {
+            alert += `La descripción de la clase ${index + 1} no debe exceder los 65,535 caracteres\n`;
+        }
+    });
+
+    for (let i = 0; i < videoFiles.length; i++) {
+        const videoFile = videoFiles[i].files[0];
+        if (!videoFile) {
+            alert += `Debe seleccionar un video para la clase ${i + 1}\n`;
+        } else {
+            try {
+                const compressedData = await compressAndValidateVideo(videoFile);
+                console.log('Compressed Data:', compressedData);  // Log the compressed data
+            
+                if (compressedData.success) {
+                    const nivel = localStorage.getItem('nivel') || '1';
+                    let storedVideos = JSON.parse(localStorage.getItem(`Nivel_${nivel}_CompressedVideos`) || '[]');
+                    storedVideos.push(compressedData.compressedFileName); // Use compressedData.compressedFileName
+                    localStorage.setItem(`Nivel_${nivel}_CompressedVideos`, JSON.stringify(storedVideos));
+                } else {
+                    alert += `Error al comprimir el video para la clase ${i + 1}: ${compressedData.message}\n`;
+                }
+            } catch (error) {
+                console.error('Error during compression validation:', error);  // Log the actual error
+                alert += `Error durante la compresión del video para la clase ${i + 1}\n`;
+            }
+            
+        }
+    }
+
+    if (alert !== "") {
         alertCustom(alert);
         return false;
     }
-    return true;
+
+    // Save form data to localStorage
+    const nivel = localStorage.getItem('nivel') || '1';
+    localStorage.setItem(`NombreNivel_${nivel}`, nombreNivel);
+    localStorage.setItem(`PrecioNivel_${nivel}`, precio.toString());
+    localStorage.setItem(`NumClasesNivel_${nivel}`, nombresClases.length.toString());
+
+    localStorage.setItem(`Nivel_${nivel}_Clases`, JSON.stringify(Array.from(nombresClases).map(input => input.value.trim())));
+    localStorage.setItem(`Nivel_${nivel}_Descripciones`, JSON.stringify(Array.from(descripcionesClases).map(input => input.value.trim())));
+
+    if(localStorage.getItem('ID_cur')){
+        window.location.href = '/editar_curso';
+    } else {
+        window.location.href = '/nuevo_curso';
+    }
+}
+
+function compressAndValidateVideo(file) {
+    return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        formData.append('video', file);
+
+        alert('Comprimiendo video. Por favor espere.');
+
+        fetch('/compress-video', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                resolve({ success: true, compressedFileName: data.compressedFileName });
+            } else {
+                resolve({ success: false, message: data.message });
+            }
+        })
+        .catch(error => {
+            console.error('Error during compression:', error);
+            reject({ success: false, message: 'Error during compression.' });
+        });
+    });
 }

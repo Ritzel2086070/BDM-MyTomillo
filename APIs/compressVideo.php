@@ -1,5 +1,4 @@
 <?php
-
 use Core\App;
 use Core\Database;
 
@@ -44,6 +43,22 @@ if (!move_uploaded_file($videoFile['tmp_name'], $originalFilePath)) {
     exit();
 }
 
+// Check if a compressed file already exists
+if (file_exists($compressedFilePath)) {
+    // File with the same name exists, so we can either return the existing file
+    // or rename the new compressed file
+    // Return the existing file
+    echo json_encode([
+        'success' => true,
+        'message' => 'El archivo ya fue comprimido previamente',
+        'compressedFileName' => basename($compressedFilePath)
+    ]);
+    
+    // Clean up the original file (no need to compress again)
+    unlink($originalFilePath);
+    exit();
+}
+
 // Compress the video using FFmpeg
 $ffmpegCmd = "ffmpeg -i " . escapeshellarg($originalFilePath) . " -vcodec libx265 -crf 28 " . escapeshellarg($compressedFilePath);
 exec($ffmpegCmd, $output, $returnCode);
@@ -76,7 +91,8 @@ if ($compressedSize > $maxFileSize) {
 echo json_encode([
     'success' => true,
     'message' => 'El video se ha subido y comprimido correctamente',
-    'compressedSize' => $compressedSize
+    'compressedSize' => $compressedSize,
+    'compressedFileName' => basename($compressedFilePath) // Send back the compressed file name
 ]);
 
 // Clean up the original file after compression

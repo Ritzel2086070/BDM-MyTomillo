@@ -18,10 +18,14 @@ $router->post('/deleteCategory', 'controllers/categoria/eliminar.php')->only('au
 $router->post('/unlockUser', 'controllers/usuario/desbloquear.php')->only('auth')->only('admin');
 $router->post('/blockedUsers', 'controllers/usuario/v_bloqueados.php')->only('auth')->only('admin');
 $router->get('/nuevo_curso', 'controllers/curso/nuevo.php')->only('auth')->only('teacher');
-$router->get('/editar_curso', 'controllers/curso/editar.php')->only('auth')->only('teacher');
-$router->post('/crearCurso', 'controllers/curso/agregar.php')->only('auth')->only('teacher');
+$router->post('/editar_curso', 'controllers/curso/editar.php')->only('auth')->only('teacher');
+$router->post('/updateCurso', 'controllers/curso/update.php')->only('auth')->only('teacher');
 $router->get('/nueva_clase', 'controllers/clase/nueva.php')->only('auth')->only('teacher');
 $router->post('/compress-video', 'APIs/compressVideo.php')->only('auth')->only('teacher');
+$router->post('/teacherCursos', 'controllers/curso/v_teacherCursos.php')->only('auth')->only('teacher');
+$router->post('/teacherCursosAlumnos', 'controllers/curso/v_teacherCursosAlumnos.php')->only('auth')->only('teacher');
+$router->post('/teacherIngresos', 'controllers/curso/v_teacherIngresos.php')->only('auth')->only('teacher');
+
 
 /*
 

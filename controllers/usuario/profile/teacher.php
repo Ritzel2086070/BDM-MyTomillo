@@ -9,9 +9,13 @@ $info = $db->query("SELECT nombres, apellido_paterno, apellido_materno, f_nacimi
     $_SESSION['user']['id']
 ])->find();
 $categorias = $db->query("SELECT ID_categoria, nombre FROM CATEGORIAS")->get();
+$n_cursos = $db->query("SELECT COUNT(*) as n_cursos FROM CURSOS WHERE ID_maestro = ?", [
+    $_SESSION['user']['id_rol']
+])->find();
 
 view("profile/teacher.php",  [
     'generos' => $generos,
     'usuario' => $info,
-    'categorias' => $categorias
+    'categorias' => $categorias,
+    'n_cursos' => $n_cursos['n_cursos']
 ]);

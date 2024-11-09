@@ -202,8 +202,11 @@ function register() {
     return true;
 }
 
-function selectCategory(category, id) {
+function selectCategory(category, id, idInput , idCat) {
     document.getElementById(id).textContent = category;
+    if (idInput !== undefined) {
+        document.getElementById(idInput).value = idCat;
+    }
 }
 
 

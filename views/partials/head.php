@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
         echo "alertSuccess($safeSuccess);";
         $_SESSION['success'] = null;
     }
+    if ($_SESSION['delete_local'] === true){
+        echo "localStorage.clear();";
+        $_SESSION['delete_local'] = null;
+    }
 
     ?>
 });

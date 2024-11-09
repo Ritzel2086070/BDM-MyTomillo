@@ -17,7 +17,7 @@
                 <div class="row d-flex justify-content-center">
                     <h3 id="nNivel"></h3>
                 </div>
-                <form action="/editarNivel" method="POST" onsubmit="return validacionClase()" enctype="multipart/form-data" class="dark row w-100">
+                <form action="/crearClase" method="POST" onsubmit="return validacionClase(event)" enctype="multipart/form-data" class="dark row w-100">
                     <div class="col-12">
                         <div class="form-group d-flex justify-content-center mt-4">
                             <input style="width: 100%;" id="inputNombreNivel" name="inputNombreNivel" type="text" class="form-control" placeholder="Ingrese nombre del nivel">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group d-flex justify-content-center align-items-center mt-0">
                             <p style="margin: 0;" class="pr-2">$</p>
-                            <input style="width: 92%;" type="text" id="inputPrecio" class="form-control" placeholder="Costo total del curso">
+                            <input style="width: 92%;" type="text" name="inputPrecio" id="inputPrecio" class="form-control" placeholder="Costo total del curso">
                             <input type="hidden" id="inputPrecioHidden" name="inputPrecioHidden">
                             <p style="margin: 0;" class="pl-2">MXN</p>
                         </div>

@@ -44,6 +44,8 @@ window.onload = function() {
             alertCustom("Error al cargar la imagen.");
             event.target.value = '';
         };
+
+        document.getElementById('preview-image').src = URL.createObjectURL(file);
     });
 
     document.getElementById('addAprendizajeBtn').addEventListener('click', function() {
@@ -89,6 +91,24 @@ window.onload = function() {
             p.classList.add('flex-grow-1', 'pl-4');
             p.textContent = 'Nivel ' + i;
 
+            const nombreNivelInput = document.createElement('input');
+            nombreNivelInput.type = 'hidden';
+            nombreNivelInput.name = `NombreNivel[]`;
+            nivelesContainer.appendChild(nombreNivelInput);
+
+            const precioNivelInput = document.createElement('input');
+            precioNivelInput.type = 'hidden';
+            precioNivelInput.name = `PrecioNivel[]`;
+            nivelesContainer.appendChild(precioNivelInput);
+
+            if(localStorage.getItem(`NombreNivel_${i}`)){
+                p.textContent = localStorage.getItem(`NombreNivel_${i}`);
+                nombreNivelInput.value = localStorage.getItem(`NombreNivel_${i}`);
+                precioNivelInput.value = localStorage.getItem(`PrecioNivel_${i}`);
+
+            }
+            
+
             button.appendChild(p);
 
             const profileCourse = document.createElement('div');
@@ -112,8 +132,11 @@ window.onload = function() {
                 });
                 localStorage.setItem('aprendizajes', JSON.stringify(aprendizajes));
             
-                localStorage.setItem('nivel', 'Nivel ' + i);
+                localStorage.setItem('nivel', i);
             
+                if(document.getElementById('ID_cur')){
+                    localStorage.setItem('ID_cur', document.getElementById('ID_cur').value);
+                }
                 window.location.href = '/nueva_clase';
             };
             
@@ -182,6 +205,50 @@ window.onload = function() {
             th.scope = 'col';
             tr.appendChild(th);
             thead.appendChild(tr);
+
+            const numClasesNivelInput = document.createElement('input');
+            numClasesNivelInput.type = 'hidden';
+            numClasesNivelInput.name = `NumClasesNivel[]`;
+            nivelesContainer.appendChild(numClasesNivelInput);
+
+            if(localStorage.getItem(`NumClasesNivel_${i}`)){
+                numClasesNivelInput.value = localStorage.getItem(`NumClasesNivel_${i}`);
+
+                const tbody = document.createElement('tbody');
+
+                const classNames = JSON.parse(localStorage.getItem(`Nivel_${i}_Clases`));
+                const classDescriptions = JSON.parse(localStorage.getItem(`Nivel_${i}_Descripciones`));
+                const compressedVideos = JSON.parse(localStorage.getItem(`Nivel_${i}_CompressedVideos`));
+                for (let j = 0; j < classNames.length; j++) {
+                    const nivelClasesInput = document.createElement('input');
+                    nivelClasesInput.type = 'hidden';
+                    nivelClasesInput.name = `Clases[]`;
+                    nivelClasesInput.value = classNames[j];
+                    nivelesContainer.appendChild(nivelClasesInput);
+                    const nivelDescripcionesInput = document.createElement('input');
+                    nivelDescripcionesInput.type = 'hidden';
+                    nivelDescripcionesInput.name = `Descripciones[]`;
+                    nivelDescripcionesInput.value = classDescriptions[j];
+                    nivelesContainer.appendChild(nivelDescripcionesInput);
+                    const nivelCompressedVideosInput = document.createElement('input');
+                    nivelCompressedVideosInput.type = 'hidden';
+                    nivelCompressedVideosInput.name = `CompressedVideos[]`;
+                    nivelCompressedVideosInput.value = compressedVideos[j];
+                    nivelesContainer.appendChild(nivelCompressedVideosInput);
+
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td');
+
+                    td.textContent = classNames[j];
+
+                    tr.appendChild(td);
+                    tbody.appendChild(tr);
+                }
+
+                table.appendChild(tbody);
+                
+            }
+
             table.appendChild(thead);
             lesson.appendChild(table);
             nivelesContainer.appendChild(lesson);
@@ -211,10 +278,6 @@ window.onload = function() {
 
     if (localStorage.getItem('nombreCurso')) {
         $("#inputNombreCurso").val(localStorage.getItem('nombreCurso'));
-    }
-
-    if (localStorage.getItem('selectedCategory')) {
-        document.getElementById('categoryDropdown').textContent = localStorage.getItem('selectedCategory');
     }
 
     if (localStorage.getItem('precio')) {

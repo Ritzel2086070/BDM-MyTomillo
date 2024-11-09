@@ -1,0 +1,18 @@
+[2024-11-09 05:06:51] Script execution started.
+[2024-11-09 05:06:51] ID_curso: NULL
+[2024-11-09 05:06:51] Option: agregar
+[2024-11-09 05:06:51] Course details: Categoria = 4, Maestro = 2, Titulo = curso HTTYD, Precio = 1000
+[2024-11-09 05:06:51] Image found. Preparing to save image data.
+[2024-11-09 05:06:51] Calling sp_update_cursos stored procedure.
+[2024-11-09 05:06:51] Course created/updated. Course ID: {"ID_curso":4}
+[2024-11-09 05:06:51] Adding aprendizaje: COSAS
+[2024-11-09 05:06:51] Adding aprendizaje: SOBRE
+[2024-11-09 05:06:51] Adding aprendizaje: HOW TO
+[2024-11-09 05:06:51] Adding aprendizaje: TRAIN
+[2024-11-09 05:06:51] Adding aprendizaje: YOUR DRAGON
+[2024-11-09 05:06:51] Adding nivel: HTTP with price 0
+[2024-11-09 05:06:51] Nivel ID: {"ID_nivel":1}
+[2024-11-09 05:06:51] Processing clase: TEST, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_LECCION_1_MODELADO.mp4
+[2024-11-09 05:06:51] Video file found: compressed_LECCION_1_MODELADO.mp4
+[2024-11-09 05:06:52] Clase added/updated. Clase: TEST
+[2024-11-09 05:06:52] Course registration successful.
