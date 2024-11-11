@@ -4,6 +4,10 @@ window.onload = function() {
     let checkbox = document.getElementById('checkbox-gratis');
     let precioInput = document.getElementById('inputPrecio');
 
+    document.getElementById('regresar').addEventListener('click', function() {
+        window.history.back();
+    });
+
     checkbox.addEventListener('change', function() {
         if (this.checked) {
             precioInput.value = 0;
@@ -17,8 +21,20 @@ window.onload = function() {
         document.getElementById('nNivel').textContent = "Nivel " + localStorage.getItem('nivel');
     }
 
-    document.getElementById('NumNiveles').addEventListener('change', function() {
-        const numClases = parseInt(this.value);
+    if(localStorage.getItem(`NumClasesNivel_${localStorage.getItem('nivel')}`)){
+        document.getElementById('NumClases').value = localStorage.getItem(`NumClasesNivel_${localStorage.getItem('nivel')}`);
+    }
+
+    if(localStorage.getItem(`NombreNivel_${localStorage.getItem('nivel')}`)){
+        document.getElementById('inputNombreNivel').value = localStorage.getItem(`NombreNivel_${localStorage.getItem('nivel')}`);
+    }
+
+    if(localStorage.getItem(`PrecioNivel_${localStorage.getItem('nivel')}`)){
+        document.getElementById('inputPrecio').value = localStorage.getItem(`PrecioNivel_${localStorage.getItem('nivel')}`);
+    }
+
+    function loadClases(){
+        let numClases = document.getElementById('NumClases').value;
         const clasesContainer = document.getElementById('levels-container');
         clasesContainer.innerHTML = '';
 
@@ -30,6 +46,11 @@ window.onload = function() {
 
         header.appendChild(headerTitle);
         clasesContainer.appendChild(header);
+
+        let storedClases = JSON.parse(localStorage.getItem(`Nivel_${localStorage.getItem('nivel')}_Clases`) || '[]');
+        let storedDescripciones = JSON.parse(localStorage.getItem(`Nivel_${localStorage.getItem('nivel')}_Descripciones`) || '[]');
+        let storedVideos = JSON.parse(localStorage.getItem(`Nivel_${localStorage.getItem('nivel')}_CompressedVideos`) || '[]');
+        let storedClaseIDs = JSON.parse(localStorage.getItem(`Nivel_${localStorage.getItem('nivel')}_Clases_IDs`) || '[]');
 
         for (let i = 1; i <= numClases; i++) {
             const clase = document.createElement('div');
@@ -50,48 +71,10 @@ window.onload = function() {
             p.textContent = 'Clase ' + i + '.';
             button.appendChild(p);
 
-            const profileCourse = document.createElement('div');
-            profileCourse.classList.add('profile-course', 'd-flex', 'align-items-center', 'ml-auto', 'bd-highlight');
-
-            const a = document.createElement('a');
-            a.href = '';
-            a.classList.add('mx-2', 'pl-5');
-            a.style.height = '1.5rem';
-
-            const svg = document.createElement('svg');
-            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-            svg.setAttribute('width', '16');
-            svg.setAttribute('height', '16');
-            svg.setAttribute('fill', '#86BD7B');
-            svg.classList.add('bi', 'bi-trash3');
-            svg.setAttribute('viewBox', '0 0 16 16');
-
-            const path = document.createElement('path');
-            path.setAttribute('d', 'M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5');
-            svg.appendChild(path);
-            a.appendChild(svg);
-            profileCourse.appendChild(a);
-
             col.appendChild(button);
-            col.appendChild(profileCourse);
             clase.appendChild(col);
             clasesContainer.appendChild(clase);
 
-            /*<div class="row ml-0 mr-0" style="background-color: #130924;">
-                <div class="col-12 d-flex justify-content-start align-items-center d-flex bd-highlight">
-                    <button type="button" class="btn btn-block level p-2 flex-grow-1 bd-highlight" data-toggle="collapse" data-target="#lesson10">
-                        <p class="flex-grow-1 pl-4">Clase 1. Fundamentos y bases de HTML</p>
-                    </button>
-                    <div class="profile-course d-flex align-items-center ml-auto bd-highlight">
-                        <a href="" class="mx-2 pl-5" style="height: 1.5rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#86BD7B" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            */
             const lesson = document.createElement('div');
             lesson.id = 'lesson' + i;
             lesson.classList.add('collapse', 'pl-2');
@@ -105,6 +88,7 @@ window.onload = function() {
             input1.classList.add('form-control');
             input1.placeholder = 'Ingrese nombre de la clase';
             input1.name = 'nombreClase[]';
+            input1.value = storedClases[i-1] || '';
             formGroup1.appendChild(input1);
 
             const formGroup2 = document.createElement('div');
@@ -112,7 +96,7 @@ window.onload = function() {
 
             const p2 = document.createElement('p');
             p2.classList.add('col-9');
-            p2.textContent = 'Seleccione un video';
+            p2.textContent = storedVideos[i-1] || 'Seleccione un video';
 
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
@@ -152,6 +136,7 @@ window.onload = function() {
             textarea.style.width = '90%';
             textarea.placeholder = 'Descripción de la clase...';
             textarea.name = 'descripcionClase[]';
+            textarea.value = storedDescripciones[i-1] || '';
             formGroup3.appendChild(textarea);
 
             const formGroup4 = document.createElement('div');
@@ -209,40 +194,13 @@ window.onload = function() {
             lesson.appendChild(formGroup3);
             lesson.appendChild(formGroup4);
             clasesContainer.appendChild(lesson);
-
-            /*
-            <div id="lesson10" class="collapse pl-2">
-                <div class="form-group d-flex justify-content-center mt-4">
-                    <input style="width: 90%;" type="text" class="form-control" placeholder="Ingrese nombre de la clase">
-                </div>
-                <div class="form-group d-flex justify-content-center mt-4 pr-5 pl-5">
-                    <p class="col-9">Nombre del video blah blah blah.mp4</p>
-                    <button class="btn sub-btn btn-block col-3">Subir video</button>
-                </div>
-                <div class="form-group d-flex justify-content-center mt-4">
-                    <textarea class="mb-3" rows="35" maxlength="9000" placeholder="Descripción de la clase..." style="width: 90%;"></textarea>
-                </div>
-                <div class="d-flex flex-row bd-highlight mb-3 justify-content-around align-items-center mt-4">
-                    <button class="btn sub-btn" style="width: 25%">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#86BD7B" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                            </svg>
-                        Agregar material
-                    </button>
-                
-                    <button class="btn sub-btn" style="width: 25%">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#86BD7B" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                            </svg>
-                        Agregar link
-                    </button>
-                </div>
-            </div> */
             
         }
-    });
+    }
+
+    document.getElementById('NumClases').addEventListener('change', loadClases);
+
+    loadClases();
 }; 
 async function validacionClase(event) {
     event.preventDefault();
@@ -288,9 +246,14 @@ async function validacionClase(event) {
         }
     });
 
+    let storedVideos = JSON.parse(localStorage.getItem(`Nivel_${localStorage.getItem('nivel')}_CompressedVideos`) || '[]');
+        
     for (let i = 0; i < videoFiles.length; i++) {
         const videoFile = videoFiles[i].files[0];
         if (!videoFile) {
+            if (storedVideos[i]) {
+                continue;
+            }
             alert += `Debe seleccionar un video para la clase ${i + 1}\n`;
         } else {
             try {
@@ -319,19 +282,45 @@ async function validacionClase(event) {
     }
 
     // Save form data to localStorage
-    const nivel = localStorage.getItem('nivel') || '1';
+    const nivel = localStorage.getItem('nivel') || '1'; // Assuming 'nivel' is dynamically set or retrieved from the UI.
     localStorage.setItem(`NombreNivel_${nivel}`, nombreNivel);
     localStorage.setItem(`PrecioNivel_${nivel}`, precio.toString());
     localStorage.setItem(`NumClasesNivel_${nivel}`, nombresClases.length.toString());
 
+    // Storing class names and descriptions
     localStorage.setItem(`Nivel_${nivel}_Clases`, JSON.stringify(Array.from(nombresClases).map(input => input.value.trim())));
     localStorage.setItem(`Nivel_${nivel}_Descripciones`, JSON.stringify(Array.from(descripcionesClases).map(input => input.value.trim())));
 
-    if(localStorage.getItem('ID_cur')){
-        window.location.href = '/editar_curso';
+    // Store class IDs (if available) in localStorage for this nivel
+    const claseIDs = Array.from(nombresClases).map(input => input.dataset.claseId); // Assuming you store class IDs in a data attribute
+    localStorage.setItem(`Nivel_${nivel}_Clases_IDs`, JSON.stringify(claseIDs));
+
+    // Check if the course ID exists and submit the form
+    if (localStorage.getItem('ID_curso')) {
+        const form = document.createElement('form');
+        form.action = '/editar_curso';
+        form.method = 'POST';
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'id';
+        input.value = localStorage.getItem('ID_curso');
+        form.appendChild(input);
+
+        // Optional: Include class IDs as hidden fields if needed for backend processing
+        const clasesInput = document.createElement('input');
+        clasesInput.type = 'hidden';
+        clasesInput.name = 'clases_ids';
+        clasesInput.value = JSON.stringify(claseIDs); // You can include class IDs here
+        form.appendChild(clasesInput);
+
+        document.body.appendChild(form);
+        form.submit();
     } else {
+        // If no course ID exists, navigate to the page for creating a new course
         window.location.href = '/nuevo_curso';
     }
+
 }
 
 function compressAndValidateVideo(file) {

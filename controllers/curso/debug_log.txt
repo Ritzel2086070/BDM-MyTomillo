@@ -1,18 +1,49 @@
-[2024-11-09 05:06:51] Script execution started.
-[2024-11-09 05:06:51] ID_curso: NULL
-[2024-11-09 05:06:51] Option: agregar
-[2024-11-09 05:06:51] Course details: Categoria = 4, Maestro = 2, Titulo = curso HTTYD, Precio = 1000
-[2024-11-09 05:06:51] Image found. Preparing to save image data.
-[2024-11-09 05:06:51] Calling sp_update_cursos stored procedure.
-[2024-11-09 05:06:51] Course created/updated. Course ID: {"ID_curso":4}
-[2024-11-09 05:06:51] Adding aprendizaje: COSAS
-[2024-11-09 05:06:51] Adding aprendizaje: SOBRE
-[2024-11-09 05:06:51] Adding aprendizaje: HOW TO
-[2024-11-09 05:06:51] Adding aprendizaje: TRAIN
-[2024-11-09 05:06:51] Adding aprendizaje: YOUR DRAGON
-[2024-11-09 05:06:51] Adding nivel: HTTP with price 0
-[2024-11-09 05:06:51] Nivel ID: {"ID_nivel":1}
-[2024-11-09 05:06:51] Processing clase: TEST, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_LECCION_1_MODELADO.mp4
-[2024-11-09 05:06:51] Video file found: compressed_LECCION_1_MODELADO.mp4
-[2024-11-09 05:06:52] Clase added/updated. Clase: TEST
-[2024-11-09 05:06:52] Course registration successful.
+[2024-11-11 02:02:55] Script execution started.
+[2024-11-11 02:02:55] POST Data: {"ID_cur":"14","inputNombreCurso":"curso","inputCategoria":"6","inputPrecio":"0.00","aprendizajes":["aprendizaje"],"ID_aprendizaje":["22"],"inputDescripcion":"descripcion","NumNiveles":"2","NombreNivel":["nivel 1","nivel 2"],"PrecioNivel":["0.00","0.00"],"ID_nivel":["",""],"NumClasesNivel":["1","1"],"clasesNivel_1":["clase 1"],"descripcionesNivel_1":["descripcion 1"],"ID_clase_1":["1"],"CompressedVideos_1":[""],"clasesNivel_2":["nivel 2 clase 1"],"descripcionesNivel_2":["nivel 2 descripcion clase 1"],"ID_clase_2":["1"],"CompressedVideos_2":[""]}
+[2024-11-11 02:02:55] Option: actualizar
+[2024-11-11 02:02:55] Course created/updated. Course ID: {"ID_curso":14}
+[2024-11-11 02:02:55] Adding/updating aprendizaje: aprendizaje (ID: 22)
+[2024-11-11 02:02:55] Adding/updating nivel: nivel 1 with price 0.00 (ID: 1)
+[2024-11-11 02:02:55] Nivel ID: {"ID_nivel":1}
+[2024-11-11 02:02:55] POST Data: {"ID_cur":"14","inputNombreCurso":"curso","inputCategoria":"6","inputPrecio":"0.00","aprendizajes":["aprendizaje"],"ID_aprendizaje":["22"],"inputDescripcion":"descripcion","NumNiveles":"2","NombreNivel":["nivel 1","nivel 2"],"PrecioNivel":["0.00","0.00"],"ID_nivel":["",""],"NumClasesNivel":["1","1"],"clasesNivel_1":["clase 1"],"descripcionesNivel_1":["descripcion 1"],"ID_clase_1":["1"],"CompressedVideos_1":[""],"clasesNivel_2":["nivel 2 clase 1"],"descripcionesNivel_2":["nivel 2 descripcion clase 1"],"ID_clase_2":["1"],"CompressedVideos_2":[""]}
+[2024-11-11 02:02:55] Clases: ["clase 1"]
+[2024-11-11 02:02:55] Descripciones: ["descripcion 1"]
+[2024-11-11 02:02:55] Videos: [""]
+[2024-11-11 02:02:55] Processing clase: clase 1, Video Name: 
+[2024-11-11 02:02:55] No video provided for clase: clase 1
+[2024-11-11 02:02:55] Clase added/updated. Clase: clase 1
+[2024-11-11 02:02:55] Adding/updating nivel: nivel 2 with price 0.00 (ID: 2)
+[2024-11-11 02:02:55] Nivel ID: {"ID_nivel":2}
+[2024-11-11 02:02:55] POST Data: {"ID_cur":"14","inputNombreCurso":"curso","inputCategoria":"6","inputPrecio":"0.00","aprendizajes":["aprendizaje"],"ID_aprendizaje":["22"],"inputDescripcion":"descripcion","NumNiveles":"2","NombreNivel":["nivel 1","nivel 2"],"PrecioNivel":["0.00","0.00"],"ID_nivel":["",""],"NumClasesNivel":["1","1"],"clasesNivel_1":["clase 1"],"descripcionesNivel_1":["descripcion 1"],"ID_clase_1":["1"],"CompressedVideos_1":[""],"clasesNivel_2":["nivel 2 clase 1"],"descripcionesNivel_2":["nivel 2 descripcion clase 1"],"ID_clase_2":["1"],"CompressedVideos_2":[""]}
+[2024-11-11 02:02:55] Clases: ["nivel 2 clase 1"]
+[2024-11-11 02:02:55] Descripciones: ["nivel 2 descripcion clase 1"]
+[2024-11-11 02:02:55] Videos: [""]
+[2024-11-11 02:02:55] Processing clase: nivel 2 clase 1, Video Name: 
+[2024-11-11 02:02:55] No video provided for clase: nivel 2 clase 1
+[2024-11-11 02:02:55] Clase added/updated. Clase: nivel 2 clase 1
+[2024-11-11 02:02:55] Course registration successful.
+[2024-11-11 02:04:39] Script execution started.
+[2024-11-11 02:04:39] POST Data: {"ID_cur":"14","inputNombreCurso":"curso","inputCategoria":"6","inputPrecio":"0.00","aprendizajes":["aprendizaje","aprendizaje2"],"ID_aprendizaje":["22",""],"inputDescripcion":"descripcion editada","NumNiveles":"2","NombreNivel":["nivel 1","nivel 2"],"PrecioNivel":["0.00","0.00"],"ID_nivel":["",""],"NumClasesNivel":["1","1"],"clasesNivel_1":["clase 1"],"descripcionesNivel_1":["descripcion 1"],"ID_clase_1":["1"],"CompressedVideos_1":[""],"clasesNivel_2":["nivel 2 clase 1"],"descripcionesNivel_2":["nivel 2 descripcion clase 1"],"ID_clase_2":["1"],"CompressedVideos_2":[""]}
+[2024-11-11 02:04:39] Option: actualizar
+[2024-11-11 02:04:39] Course created/updated. Course ID: {"ID_curso":14}
+[2024-11-11 02:04:39] Adding/updating aprendizaje: aprendizaje (ID: 22)
+[2024-11-11 02:04:39] Adding/updating aprendizaje: aprendizaje2 (ID: )
+[2024-11-11 02:04:39] Adding/updating nivel: nivel 1 with price 0.00 (ID: 1)
+[2024-11-11 02:04:39] Nivel ID: {"ID_nivel":1}
+[2024-11-11 02:04:39] POST Data: {"ID_cur":"14","inputNombreCurso":"curso","inputCategoria":"6","inputPrecio":"0.00","aprendizajes":["aprendizaje","aprendizaje2"],"ID_aprendizaje":["22",""],"inputDescripcion":"descripcion editada","NumNiveles":"2","NombreNivel":["nivel 1","nivel 2"],"PrecioNivel":["0.00","0.00"],"ID_nivel":["",""],"NumClasesNivel":["1","1"],"clasesNivel_1":["clase 1"],"descripcionesNivel_1":["descripcion 1"],"ID_clase_1":["1"],"CompressedVideos_1":[""],"clasesNivel_2":["nivel 2 clase 1"],"descripcionesNivel_2":["nivel 2 descripcion clase 1"],"ID_clase_2":["1"],"CompressedVideos_2":[""]}
+[2024-11-11 02:04:39] Clases: ["clase 1"]
+[2024-11-11 02:04:39] Descripciones: ["descripcion 1"]
+[2024-11-11 02:04:39] Videos: [""]
+[2024-11-11 02:04:39] Processing clase: clase 1, Video Name: 
+[2024-11-11 02:04:39] No video provided for clase: clase 1
+[2024-11-11 02:04:39] Clase added/updated. Clase: clase 1
+[2024-11-11 02:04:39] Adding/updating nivel: nivel 2 with price 0.00 (ID: 2)
+[2024-11-11 02:04:39] Nivel ID: {"ID_nivel":2}
+[2024-11-11 02:04:39] POST Data: {"ID_cur":"14","inputNombreCurso":"curso","inputCategoria":"6","inputPrecio":"0.00","aprendizajes":["aprendizaje","aprendizaje2"],"ID_aprendizaje":["22",""],"inputDescripcion":"descripcion editada","NumNiveles":"2","NombreNivel":["nivel 1","nivel 2"],"PrecioNivel":["0.00","0.00"],"ID_nivel":["",""],"NumClasesNivel":["1","1"],"clasesNivel_1":["clase 1"],"descripcionesNivel_1":["descripcion 1"],"ID_clase_1":["1"],"CompressedVideos_1":[""],"clasesNivel_2":["nivel 2 clase 1"],"descripcionesNivel_2":["nivel 2 descripcion clase 1"],"ID_clase_2":["1"],"CompressedVideos_2":[""]}
+[2024-11-11 02:04:39] Clases: ["nivel 2 clase 1"]
+[2024-11-11 02:04:39] Descripciones: ["nivel 2 descripcion clase 1"]
+[2024-11-11 02:04:39] Videos: [""]
+[2024-11-11 02:04:39] Processing clase: nivel 2 clase 1, Video Name: 
+[2024-11-11 02:04:39] No video provided for clase: nivel 2 clase 1
+[2024-11-11 02:04:39] Clase added/updated. Clase: nivel 2 clase 1
+[2024-11-11 02:04:39] Course registration successful.

@@ -15,17 +15,15 @@ function logMessage($message) {
 // Start logging
 logMessage("Script execution started.");
 
-$ID_curso = $_POST['ID_cur'];
-logMessage("ID_curso: " . ($ID_curso ? $ID_curso : 'NULL'));
+logMessage("POST Data: " . json_encode($_POST));
 
-if($ID_curso){
-    $opcion = 'actualizar';
-} else {
-    $ID_curso = null;
-    $opcion = 'agregar';
-}
+// Determine if we're adding or updating the course
+$ID_curso = $_POST['ID_cur'];
+$opcion = $ID_curso ? 'actualizar' : 'agregar'; // Set option based on whether course ID exists
+
 logMessage("Option: " . $opcion);
 
+// Retrieve other course details
 $ID_categoria = $_POST['inputCategoria'];
 $ID_maestro = $_SESSION['user']['id_rol'];
 $imagen = $_FILES['file'];
@@ -33,110 +31,156 @@ $titulo = $_POST['inputNombreCurso'];
 $descripcion = $_POST['inputDescripcion'];
 $precio = $_POST['inputPrecio'];
 
-logMessage("Course details: Categoria = $ID_categoria, Maestro = $ID_maestro, Titulo = $titulo, Precio = $precio");
-
+// Handle image file (if exists)
 $imageData = null;
 if (isset($imagen) && $imagen['error'] === 0) {
     logMessage("Image found. Preparing to save image data.");
-    $imageData = file_get_contents($imagen['tmp_name']);  // Convert the file to binary
-} else {
-    logMessage("No image or image error detected.");
+    $imageData = file_get_contents($imagen['tmp_name']);  // Convert the image to binary data
 }
 
+// Begin transaction (if required)
 try {
-    logMessage("Calling sp_update_cursos stored procedure.");
+    // If updating, fetch existing levels (niveles), classes (clases), and learning objectives (aprendizajes)
+    if ($opcion == 'actualizar') {
+        // Fetch existing levels for the course
+        $niveles = $db->query("SELECT * FROM NIVELES WHERE ID_curso = ?", [$ID_curso])->get();
+        // Fetch existing classes for the course
+        $clases = $db->query("SELECT * FROM CLASES WHERE ID_curso = ?", [$ID_curso])->get();
+        // Fetch existing learning objectives for the course
+        $aprendizajes = $db->query("SELECT * FROM APRENDIZAJES WHERE ID_curso = ?", [$ID_curso])->get();
+    }
+
+    // Update course details (add or update)
     $ID_curso = $db->query("CALL sp_update_cursos(?,?,?,?,?,?,?,?)", [
-        $opcion,
-        $ID_categoria,
-        $ID_maestro,
-        $imageData,
-        $titulo,
-        $descripcion,
-        $precio,
+        $opcion, 
+        $ID_categoria, 
+        $ID_maestro, 
+        $imageData, 
+        $titulo, 
+        $descripcion, 
+        $precio, 
         $ID_curso
     ])->find();
-    
+
     logMessage("Course created/updated. Course ID: " . json_encode($ID_curso));
 
-    if ($ID_curso) {
-        $aprendizajes = $_POST['aprendizajes'];
-        $ID_aprendizaje = null;
+    // Process aprendizajes (learning objectives)
+    $aprendizajesPost = $_POST['aprendizajes'];
+    foreach ($aprendizajesPost as $key => $aprendizaje) {
+        // If updating, use the existing aprendizajes' ID, else create a new one
+        $ID_aprendizaje = ($opcion == 'actualizar' && isset($aprendizajes[$key])) ? $aprendizajes[$key]['ID_aprendizaje'] : null;
+        
+        logMessage("Adding/updating aprendizaje: $aprendizaje (ID: $ID_aprendizaje)");
+        $db->query("CALL sp_update_aprendizajes(?,?,?,?)", [
+            $opcion, 
+            $ID_curso['ID_curso'], 
+            $aprendizaje, 
+            $ID_aprendizaje
+        ])->find();
+    }
 
-        foreach ($aprendizajes as $key => $aprendizaje) {
-            logMessage("Adding aprendizaje: $aprendizaje");
-            $db->query("CALL sp_update_aprendizajes(?,?,?,?)", [
-                $opcion,
-                $ID_curso['ID_curso'],
-                $aprendizaje,
-                $ID_aprendizaje
-            ])->find();
+    // Process niveles (levels)
+    $nombreNivel = $_POST['NombreNivel'];
+    $precioNivel = $_POST['PrecioNivel'];
+    foreach ($nombreNivel as $nivelKey => $nivel) {
+        // If updating, use the existing niveles' ID, else create a new one
+        $ID_nivel = ($opcion == 'actualizar' && isset($niveles[$nivelKey])) ? $niveles[$nivelKey]['ID_nivel'] : null;
+    
+        logMessage("Adding/updating nivel: $nivel with price {$precioNivel[$nivelKey]} (ID: $ID_nivel)");
+        $ID_nivel = $db->query("CALL sp_update_niveles(?,?,?,?,?)", [
+            $opcion, 
+            $ID_curso['ID_curso'], 
+            $nivel, 
+            $precioNivel[$nivelKey], 
+            $ID_nivel
+        ])->find();
+        logMessage("Nivel ID: " . json_encode($ID_nivel));
+    
+        logMessage("POST Data: " . json_encode($_POST));
+
+        // Access the POST data with adjusted key
+        $nombreClase = $_POST["clasesNivel_" . ($nivelKey + 1)];
+        $descripcionClase = $_POST["descripcionesNivel_" . ($nivelKey + 1)];
+        $ID_claseArray = $_POST["ID_clase_" . ($nivelKey + 1)];
+        $videoClase = $_POST["CompressedVideos_" . ($nivelKey + 1)];
+
+        // Check for empty POST data
+        if (empty($nombreClase)) {
+            logMessage("Error: No classes found in POST for nivel " . ($nivelKey + 1));
+        }
+        if (empty($descripcionClase)) {
+            logMessage("Error: No descriptions found in POST for nivel " . ($nivelKey + 1));
+        }
+        if (empty($videoClase)) {
+            logMessage("Error: No videos found in POST for nivel " . ($nivelKey + 1));
         }
 
-        $nombreNivel = $_POST['NombreNivel'];
-        $precioNivel = $_POST['PrecioNivel'];
+        // Log data before processing
+        logMessage("Clases: " . json_encode($nombreClase));
+        logMessage("Descripciones: " . json_encode($descripcionClase));
+        logMessage("Videos: " . json_encode($videoClase));
 
-        foreach ($nombreNivel as $key => $nivel) {
-            $ID_nivel = null;
-            logMessage("Adding nivel: $nivel with price {$precioNivel[$key]}");
-            $ID_nivel = $db->query("CALL sp_update_niveles(?,?,?,?,?)", [
-                $opcion,
-                $ID_curso['ID_curso'],
-                $nivel,
-                $precioNivel[$key],
-                $ID_nivel
-            ])->find();
-            logMessage("Nivel ID: " . json_encode($ID_nivel));
-
-            $nombreClase = $_POST['Clases'];
-            $descripcionClase = $_POST['Descripciones'];
-            $videoClase = $_POST['CompressedVideos'];
-
-            foreach ($nombreClase as $key => $clase) {
-                $ID_clase = null;
-                $videoFileName = $videoClase[$key];
+        foreach ($nombreClase as $claseKey => $clase) {
+            $ID_clase = ($opcion == 'actualizar' && isset($ID_claseArray[$claseKey])) ? $ID_claseArray[$claseKey] : null;
+    
+            $videoFileName = $videoClase[$claseKey];
+            logMessage("Processing clase: $clase, Video Name: $videoFileName");
+    
+            if (!$videoFileName) {
+                $videoFileName = $_POST["CompressedVideos_" . ($nivelKey - 1)][$claseKey];  // Existing video name
+                $videoContent = null;  // No new video content
+                logMessage("No video provided for clase: $clase");
+            } else {
                 $videoFilePath = __DIR__ . '/../../APIs/uploads/' . $videoFileName;
                 logMessage("Processing clase: $clase, Video Path: $videoFilePath");
-
+    
                 if (file_exists($videoFilePath)) {
-                    $videoContent = file_get_contents($videoFilePath); // Read the video file content as binary data
+                    $videoContent = file_get_contents($videoFilePath); // Read the video file content as binary
                     logMessage("Video file found: $videoFileName");
                 } else {
                     logMessage("Error: Video not found at path: $videoFilePath");
                     $_SESSION['errors'] = "El video no se encontró. " . $videoFilePath;
-                    if($opcion == 'agregar'){
+                    
+                    if ($opcion == 'agregar') {
                         header('Location: /nuevo_curso');
                     } else {
-                        header('Location: /editar_curso');
+                        echo '<form id="postForm" action="/editar_curso" method="POST">';
+                        echo '<input type="hidden" name="id" value="' . $ID_curso . '">';
+                        echo '</form>';
+                        echo '<script>document.getElementById("postForm").submit();</script>';
                     }
                     return;
                 }
-
-                $db->query("CALL sp_update_clases(?,?,?,?,?,?,?)", [
-                    $opcion,
-                    $ID_curso['ID_curso'],
-                    $ID_nivel['ID_nivel'],
-                    $clase,
-                    $descripcionClase[$key],
-                    $videoContent,
-                    $ID_clase
-                ])->find();
-                logMessage("Clase added/updated. Clase: $clase");
             }
+    
+            // Insert or update class (clase) with video (if provided)
+            $db->query("CALL sp_update_clases(?,?,?,?,?,?,?)", [
+                $opcion, 
+                $ID_curso['ID_curso'], 
+                $ID_nivel['ID_nivel'], 
+                $clase, 
+                $descripcionClase[$claseKey], 
+                $videoContent,  // Will be null if no video
+                $ID_clase
+            ])->find();
+    
+            logMessage("Clase added/updated. Clase: $clase");
         }
     }
-
+    
+    
     logMessage("Course registration successful.");
     $_SESSION['success'] = "Curso registrado exitosamente";
     $_SESSION['delete_local'] = true;
-    header('Location: /profile');
+    header('Location: /profile'); // Redirect to profile page
 
 } catch (PDOException $e) {
     logMessage("Error during course registration: " . $e->getMessage());
     $_SESSION['errors'] = "Error al registrar curso: " . $e->getMessage();
-    if($opcion == 'agregar'){
-        header('Location: /nuevo_curso');
-    } else {
-        header('Location: /editar_curso');
-    }
+
+    echo '<form id="postForm" action="/editar_curso" method="POST">';
+    echo '<input type="hidden" name="id" value="' . $ID_curso . '">';
+    echo '</form>';
+    echo '<script>document.getElementById("postForm").submit();</script>';
     return;
 }

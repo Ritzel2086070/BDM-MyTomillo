@@ -427,7 +427,7 @@ function LockComent(){
   }
   
 
-function borrarCurso(){
+/*function borrarCurso(){
     Swal.fire({
     title: "¿Está seguro de eliminar el curso?",
     color: '#86bd7b',
@@ -463,7 +463,7 @@ function borrarCurso(){
             });
         }
     });
-}
+}*/
 
 
 async function changePassword(){
@@ -593,3 +593,16 @@ function downloadDiploma() {
     downloadFile("DiplomaBDM.png");
 }
 
+function busqueda(event) {
+    event.preventDefault(); 
+
+    const searchType = document.getElementById('searchType').value;
+    
+    const searchQuery = document.getElementById('searchQuery').value;
+    
+    const url = `/dashboard?type=${encodeURIComponent(searchType)}&query=${encodeURIComponent(searchQuery)}`;
+    
+    window.location.href = url;
+    
+    return false;
+}

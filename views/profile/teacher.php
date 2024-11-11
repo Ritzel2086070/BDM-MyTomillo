@@ -203,7 +203,7 @@
                                             </div>
                                         </div>
                                         <div class="col d-flex align-items-center">
-                                            <small-darkgreen-text class="pl-2 col-2">Ordenar por</small-darkgreen-text>
+                                            <small-darkgreen-text class="pl-2 col-2">Filtrar por</small-darkgreen-text>
                                             <div class="dropdown">
                                                 <a class="dropdown-toggle" id="categoryDropdown2" role="button" data-toggle="dropdown" aria-expanded="false">Todos los cursos</a>
                                                 <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
