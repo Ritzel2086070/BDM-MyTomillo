@@ -5,7 +5,7 @@
         </button>
     </div>
     <div class="p-0 bd-highlight">
-        <p style="margin: 0rem;">Marla E.</p>
+        <p style="margin: 0rem;"><?= $usuario["nombres"] . " " . $usuario["apellido_paterno"] . " " . $usuario["apellido_materno"] ?></p>
         <div class="d-flex align-items-center">
             <div class="star-container d-flex align-items-center" style="width: min-content">
                 <img src="images/estrellaMala.png" alt="estrella" id="star1" data-star="1" class="star" style="width: 20px; height: 20px; margin: 0.15rem;">

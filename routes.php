@@ -29,3 +29,4 @@ $router->post('/borrar_curso', 'controllers/curso/eliminar.php')->only('auth')->
 $router->post('/dashboardCursos', 'controllers/curso/v_dashboardCursos.php')->only('auth');
 $router->post('/dashboardCursosBusqueda', 'controllers/curso/v_dashboardCursosBusqueda.php')->only('auth');
 $router->get('/cursoImagen', 'controllers/curso/imagen.php')->only('auth');
+$router->post('/class', 'controllers/clase/view.php')->only('auth');

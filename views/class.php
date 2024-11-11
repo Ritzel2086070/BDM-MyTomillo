@@ -21,18 +21,19 @@
                 ?>
             </div>
             <div class="col-12 col-md-8 col-lg-8 flex-column justify-content-start align-items-center" style="padding: 2rem; padding-top: 6rem; padding-left: 5rem;">
-                <h6>Categoría</h6>
-                <h1>Aprende a crear tu sitio web desde cero con HTML y CSS</h1>
-                <p style="margin: 0rem;"><strong>Creado por Tulio Treviño</strong></p>
+                <h6><?= $curso["categoria"] ?></h6>
+                <h1><?= $curso["titulo"] ?></h1>
+                <p style="margin: 0rem;"><strong>Creado por <?= $curso["nombres"] . " " . $curso["apellido_paterno"] . " " . $curso["apellido_materno"] ?></strong></p>
                 <div class="star-container mt-2">
-                    <img src="images/estrella.png" alt="estrella">
-                    <img src="images/estrella.png" alt="estrella">
-                    <img src="images/estrella.png" alt="estrella">
-                    <img src="images/estrella.png" alt="estrella">
-                    <img src="images/estrella.png" alt="estrella">
+                    <?php for($i = 0; $i < round($curso["calificacion"]) ; $i++): ?>
+                        <img src="images/estrella.png" alt="estrella">
+                    <?php endfor; ?>
+                    <?php for($i = 0; $i < 5 - round($curso["calificacion"]) ; $i++): ?>
+                        <img src="images/estrellaMala.png" alt="estrella">
+                    <?php endfor; ?>
                 </div>
-                <p>(50 calificaciones)</p>
-                <p class="grade">96 estudiantes</p>
+                <p>(<?=$n_comentarios?> calificaciones)</p>
+                <p class="grade"><?=$curso["n_estudiantes"]?> estudiantes</p>
             </div>
         </div>
 
@@ -60,7 +61,7 @@
                     <div class="comments mb-3">
                         
                         <?php
-                            if($rol == "admin"){
+                            if($_SESSION['user']['rol'] == "admin"){
                                 require 'partials/class.variable/comentario.admin.php';
                             } else {
                                 require 'partials/class.variable/comentario.php';

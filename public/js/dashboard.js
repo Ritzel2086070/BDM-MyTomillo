@@ -10,7 +10,7 @@ function fillContainer(data) {
         const col = document.createElement('div');
         col.classList.add('col', 'mb-4');
         col.innerHTML = `
-            <div class="card curso h-100 m-auto" onclick="toClass()">
+            <div class="card curso h-100 m-auto" onclick="toClass(${curso.ID_curso})">
                 <img src="${src}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="row">

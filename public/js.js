@@ -22,8 +22,17 @@ function toLast(){
     window.history.back();
 }
 
-function toClass(){
-    window.location.href = '/class';
+function toClass(ID_curso){
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/class';
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'ID_curso';
+    input.value = ID_curso;
+    form.appendChild(input);
+    document.body.appendChild(form);
+    form.submit();
 }
 
 function toLesson(){
@@ -275,7 +284,7 @@ function updateImage(event) {
 }
 
 
-const stars = document.querySelectorAll('.star');
+/*const stars = document.querySelectorAll('.star');
 const filledStar = 'images/estrella.png';
 const emptyStar = 'images/estrellaMala.png';
 
@@ -296,6 +305,7 @@ stars.forEach(star => {
         setRating(rating);
     });
 });
+*/
 
 //Lessons, descargas Esto me lo dio chatgpt xd
 function downloadFile(filename) {

@@ -1,19 +1,29 @@
 <div class="card flex-column d-flex justify-content-center" style="top: 4.5rem; right: 5rem;  width: 22rem;">
     <div>
-        <img src="images/html.jpg" class="card-img-top" alt="Curso imagen">
+        <img src="/cursoImagen?id=<?= $curso["ID_curso"] ?>" class="card-img-top" alt="Curso imagen">
     </div>
 
     <div class="text-center mb-2 mt-2">
-        <p style="font-size: small; margin: 0rem;">Bienvenida</p>
-        <h1 style="font-size: 2rem">Marla Judith Estrada Valdez</h1>
+        <p style="font-size: small; margin: 0rem;">¡Hola!</p>
+        <h1 style="font-size: 2rem"><?= $usuario["nombres"] . " " . $usuario["apellido_paterno"] . " " . $usuario["apellido_materno"] ?></h1>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-1">
         <p class="text">Fecha de inscripción:</p>
-        <p class="data">02/04/2024</p>
+        <p class="data">
+            <?php
+                $fecha = new DateTime($adquirido["f_inscripcion"]);
+                echo $fecha->format('d/m/Y');
+            ?>
+        </p>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-3">
-        <p class="text">Última fecha de ingreso:</p>
-        <p class="data">02/04/2024</p>
+        <p class="text">Fecha de completación???:</p>
+        <p class="data">
+            <?php
+                $fecha = new DateTime($adquirido["f_completado"]);
+                echo $fecha->format('d/m/Y');
+            ?>
+        </p>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-3">
         <div class="white-line"></div>
