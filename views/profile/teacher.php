@@ -41,7 +41,7 @@
                             </span>
                         </div>
                         <div class="text-center mt-3">
-                            <h1 style="font-size: 1.5rem;">
+                            <h1 id="teacher_name" style="font-size: 1.5rem;">
                                 <?=$usuario['nombres'] . " " . $usuario['apellido_paterno'] . " " . $usuario['apellido_materno'] ?>
                             </h1>
                         </div>

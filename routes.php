@@ -40,3 +40,5 @@ $router->post('/clase', 'controllers/clase/ver.php')->only('auth');
 $router->post('/video', 'controllers/clase/video.php')->only('auth');
 $router->post('/comment', 'controllers/comentario/crear.php')->only('auth');
 $router->post('/lockComment', 'controllers/comentario/bloquear.php')->only('auth')->only('admin');
+$router->post('/generatePDF', 'APIs/generatePDF.php')->only('auth');
+$router->post('/studentCursos', 'controllers/curso/v_studentCursos.php')->only('auth')->only('student');

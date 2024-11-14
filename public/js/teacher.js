@@ -403,6 +403,10 @@ function fillContainer2(data) {
                     button.disabled = true;
                 }
                 button.innerHTML = 'Generar diploma';
+                button.onclick = function() {
+                    const teachername = document.getElementById('teacher_name').innerHTML;
+                    createDegree(row.ID_curso, row.ID_estudiante ,row.nombres + ' ' + row.apellido_paterno + ' ' + row.apellido_materno, teachername, row.titulo, row.f_completado);
+                };
 
                 td6.appendChild(button);
 
@@ -501,6 +505,10 @@ function fillContainer2(data) {
                 button.disabled = true;
             }
             button.innerHTML = 'Generar diploma';
+            button.onclick = function() {
+                const teachername = document.getElementById('teacher_name').innerHTML;
+                createDegree(row.ID_curso, row.ID_estudiante ,row.nombres + ' ' + row.apellido_paterno + ' ' + row.apellido_materno, teachername, row.titulo, row.f_completado);
+            };
 
             td6.appendChild(button);
 
@@ -674,19 +682,28 @@ function changeTipoPago1(tipo) {
 }
 
 
-function createDegree(){
-    Swal.fire({
-        color: '#ccc',
-        background: '#2D2D2D',
-        title: "Entregar diploma",
-        text: "Al haber concluído su curso, el alumno puede recibir un diploma",
-        imageUrl:"DiplomaBDM.png",
-        imageWidth: 400,
-        imageHeight: 300,
-        imageAlt: "Diploma",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            title: 'title-class',
+function createDegree(idCurso, idEstudiante, nombreEstudiante, nombreProfesor, curso, fecha) {
+    fetch('/generatePDF', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/pdf'
+        },
+        body: JSON.stringify({ idCurso: idCurso, idEstudiante: idEstudiante, estudiante: nombreEstudiante, maestro: nombreProfesor, curso: curso, fecha: fecha })
+    })
+    .then(response => response.json()) // Parse the JSON response
+    .then(data => {
+        if (data.status === 'success') {
+            const filePath = data.file_path; // Get the file path from the server response
+            console.log('Diploma saved successfully. File path:', filePath);
+            alertCustom('Diploma generado');
+        } else {
+            console.error('Error saving diploma:', data);
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
+
 }
+
+

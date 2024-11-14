@@ -518,30 +518,6 @@ async function changePassword(){
 
 
 
-function seeDegree() {
-    Swal.fire({
-        color: '#ccc',
-        background: '#2D2D2D',
-        title: "Tu diploma",
-        text: "¡Felicidades!",
-        imageUrl: "DiplomaBDM.png",
-        imageWidth: 400,
-        imageHeight: 300,
-        imageAlt: "Diploma",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            title: 'title-class',
-        },
-        footer: '<button id="downloadDiplomaButton" class="swal2-confirm swal2-styled">Descargar Diploma</button>'
-    });
-
-    document.getElementById('downloadDiplomaButton').addEventListener('click', downloadDiploma);
-}
-
-function downloadDiploma() {
-    downloadFile("DiplomaBDM.png");
-}
-
 function busqueda(event) {
     event.preventDefault(); 
 
