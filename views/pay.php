@@ -1,6 +1,6 @@
 <?php require 'partials/head.php'?>
 <?php require 'partials/nav.php'?>
-<script src="pay.js" defer></script>
+<script src="js/pay.js" defer></script>
 <body class="container-fluid background-gradient">
         <div class="row d-flex flex-row-reverse background-gradient">
             <div class="col-4 flex-column justify-content-end align-items-center">
@@ -28,76 +28,14 @@
         </div>
 
         <div class="row background-grape" style="padding: 1rem;">
-            <div class="col-12 col-md-7 col-lg-7" style="padding-left:3rem">
-
-                <div class="levels-container d-flex flex-column mb-4" style="font-size: .8rem">
-                    <div class="header p-3 row ">
-                        
-                        <div class="col">
-                            <h6 style="font-size: .7rem">Categoría</h6>
-                            <h3>Aprende a crear tu sitio web desde cero con HTML y CSS</h3>
-                            <p>Creado por Tulio Treviño</p>
-                            <div class="star-container">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                            </div>
-                            <p>(50 calificaciones)</p>
-                        </div>
-                    </div>
-                    <div class="row pt-2 px-3">
-                        <div class="col d-flex align-items-center">
-                            <h5 style="font-size: .8rem">Nivel:</h5>
-                            <form class="ml-2 dark">
-                                <select class="form-select" style="width: 100%">
-                                    <option selected>HTML</option>
-                                    <option value="1">CSS, formato y diseño</option>
-                                    <option value="2">JavaScript</option>
-                                    <option value="3">Proyecto final y Hosting</option>
-                                </select>
-                            </form>
-                        </div>
-                        <div class="col-auto">
-                            <h5 style="font-size: .8rem">Costo: $400.00 MXN</h5>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="levels-container d-flex flex-column mb-4" style="font-size: .8rem">
-                    <div class="header p-3 row ">
-                        
-                        <div class="col">
-                            <h6 style="font-size: .7rem">Categoría</h6>
-                            <h3>Aprende a crear tu sitio web desde cero con HTML y CSS</h3>
-                            <p>Creado por Tulio Treviño</p>
-                            <div class="star-container">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                                <img src="images/estrella.png" alt="estrella">
-                            </div>
-                            <p>(50 calificaciones)</p>
-                        </div>
-                    </div>
-                    <div class="row pt-2 px-3 d-flex justify-content-end">
-                        <div class="col-auto ">
-                            <h5 style="font-size: .8rem">Costo: $400.00 MXN</h5>
-                        </div>
-                    </div>
-                </div>
+            <div id="container" class="col-12 col-md-7 col-lg-7" style="padding-left:3rem">
+                
             </div>
         </div>
-
-        
         
         <div class="row background-darkpurple d-flex flex-row-reverse">
             <div class="col-12 d-flex flex-column justify-content-center align-items-start">
-                <p class="footer">*All memberships will be billed automatically on a recurring basis until canceled. If eligible for a free trial, 
-                    cancel before the trial ends to avoid being charged. Offer only valid for new paid subscribers. See full terms of 
-                    service here.
+                <p class="footer">Para acceder a los niveles, se requiere una compra mínima de $10.00 MXN. Los niveles gratuitos o de prueba no se otorgarán sin una compra realizada.
                 </p>
                 <p class="footer">MyTomillo, Inc 2025</p>
             </div>

@@ -1,7 +1,7 @@
 <?php require base_path('views/partials/head.php'); ?>
 <?php require base_path('views/partials/nav.php'); ?>
 
-<script src="cards.js" defer></script>
+<script src="js/cards.js" defer></script>
     
     <body class="container-fluid background-grape" style="display: flex; flex-direction: column; min-height: 100vh;">
       

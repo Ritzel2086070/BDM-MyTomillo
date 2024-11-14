@@ -8,10 +8,10 @@
         <p style="font-size: x-small; margin: 0rem;">el curso completo</p>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <button class="btn main-btn btn-block" onclick="" style="margin: 0.5rem; width: 70%; margin-top: 0rem;">Añadir al carrito</button>
+        <button class="btn main-btn btn-block" onclick="saveCart(<?= $curso['ID_curso'] ?>, false)" style="margin: 0.5rem; width: 70%; margin-top: 0rem;">Añadir al carrito</button>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <button class="btn sub-btn btn-block" onclick="toPay()" style="margin: 0.5rem; width: 70%; margin-top: 0rem; margin-bottom: 0.1rem;">Comprar ahora</button>
+        <button class="btn sub-btn btn-block" onclick="toPay(<?= $curso['ID_curso'] ?>, false)" style="margin: 0.5rem; width: 70%; margin-top: 0rem; margin-bottom: 0.1rem;">Comprar ahora</button>
     </div>
     <div class="d-flex flex-column justify-content-center align-items-center mb-3">
         <p style="margin: 0.1rem;">Este curso completo incluye</p>
@@ -53,9 +53,9 @@
         <p style="font-size: x-small; margin: 0rem;">cualquier nivel del curso</p>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <button class="btn main-btn btn-block" onclick="" style="margin: 0.5rem; width: 70%; margin-bottom: 0rem;">Añadir al carrito</button>
+        <button class="btn main-btn btn-block" onclick="saveCart(<?= $curso['ID_curso'] ?>, true)" style="margin: 0.5rem; width: 70%; margin-bottom: 0rem;">Añadir al carrito</button>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-5">
-        <button class="btn sub-btn btn-block" onclick="toPay()" style="margin: 0.5rem; width: 70%;">Comprar ahora</button>
+        <button class="btn sub-btn btn-block" onclick="toPay(<?= $curso['ID_curso'] ?>, true)" style="margin: 0.5rem; width: 70%;">Comprar ahora</button>
     </div>
 </div>

@@ -30,3 +30,13 @@ $router->post('/dashboardCursos', 'controllers/curso/v_dashboardCursos.php')->on
 $router->post('/dashboardCursosBusqueda', 'controllers/curso/v_dashboardCursosBusqueda.php')->only('auth');
 $router->get('/cursoImagen', 'controllers/curso/imagen.php')->only('auth');
 $router->post('/class', 'controllers/clase/view.php')->only('auth');
+$router->get('/pay', 'controllers/pago/pay.php')->only('auth');
+$router->post('/stripeAPI', 'APIs/stripeAPI.php')->only('auth');
+$router->post('/getCourse', 'controllers/curso/getCourse.php')->only('auth');
+$router->get('/payment-success', 'APIs/success.php')->only('auth');
+$router->post('/lesson', 'controllers/clase/lesson.php')->only('auth');
+$router->post('/clasesVistas', 'controllers/clase/vistas.php')->only('auth');
+$router->post('/clase', 'controllers/clase/ver.php')->only('auth');
+$router->post('/video', 'controllers/clase/video.php')->only('auth');
+$router->post('/comment', 'controllers/comentario/crear.php')->only('auth');
+$router->post('/lockComment', 'controllers/comentario/bloquear.php')->only('auth')->only('admin');

@@ -13,11 +13,6 @@ function toProfile() {
     window.location.href = '/profile';
 }
 
-function toPay() {
-    
-    window.location.href = '/pay';
-}
-
 function toLast(){
     window.history.back();
 }
@@ -33,10 +28,6 @@ function toClass(ID_curso){
     form.appendChild(input);
     document.body.appendChild(form);
     form.submit();
-}
-
-function toLesson(){
-    window.location.href = '/lesson';
 }
 
 function toDashboard(){
@@ -398,44 +389,7 @@ async function BuscarDestinatario(){
         
     }
 }
-function LockComent(){
-    Swal.fire({
-      title: "¿Está seguro de bloquear el comentario?",
-      color: '#86bd7b',
-      background: '#2D2D2D',
-      confirmButtonOutline: 'none',
-      showCancelButton: true,
-      confirmButtonText: "Bloquear",
-      cancelButtonText: "Cancelar",
-      customClass: {
-        confirmButton: 'confirm-button-class',
-        cancelButton: 'cancel-button-class',
-        title: 'title-class',
-        icon: 'icon-class'
-      },
-      }).then((result) => {
-          if (result.isConfirmed) {
-          Swal.fire({
-              color: '#86bd7b',
-              background: '#2D2D2D',
-              icon: "success",
-              text: "Comentario bloqueado correctamente",
-              showConfirmButton: false,
-              timer: 1500
-              });
-          } else if (result.isDenied) {
-          Swal.fire({
-              color: '#86bd7b',
-              background: '#2D2D2D',
-              icon: "error",
-              text: "El comentario no pudo ser bloqueado",
-              showConfirmButton: false,
-              timer: 1500
-              });
-          }
-      });
-  }
-  
+
 
 /*function borrarCurso(){
     Swal.fire({
@@ -562,22 +516,7 @@ async function changePassword(){
     }
 }
 
-function createDegree(){
-    Swal.fire({
-        color: '#ccc',
-        background: '#2D2D2D',
-        title: "Entregar diploma",
-        text: "Al haber concluído su curso, el alumno puede recibir un diploma",
-        imageUrl:"DiplomaBDM.png",
-        imageWidth: 400,
-        imageHeight: 300,
-        imageAlt: "Diploma",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            title: 'title-class',
-        }
-    });
-}
+
 
 function seeDegree() {
     Swal.fire({

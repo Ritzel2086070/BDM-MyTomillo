@@ -672,3 +672,21 @@ function changeTipoPago1(tipo) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+
+function createDegree(){
+    Swal.fire({
+        color: '#ccc',
+        background: '#2D2D2D',
+        title: "Entregar diploma",
+        text: "Al haber concluído su curso, el alumno puede recibir un diploma",
+        imageUrl:"DiplomaBDM.png",
+        imageWidth: 400,
+        imageHeight: 300,
+        imageAlt: "Diploma",
+        customClass: {
+            confirmButton: 'confirm-button-class',
+            title: 'title-class',
+        }
+    });
+}

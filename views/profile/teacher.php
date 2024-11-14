@@ -2,7 +2,7 @@
 <?php require base_path('views/partials/nav.php'); ?>
 
 <script src="js/teacher.js"></script>
-<script src="cards.js" defer></script>
+<script src="js/cards.js" defer></script>
     
     <body class="container-fluid background-grape" style="display: flex; flex-direction: column; min-height: 100vh;">
        
@@ -55,7 +55,7 @@
                         <div class="d-flex flex-column align-items-center">
                             <div class="skills-container d-flex justify-content-center align-items-center mt-3">
                                 <img width="20" src="images/cursos.png" alt="books">
-                                <p style="margin: 0.3rem;">0 cursos</p>
+                                <p style="margin: 0.3rem;"><?= $n_cursos ?> cursos</p>
                             </div>
                             <div class="skills-container d-flex justify-content-center align-items-center mt-0">  
                                 <img width="20" src="images/conversacion.png" alt="books">

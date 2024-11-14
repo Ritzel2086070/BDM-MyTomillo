@@ -41,6 +41,6 @@
         <p class="data">¡No olvides evaluar este curso!</p>
     </div>                    
     <div class="d-flex justify-content-center align-items-center">
-        <button class="btn main-btn btn-block" onclick="toLesson()" style="margin: 0.5rem; width: 80%; margin-bottom: 2rem;">Repasar contenido</button>
+        <button class="btn main-btn btn-block" onclick="toLesson(<?= $curso['ID_curso'] ?>)" style="margin: 0.5rem; width: 80%; margin-bottom: 2rem;">Repasar contenido</button>
     </div>
 </div>

@@ -3,35 +3,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const elements = stripe.elements();
 
-// Style object for all elements
-const style = {
-    base: {
-        iconColor: '#86BD7B',
-        color: '#ffffff',
-        fontFamily: 'Ideal Sans, system-ui, sans-serif',
-        fontSize: '16px',
-        '::placeholder': {
-            color: '#aab7c4',
+    // Style object for all elements
+    const style = {
+        base: {
+            iconColor: '#86BD7B',
+            color: '#ffffff',
+            fontFamily: 'Ideal Sans, system-ui, sans-serif',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4',
+            },
+            backgroundColor: '#130924',
         },
-        backgroundColor: '#130924',
-    },
-    invalid: {
-        color: '#df1b41',
-        iconColor: '#df1b41',
-    },
-};
+        invalid: {
+            color: '#df1b41',
+            iconColor: '#df1b41',
+        },
+    };
 
-// Create card number element
-const cardNumber = elements.create('cardNumber', { style });
-cardNumber.mount('#card-number-element');
+    // Create card number element
+    const cardNumber = elements.create('cardNumber', { style });
+    cardNumber.mount('#card-number-element');
 
-// Create expiry date element
-const cardExpiry = elements.create('cardExpiry', { style });
-cardExpiry.mount('#card-expiry-element');
+    // Create expiry date element
+    const cardExpiry = elements.create('cardExpiry', { style });
+    cardExpiry.mount('#card-expiry-element');
 
-// Create CVC element
-const cardCvc = elements.create('cardCvc', { style });
-cardCvc.mount('#card-cvc-element');
+    // Create CVC element
+    const cardCvc = elements.create('cardCvc', { style });
+    cardCvc.mount('#card-cvc-element');
 
 
     document.getElementById('save-card-button').addEventListener('click', async () => {
@@ -52,7 +52,7 @@ cardCvc.mount('#card-cvc-element');
     });
 
     async function createCustomer() {
-        const response = await fetch('/stripeAPI.php', {
+        const response = await fetch('/stripeAPI', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'create_customer' })
@@ -72,7 +72,7 @@ cardCvc.mount('#card-cvc-element');
     
 
     async function createSetupIntent(customerId) {
-        const response = await fetch('/stripeAPI.php', {
+        const response = await fetch('/stripeAPI', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'create_setup_intent', customerId })
@@ -83,7 +83,7 @@ cardCvc.mount('#card-cvc-element');
     }
 
     async function saveCard(customerId, paymentMethodId) {
-        const response = await fetch('/stripeAPI.php', {
+        const response = await fetch('/stripeAPI', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'save_card', customerId, paymentMethodId })
@@ -94,7 +94,7 @@ cardCvc.mount('#card-cvc-element');
     }
 
     async function listSavedCards(customerId) {
-        const response = await fetch('/stripeAPI.php', {
+        const response = await fetch('/stripeAPI', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action: 'list_cards', customerId })

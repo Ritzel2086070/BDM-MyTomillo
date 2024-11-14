@@ -1,3 +1,4 @@
+<script src="js/comment.js"></script>
 <div class="d-flex bd-highlight align-items-center">
     <div class="p-0 bd-highlight">
         <button type="button" class="profile d-flex justify-content-center align-items-center">
@@ -20,34 +21,5 @@
         </div>
     </div>
 </div>
-<textarea class="mb-3" rows="6" cols="50" maxlength="9000" placeholder="Deja un comentario..."></textarea>
-
-<script>
-    window.onload = function() {
-        const stars = document.querySelectorAll('.star');
-
-        const filledStar = 'images/estrella.png';
-        const emptyStar = 'images/estrellaMala.png';
-
-        function setRating(rating) {
-            stars.forEach(star => {
-                const starValue = parseInt(star.getAttribute('data-star'));
-                star.style.width = '20px';
-                star.style.height = '20px';
-
-                if (starValue <= rating) {
-                    star.src = filledStar;
-                } else {
-                    star.src = emptyStar;
-                }
-            });
-        }
-
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(star.getAttribute('data-star'));
-                setRating(rating);
-            });
-        });
-    };
-</script>
+<textarea id="inputComment" class="mb-3" rows="6" cols="50" maxlength="9000" placeholder="Deja un comentario..."></textarea>
+<button type="button" onclick="sendComment(<?= $curso['ID_curso'] ?>)" class="btn main-btn">Enviar</button>

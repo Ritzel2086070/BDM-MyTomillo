@@ -30,6 +30,14 @@ $n_comentarios = $db->query("SELECT COUNT(ID_comentario) as n_comentarios FROM C
     $ID_curso
 ])->find();
 
+$comentarios = $db->query("SELECT * FROM v_comentarios WHERE ID_curso = ?", [
+    $ID_curso
+])->get();
+
+$adquirido = null;
+$infoUsuario = null;
+$ultimo = null;
+
 if($_SESSION['user']['rol'] === "estudiante"){
     $adquirido = $db->query("SELECT * FROM ESTUDIANTES_CURSOS WHERE ID_estudiante = ? AND ID_curso = ?", [
         $_SESSION['user']['id_rol'],
@@ -39,21 +47,10 @@ if($_SESSION['user']['rol'] === "estudiante"){
         $infoUsuario = $db->query("SELECT nombres, apellido_paterno, apellido_materno FROM USUARIOS WHERE ID_usuario = ?", [
             $_SESSION['user']['id']
         ])->find();
-
-        //get ultimo nivel y clase a partir de la fecha de visualizacion:
-        /*
-        CREATE TABLE ESTUDIANTES_CLASES (
-    ID_estudiante       INT UNSIGNED NOT NULL,
-    ID_curso            INT UNSIGNED NOT NULL,
-    ID_nivel            TINYINT UNSIGNED NOT NULL,
-    ID_clase            TINYINT UNSIGNED NOT NULL,
-    f_visualizacion     DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT PK_ESTUDIANTES_CLASES PRIMARY KEY (ID_estudiante, ID_curso, ID_nivel, ID_clase),
-    FOREIGN KEY (ID_estudiante, ID_curso) REFERENCES ESTUDIANTES_CURSOS(ID_estudiante, ID_curso),
-    FOREIGN KEY (ID_curso, ID_nivel, ID_clase) REFERENCES CLASES(ID_curso, ID_nivel, ID_clase)
-);
-si el estudiante no tienen registros en la tabla ESTUDIANTES_CLASES, entonces el estudiante esta en el nivel 1, clase 1 con fecha de visualizacion igual a la fecha de inscripcion
- */
+        $ultimo = $db->query("SELECT f_visualizacion, ID_nivel, ID_clase FROM ESTUDIANTES_CLASES WHERE ID_estudiante = ? AND ID_curso = ? ORDER BY f_visualizacion DESC LIMIT 1", [
+            $_SESSION['user']['id_rol'],
+            $ID_curso
+        ])->find();
 
         if($adquirido['estatus'] == 1){
             $estado = "terminado";
@@ -76,5 +73,7 @@ view("class.php", [
     'n_comentarios' => $n_comentarios["n_comentarios"],
     'estado' => $estado,
     'adquirido' => $adquirido,
-    'usuario' => $infoUsuario
+    'usuario' => $infoUsuario,
+    'ultimo' => $ultimo,
+    'comentarios' => $comentarios
 ]);

@@ -19,7 +19,7 @@
                         <input id="searchQuery" type="text" class="form-control" placeholder="Buscar por título, instructor o categoría...">
                     </div>
                 </form>
-                <a href="/carrito" class="mx-2">
+                <a href="/pay" class="mx-2">
                     <img class="icon" src="images/carro-de-la-compra.png" alt="Logo">
                 </a>
                 <a href="/mensajes" class="mx-2">
