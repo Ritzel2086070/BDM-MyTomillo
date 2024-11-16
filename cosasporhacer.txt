@@ -1,7 +1,0 @@
-
-
-nav: fix dropdown cursos
-
-carrito: deseleccionar todo changes state of checkboxes
-
-signin: coso de cargar una imagen

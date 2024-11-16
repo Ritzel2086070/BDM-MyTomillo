@@ -254,10 +254,7 @@ function enableDisableProfile(){
 }
 
 
-function sendMessage(){
-    //validacion mensaje id=textareaMensaje
-    return true;
-}
+
 
 
 function updateImage(event) {
@@ -363,33 +360,6 @@ function alertSuccess(title){
         }
     });
 }
-
-async function BuscarDestinatario(){
-    const { value: usuario } = await Swal.fire({
-        color: '#86bd7b',
-        background: '#2D2D2D',
-        title: "Nombre del usuario",
-        input: "text",
-        inputPlaceholder: "Nombre del usuario",
-        showCancelButton: true,
-        confirmButtonText: "Confirmar",
-        cancelButtonText: "Cancelar",
-        customClass: {
-            confirmButton: 'confirm-button-class',
-            cancelButton: 'cancel-button-class',
-            title: 'title-class',
-        },
-        inputAttributes: {
-        maxlength: "150",
-        autocapitalize: "off",
-        autocorrect: "off"
-        }
-    });
-    if (usuario) {
-        
-    }
-}
-
 
 /*function borrarCurso(){
     Swal.fire({

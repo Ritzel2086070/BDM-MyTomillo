@@ -38,30 +38,35 @@ $adquirido = null;
 $infoUsuario = null;
 $ultimo = null;
 
-if($_SESSION['user']['rol'] === "estudiante"){
-    $adquirido = $db->query("SELECT * FROM ESTUDIANTES_CURSOS WHERE ID_estudiante = ? AND ID_curso = ?", [
-        $_SESSION['user']['id_rol'],
-        $ID_curso
-    ])->find();
-    if ($adquirido) {
-        $infoUsuario = $db->query("SELECT nombres, apellido_paterno, apellido_materno FROM USUARIOS WHERE ID_usuario = ?", [
-            $_SESSION['user']['id']
-        ])->find();
-        $ultimo = $db->query("SELECT f_visualizacion, ID_nivel, ID_clase FROM ESTUDIANTES_CLASES WHERE ID_estudiante = ? AND ID_curso = ? ORDER BY f_visualizacion DESC LIMIT 1", [
+if(!$_SESSION['user']){
+    $estado = "oferta";
+}
+else {
+    if($_SESSION['user']['rol'] === "estudiante"){
+        $adquirido = $db->query("SELECT * FROM ESTUDIANTES_CURSOS WHERE ID_estudiante = ? AND ID_curso = ?", [
             $_SESSION['user']['id_rol'],
             $ID_curso
         ])->find();
+        if ($adquirido) {
+            $infoUsuario = $db->query("SELECT nombres, apellido_paterno, apellido_materno FROM USUARIOS WHERE ID_usuario = ?", [
+                $_SESSION['user']['id']
+            ])->find();
+            $ultimo = $db->query("SELECT f_visualizacion, ID_nivel, ID_clase FROM ESTUDIANTES_CLASES WHERE ID_estudiante = ? AND ID_curso = ? ORDER BY f_visualizacion DESC LIMIT 1", [
+                $_SESSION['user']['id_rol'],
+                $ID_curso
+            ])->find();
 
-        if($adquirido['estatus'] == 1){
-            $estado = "terminado";
+            if($adquirido['estatus'] == 1){
+                $estado = "terminado";
+            } else {
+                $estado = "cursando";
+            }
         } else {
-            $estado = "cursando";
+            $estado = "oferta";
         }
     } else {
-        $estado = "oferta";
+        $estado = "";
     }
-} else {
-    $estado = "";
 }
 
 view("class.php", [

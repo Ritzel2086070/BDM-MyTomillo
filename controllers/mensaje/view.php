@@ -1,0 +1,3 @@
+<?php
+
+view('mensajes.php');

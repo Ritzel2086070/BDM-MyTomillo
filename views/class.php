@@ -68,32 +68,34 @@
                                 <p><?= $comentario['f_eliminacion'] ?>. Este mensaje ha sido eliminado por comportamiento inapropiado</p>
                             </div>
                         <?php else: ?>
-                            <?php if ($_SESSION['user']['rol'] == "admin"): ?>
-                                <div class="d-flex bd-highlight align-items-center">
-                                    <div class="p-0 bd-highlight">
-                                        <button type="button" class="profile d-flex justify-content-center align-items-center">
-                                            <img src="images/tomilloprofile.png" alt="Logo">
-                                        </button>
-                                    </div>
-                                    <div class="p-0 bd-highlight">
-                                        <p style="margin: 0rem;"><?= $comentario['nombres'] . " " . $comentario['apellido_paterno'] . " " . $comentario['apellido_materno'] ?></p>
-                                        <div class="star-container" style="width: 9rem;">
-                                            <?php for($i = 0; $i < round($comentario['calificacion']) ; $i++): ?>
-                                                <img src="images/estrella.png" alt="estrella">
-                                            <?php endfor; ?>
-                                            <?php for($i = 0; $i < 5 - round($comentario['calificacion']) ; $i++): ?>
-                                                <img src="images/estrellaMala.png" alt="estrella">
-                                            <?php endfor; ?>
+                            <?php if($_SESSION['user'] ?? false): ?>
+                                <?php if ($_SESSION['user']['rol'] == "admin"): ?>
+                                    <div class="d-flex bd-highlight align-items-center">
+                                        <div class="p-0 bd-highlight">
+                                            <button type="button" class="profile d-flex justify-content-center align-items-center">
+                                                <img src="images/tomilloprofile.png" alt="Logo">
+                                            </button>
+                                        </div>
+                                        <div class="p-0 bd-highlight">
+                                            <p style="margin: 0rem;"><?= $comentario['nombres'] . " " . $comentario['apellido_paterno'] . " " . $comentario['apellido_materno'] ?></p>
+                                            <div class="star-container" style="width: 9rem;">
+                                                <?php for($i = 0; $i < round($comentario['calificacion']) ; $i++): ?>
+                                                    <img src="images/estrella.png" alt="estrella">
+                                                <?php endfor; ?>
+                                                <?php for($i = 0; $i < 5 - round($comentario['calificacion']) ; $i++): ?>
+                                                    <img src="images/estrellaMala.png" alt="estrella">
+                                                <?php endfor; ?>
+                                            </div>
+                                        </div>
+                                        <div class="ml-auto p-1 bd-highlight">
+                                            <button class="btn-block" onclick="LockComent(<?= $comentario['ID_comentario'] ?>, <?= $curso['ID_curso'] ?>)"></button>
                                         </div>
                                     </div>
-                                    <div class="ml-auto p-1 bd-highlight">
-                                        <button class="btn-block" onclick="LockComent(<?= $comentario['ID_comentario'] ?>, <?= $curso['ID_curso'] ?>)"></button>
+                                    <div class="comment mb-3">
+                                        <p class="info"><?= $comentario['f_creacion'] ?></p>
+                                        <p><?= $comentario['comentario'] ?></p>
                                     </div>
-                                </div>
-                                <div class="comment mb-3">
-                                    <p class="info"><?= $comentario['f_creacion'] ?></p>
-                                    <p><?= $comentario['comentario'] ?></p>
-                                </div>
+                                <?php endif; ?>
                             <?php else: ?>
                                 <div class="d-flex bd-highlight align-items-center">
                                     <div class="p-0 bd-highlight">

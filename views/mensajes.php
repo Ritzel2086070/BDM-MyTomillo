@@ -1,5 +1,7 @@
 <?php require 'partials/head.php'?>
 <?php require 'partials/nav.php'?>
+
+<script src="js/mensajes.js"></script>
     
     <body class="container-fluid" style="display: flex; flex-direction: column; min-height: 100vh;">
         <div class="row background-gradient mt-5 pl-5 pt-5 pb-4">
@@ -12,86 +14,41 @@
                 </div>
                 <div class="row pt-3 pb-3">
                     <form class="dark input-group">
-                        <button>
-                            <img class="icon" src="images/buscar.png" alt="Logo">
-                        </button>
-                        <input type="text" class="form-control" placeholder="Buscar..." >
+                        <input type="text" class="form-control" id="searchInput" oninput="filterUsers()" placeholder="Buscar..." >
                     </form>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-auto p-0">
-                        <img class="profile" src="images/tomilloprofile.png" alt="Logo">
-                    </div>
-                    <div class="col">
-                        <h5 class="p-0 pt-2 m-0">Heber Abiel Perez Jimenez</h5>
-                        <p class="p-0 m-0">UwU soy Heber</p>
-                    </div>
-                </div>
-                <div class="row my-3">
-                    <div class="green-line"></div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-auto p-0">
-                        <img class="profile" src="images/tomilloprofile.png" alt="Logo">
-                    </div>
-                    <div class="col">
-                        <h5 class="p-0 pt-2 m-0">Heber Abiel Perez Jimenez</h5>
-                        <p class="p-0 m-0">UwU soy Heber</p>
-                    </div>
-                </div>
-                <div class="row my-3">
-                    <div class="green-line"></div>
+                
+                <div id="dmsList">
                 </div>
 
             </div>
             <div class="col-8 background-violet pt-4 pb-3" style="display: flex; flex-direction: column; padding: 3rem;">
                 <div class="row align-items-center">
                     <div class="col-auto p-0">
-                        <img class="profile-head" src="images/tomilloprofile.png" alt="Logo">
+                        <img 
+                            id="destinatarioFoto"
+                            class="profile-head" 
+                            src="images/tomilloprofile.png" 
+                            alt="Logo" 
+                            onerror="this.src='/images/tomilloprofile.png';"
+                        >
                     </div>
                     <div class="col">
-                        <h3>Heber Abiel Pérez Jiménez</h5>
+                        <h3 id="destinatarioName"></h5>
                     </div>
                 </div>
                 <div class="row my-3">
                     <div class="green-line"></div>
                 </div>
                 <div class="row chat-container" style="flex-grow: 1;">
-                    <div class="col">
-                        <div class="row pb-3 justify-content-start">
-                            <div class="col-auto p-0">
-                                <img class="profile-chat" src="images/tomilloprofile.png" alt="Logo">
-                            </div>
-                            <div class="col message-box pt-3 pl-3 pr-3 mx-2">
-                                <h4>Heber Abiel Perez Jimenez</h4>
-                                <h4>4:25 pm 09/02/2020</h4>
-                                <p>
-                                    Cuando me muera y me tengan que enterrar
-                                    Quiero que sea con una de tus fotografías
-                                    Para que no me de miedo estar abajo
-                                    Para que no se me olvide como es tu cara
-                                    Para imaginar que estoy contigo
-                                    Y sentirme un poquito vivo
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row pb-3 justify-content-end">
-                            <div class="col message-box-inverse pt-3 pl-3 pr-3 mx-2">
-                                <h4>Marla Judith Estrada Valdez</h4>
-                                <h4>4:27 pm 09/02/2020</h4>
-                                <p>
-                                    Fan de caifanes spotted
-                                </p>
-                            </div>
-                            <div class="col-auto p-0">
-                                <img class="profile-chat" src="images/tomilloprofile.png" alt="Logo">
-                            </div>
-                        </div>
+                    <div class="col" id="chatMessages">
+                        
                     </div>
                 </div>
                 <form onsubmit="return sendMessage()" class="row message-box-input p-3">
                     <div class="col">
-                        <h4>4:27 pm 09/02/2020</h4>
+                        <input type="hidden" id="chatID">
+                        <input type="hidden" id="destinatarioID">
                         <textarea id="textareaMensaje" class="w-100" type="text" placeholder="Escribe un mensaje"></textarea>
                     </div>
                     <div class="col-auto p-0 d-flex align-items-center">
