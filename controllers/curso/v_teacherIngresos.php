@@ -13,11 +13,6 @@ $body = json_decode($json, true);
 
 $tipo = $body['tipo_pago'] ?? null;
 
-if (!$tipo) {
-    echo json_encode(['message' => 'Faltan campos']);
-    exit();
-}
-
 $total = $db->query("SELECT * FROM v_cursosIngresosTotales WHERE ID_maestro = ? AND tipo_pago = ?", [
     $_SESSION['user']['id_rol'],
     $tipo
