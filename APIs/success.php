@@ -20,10 +20,11 @@ $selectedCourses = json_decode($paymentIntent->metadata->selected_courses, true)
 error_log(json_encode($selectedCourses));
 
 foreach ($selectedCourses as $course) {
+    $bool = $course['porNivel'] == true ? 1 : 0;
     $db->query("CALL sp_buy_cursos(?, ?, ?, ?)", [
         $_SESSION['user']['id_rol'],
         $course['ID_curso'],
-        $course['porNivel'],
+        $bool,
         $course['ID_nivel']
     ]);
 }
