@@ -30,6 +30,9 @@
                                 <a class="dropdown-toggle" id="categoryDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Todos los cursos</a>
                                 <div class="dropdown-menu" style="background-color: rgb(29, 19, 47);">
                                     <a class="dropdown-item" onclick="changeFilterBy('todos');selectCategory('Todos los cursos', 'categoryDropdown', 'inputFiltro', 'todos')">Todos los cursos</a>
+                                    <a class="dropdown-item" onclick="changeFilterBy('mas-vendidos');selectCategory('Más vendidos', 'categoryDropdown', 'inputFiltro', 'mas-vendidos')">Más vendidos</a>
+                                    <a class="dropdown-item" onclick="changeFilterBy('mejor-valorados');selectCategory('Mejor valorados', 'categoryDropdown', 'inputFiltro', 'mejor-valorados')">Mejor valorados</a>
+                                    <a class="dropdown-item" onclick="changeFilterBy('mas-recientes');selectCategory('Más recientes', 'categoryDropdown', 'inputFiltro', 'mas-recientes')">Más recientes</a>
                                 <?php foreach($categorias as $categoria): ?>
                                     <a class="dropdown-item" onclick="changeFilterBy('cat_<?=$categoria['ID_categoria']?>');selectCategory('<?=$categoria['nombre']?>', 'categoryDropdown', 'inputFiltro', 'cat_<?=$categoria['ID_categoria']?>')"><?=$categoria['nombre']?></a>
                                 <?php endforeach; ?>

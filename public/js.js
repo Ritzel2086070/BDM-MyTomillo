@@ -33,6 +33,57 @@ function toClass(ID_curso){
 function toDashboard(){
     window.location.href = '/dashboard';
 }
+
+
+function formatDate(dateString) {
+    if(dateString == null){
+        return "Sin fecha";
+    }
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    let month = String(date.getMonth() + 1).padStart(2, '0');
+    switch (month) {
+        case '01':
+            month = 'Ene';
+            break;
+        case '02':
+            month = 'Feb';
+            break;
+        case '03':
+            month = 'Mar';
+            break;
+        case '04':
+            month = 'Abr';
+            break;
+        case '05':
+            month = 'May';
+            break;
+        case '06':
+            month = 'Jun';
+            break;
+        case '07':
+            month = 'Jul';
+            break;
+        case '08':
+            month = 'Ago';
+            break;
+        case '09':
+            month = 'Sep';
+            break;
+        case '10':
+            month = 'Oct';
+            break;
+        case '11':
+            month = 'Nov';
+            break;
+        case '12':
+            month = 'Dic';
+            break;
+    }
+
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
 //Validaciones
 
 function login(){
@@ -310,10 +361,6 @@ function downloadAll() {
     files.forEach(file => downloadFile(file));
 }
 
-function goToLink() {
-    const link = document.getElementById('videoLink').value;
-    window.open(link, '_blank');
-}
 
 //ALERTS
 /**/

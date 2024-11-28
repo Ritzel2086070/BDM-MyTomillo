@@ -163,6 +163,28 @@ window.onload = function() {
             svg3.appendChild(path4);
             button3.appendChild(svg3);
             button3.textContent = 'Agregar material';
+            button3.addEventListener('click', function() {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = 'application/* , image/* , video/*';
+                fileInput.style.display = 'none';
+                fileInput.name = `materialClase${i}[]`;
+                fileInput.click();
+
+                fileInput.addEventListener('change', function() {
+                    const file = fileInput.files[0];
+                    if (file) {
+                        if (file.size > maxVideoSize) {
+                            alertCustom('El archivo no debe exceder los 16MB');
+                            return;
+                        }
+                        const material = document.createElement('p');
+                        material.textContent = file.name;
+                        lesson.appendChild(fileInput);
+                        lesson.appendChild(material);
+                    }
+                });
+            });
 
             const button4 = document.createElement('button');
             button4.classList.add('btn', 'sub-btn');
@@ -185,6 +207,14 @@ window.onload = function() {
             svg4.appendChild(path6);
             button4.appendChild(svg4);
             button4.textContent = 'Agregar link';
+            button4.addEventListener('click', function() {
+                const link = document.createElement('input');
+                link.type = 'text';
+                link.classList.add('form-control');
+                link.placeholder = 'Ingrese link';
+                link.name = `linkClase${i}[]`;
+                lesson.appendChild(link);
+            });
 
             formGroup4.appendChild(button3);
             formGroup4.appendChild(button4);
@@ -208,6 +238,9 @@ async function validacionClase(event) {
     const nombresClases = document.querySelectorAll("input[name='nombreClase[]']");
     const descripcionesClases = document.querySelectorAll("textarea[name='descripcionClase[]']");
     const videoFiles = document.querySelectorAll("input[name='videoClase[]']");
+
+    const materialFiles = document.querySelectorAll("input[name^='materialClase']");
+    const linkClases = document.querySelectorAll("input[name^='linkClase']");
 
     const nombreNivel = $("#inputNombreNivel").val().trim();
     if (nombreNivel === "") {
@@ -243,6 +276,23 @@ async function validacionClase(event) {
         }
         if (descripcion.value.trim().length > 65535) {
             alert += `La descripción de la clase ${index + 1} no debe exceder los 65,535 caracteres\n`;
+        }
+    });
+
+    materialFiles.forEach((file, index) => {
+        if (file.files.length > 0) {
+            if (file.files[0].size > maxVideoSize) {
+                alert += `El archivo de material ${index + 1} no debe exceder los 16MB\n`;
+            }
+        }
+    });
+
+    linkClases.forEach((link, index) => {
+        if (link.value.trim() === '') {
+            alert += `Ingrese el link ${index + 1}\n`;
+        }
+        if (link.value.trim().length > 255) {
+            alert += `El link ${index + 1} no debe exceder los 255 caracteres\n`;
         }
     });
 
@@ -291,6 +341,29 @@ async function validacionClase(event) {
     localStorage.setItem(`Nivel_${nivel}_Clases`, JSON.stringify(Array.from(nombresClases).map(input => input.value.trim())));
     localStorage.setItem(`Nivel_${nivel}_Descripciones`, JSON.stringify(Array.from(descripcionesClases).map(input => input.value.trim())));
 
+    for (let i = 0; i < nombresClases.length; i++) {
+        const materialFiles = document.querySelectorAll(`input[name='materialClase${i + 1}[]']`);
+        const linkClases = document.querySelectorAll(`input[name='linkClase${i + 1}[]']`);
+
+        for (let j = 0; j < materialFiles.length; j++) {
+            const file = materialFiles[j].files[0];
+            if (file) {
+                const uploadedData = await saveToUploads(file);
+                if(uploadedData.success){
+                    let storedMaterials = JSON.parse(localStorage.getItem(`Nivel_${nivel}_Clase${i + 1}_Materials`) || '[]');
+                    storedMaterials.push(uploadedData.fileName);
+                    localStorage.setItem(`Nivel_${nivel}_Clase${i + 1}_Materials`, JSON.stringify(storedMaterials));
+                } else {
+                    alertCustom(`Error al subir material ${j + 1} de la clase ${i + 1}: ${uploadedData.message}`);
+                }
+            }
+        }
+        
+        const links = Array.from(linkClases).map(input => input.value.trim());
+        localStorage.setItem(`Nivel_${nivel}_Clase${i + 1}_Links`, JSON.stringify(links));
+    }
+
+
     // Store class IDs (if available) in localStorage for this nivel
     const claseIDs = Array.from(nombresClases).map(input => input.dataset.claseId); // Assuming you store class IDs in a data attribute
     localStorage.setItem(`Nivel_${nivel}_Clases_IDs`, JSON.stringify(claseIDs));
@@ -307,20 +380,42 @@ async function validacionClase(event) {
         input.value = localStorage.getItem('ID_curso');
         form.appendChild(input);
 
-        // Optional: Include class IDs as hidden fields if needed for backend processing
         const clasesInput = document.createElement('input');
         clasesInput.type = 'hidden';
         clasesInput.name = 'clases_ids';
-        clasesInput.value = JSON.stringify(claseIDs); // You can include class IDs here
+        clasesInput.value = JSON.stringify(claseIDs);
         form.appendChild(clasesInput);
 
         document.body.appendChild(form);
         form.submit();
     } else {
-        // If no course ID exists, navigate to the page for creating a new course
         window.location.href = '/nuevo_curso';
     }
 
+}
+
+function saveToUploads(file) {
+    return new Promise((resolve, reject) => {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('/upload-file', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                resolve({ success: true, fileName: data.fileName });
+            } else {
+                resolve({ success: false, message: data.message });
+            }
+        })
+        .catch(error => {
+            console.error('Error during upload:', error);
+            reject({ success: false, message: 'Error during upload.' });
+        });
+    });
 }
 
 function compressAndValidateVideo(file) {

@@ -44,3 +44,8 @@ function card_generator($name, $author, $price, $rating, $students) {
     $card = ob_get_clean(); // Get the buffer contents
     return $card;
 }
+
+function formatDate($date) {
+    // 02/Nov/2020
+    return date('d/M/Y', strtotime($date));
+}

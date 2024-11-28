@@ -38,23 +38,8 @@
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="resources">
                             <h3>Aquí hay materiales adicionales sobre el tema</h3>
-                            <div class="downloads">
-                                <p>Para complementar tu aprendizaje, el maestro ha decidido compartir contenido de alta calidad</p>
-
-                                <div class="download-item">
-                                    <input type="text" id="videoLink" value="https://www.youtube.com/watch?v=2U6H3CWpaWQ" readonly>
-                                    <button class="btn main-btn" onclick="goToLink()">Ir al link</button>
-                                </div>
-
-                                <div class="download-item">
-                                    <input type="text" value="Doc.pdf" readonly>
-                                    <button class="btn main-btn" onclick="downloadFile('Doc.pdf')">Descargar</button>
-                                </div>
-                                <div class="download-item">
-                                    <input type="text" value="Doc2.pdf" readonly>
-                                    <button class="btn main-btn" onclick="downloadFile('Doc2.pdf')">Descargar</button>
-                                </div>
-                                <button style="width: 20%;" class="btn main-btn" onclick="downloadAll()">Descargar todo</button>
+                            <div id="recursos_links" class="downloads">
+                                
                             </div>
                         </div>
                     </div>
@@ -73,7 +58,7 @@
                                         <label onclick="showLesson( <?= $clase['ID_clase'] ?>, <?= $clase['ID_nivel'] ?>, <?= $ID_curso ?>)" class="d-flex p-2 bulgy-checkboxes justify-content-start align-items-center">
                                             <input disabled type="checkbox" name="options" id="<?= $clase['ID_clase'] ?>_<?= $clase['ID_nivel'] ?>"/>
                                             <span class="checkbox"></span>
-                                            Clase 1: <?= $clase['titulo'] ?>
+                                            Clase: <?= $clase['titulo'] ?>
                                         </label>
                                     <?php endif; ?>
                                 <?php endforeach; ?>

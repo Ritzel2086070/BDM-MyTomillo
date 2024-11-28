@@ -151,78 +151,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Heber Abiel Perez Jimenez</td>
-                                        <td>24/12/2023</td>
-                                        <td>75 cursos</td>
-                                        <td>50 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marla Judith Estrada Valdez</td>
-                                        <td>24/12/2023</td>
-                                        <td>1,000 cursos</td>
-                                        <td>700 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carlos Daniel Pinkus Martinez</td>
-                                        <td>24/12/2023</td>
-                                        <td>2 cursos</td>
-                                        <td>1 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ximena Guadalupe Rosales</td>
-                                        <td>24/12/2023</td>
-                                        <td>4 cursos</td>
-                                        <td>3 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Heber Abiel Perez Jimenez</td>
-                                        <td>24/12/2023</td>
-                                        <td>75 cursos</td>
-                                        <td>50 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marla Judith Estrada Valdez</td>
-                                        <td>24/12/2023</td>
-                                        <td>1,000 cursos</td>
-                                        <td>700 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carlos Daniel Pinkus Martinez</td>
-                                        <td>24/12/2023</td>
-                                        <td>2 cursos</td>
-                                        <td>1 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ximena Guadalupe Rosales</td>
-                                        <td>24/12/2023</td>
-                                        <td>4 cursos</td>
-                                        <td>3 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Heber Abiel Perez Jimenez</td>
-                                        <td>24/12/2023</td>
-                                        <td>75 cursos</td>
-                                        <td>50 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marla Judith Estrada Valdez</td>
-                                        <td>24/12/2023</td>
-                                        <td>1,000 cursos</td>
-                                        <td>700 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carlos Daniel Pinkus Martinez</td>
-                                        <td>24/12/2023</td>
-                                        <td>2 cursos</td>
-                                        <td>1 cursos</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ximena Guadalupe Rosales</td>
-                                        <td>24/12/2023</td>
-                                        <td>4 cursos</td>
-                                        <td>3 cursos</td>
-                                    </tr>
+                                    <?php foreach($estudiantes as $estudiante): ?>
+                                        <tr>
+                                            <td><?=$estudiante['nombres'] . " " . $estudiante['apellido_paterno'] . " " . $estudiante['apellido_materno']?></td>
+                                            <td><?=date('d/M/Y', strtotime($estudiante['f_registro']))?></td>
+                                            <td><?=$estudiante['n_cursos']?> cursos</td>
+                                            <td><?=$estudiante['n_cursos_terminados']?> cursos</td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -249,7 +185,7 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="levels-container filter d-flex flex-column">
                             <div class="header d-flex flex-wrap justify-content-between">
-                                <p>Listado de estudiantes</p>
+                                <p>Listado de docentes</p>
                             </div>
                             <table class="table table-striped">
                                 <thead>
@@ -261,78 +197,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Heber Abiel Perez Jimenez</td>
-                                        <td>24/12/2023</td>
-                                        <td>75 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marla Judith Estrada Valdez</td>
-                                        <td>24/12/2023</td>
-                                        <td>1,000 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carlos Daniel Pinkus Martinez</td>
-                                        <td>24/12/2023</td>
-                                        <td>2 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ximena Guadalupe Rosales</td>
-                                        <td>24/12/2023</td>
-                                        <td>4 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Heber Abiel Perez Jimenez</td>
-                                        <td>24/12/2023</td>
-                                        <td>75 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marla Judith Estrada Valdez</td>
-                                        <td>24/12/2023</td>
-                                        <td>1,000 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carlos Daniel Pinkus Martinez</td>
-                                        <td>24/12/2023</td>
-                                        <td>2 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ximena Guadalupe Rosales</td>
-                                        <td>24/12/2023</td>
-                                        <td>4 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Heber Abiel Perez Jimenez</td>
-                                        <td>24/12/2023</td>
-                                        <td>75 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Marla Judith Estrada Valdez</td>
-                                        <td>24/12/2023</td>
-                                        <td>1,000 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carlos Daniel Pinkus Martinez</td>
-                                        <td>24/12/2023</td>
-                                        <td>2 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ximena Guadalupe Rosales</td>
-                                        <td>24/12/2023</td>
-                                        <td>4 cursos</td>
-                                        <td>$40,000.00 MXN</td>
-                                    </tr>
+                                    <?php foreach($profesores as $profesor): ?>
+                                        <tr>
+                                            <td><?=$profesor['nombres'] . " " . $profesor['apellido_paterno'] . " " . $profesor['apellido_materno']?></td>
+                                            <td><?=date('d/M/Y', strtotime($profesor['f_registro']))?></td>
+                                            <td><?=$profesor['n_cursos']?> cursos</td>
+                                            <td>$<?=$profesor['ingresos']?> MXN</td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -379,7 +251,7 @@
                                     <td>
                                         <?=$categoria['nombre']?>
                                     </td>
-                                    <td><?=date('d/m/Y H:i', strtotime($categoria['f_registro']))?></td> 
+                                    <td><?=date('d/M/Y H:i', strtotime($categoria['f_registro']))?></td> 
                                     <td>
                                         <a onclick="readDescription('<?=$categoria['descripcion']?>')" class="text p-0 ml-0 bd-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                             <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>

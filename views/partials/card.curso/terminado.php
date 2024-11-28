@@ -12,16 +12,16 @@
         <p class="data">
             <?php
                 $fecha = new DateTime($adquirido["f_inscripcion"]);
-                echo $fecha->format('d/m/Y');
+                echo $fecha->format('d/M/Y');
             ?>
         </p>
     </div>
     <div class="d-flex justify-content-center align-items-center mb-3">
-        <p class="text">Fecha de completación???:</p>
+        <p class="text">Finalizado el:</p>
         <p class="data">
             <?php
                 $fecha = new DateTime($adquirido["f_completado"]);
-                echo $fecha->format('d/m/Y');
+                echo $fecha->format('d/M/Y');
             ?>
         </p>
     </div>

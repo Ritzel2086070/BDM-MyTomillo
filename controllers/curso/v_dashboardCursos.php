@@ -22,6 +22,15 @@ try {
     if ($filter == "todos") {
         $cursos = $db->query("SELECT * FROM v_dashboardCursos WHERE estatus = 1")->get();
     } 
+    else if ($filter == "mas-vendidos") {
+        $cursos = $db->query("SELECT * FROM v_dashboardCursos WHERE estatus = 1 ORDER BY n_estudiantes DESC")->get();
+    } 
+    else if ($filter == "mejor-valorados") {
+        $cursos = $db->query("SELECT * FROM v_dashboardCursos WHERE estatus = 1 ORDER BY calificacion DESC")->get();
+    } 
+    else if ($filter == "mas-recientes") {
+        $cursos = $db->query("SELECT * FROM v_dashboardCursos WHERE estatus = 1 ORDER BY f_creacion DESC")->get();
+    }
     else {
         $complexfilter = explode('_', $filter);
 

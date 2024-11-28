@@ -284,6 +284,24 @@ window.onload = function() {
                 videoInput.type = 'hidden';
                 videoInput.name = `CompressedVideos_${i}[]`;
                 videoInput.value = storedVideos[j];
+
+                let storedMaterials = JSON.parse(localStorage.getItem(`Nivel_${i}_Clase${j+1}_Materials`) || '[]');
+                let storedLinks = JSON.parse(localStorage.getItem(`Nivel_${i}_Clase${j+1}_Links`) || '[]');
+
+                storedMaterials.forEach((material, index) => {
+                    let materialInput = document.createElement('input');
+                    materialInput.type = 'hidden';
+                    materialInput.name = `Materials_${i}_${j+1}[]`;
+                    materialInput.value = material;
+                    tr.appendChild(materialInput);
+                });
+                storedLinks.forEach((link, index) => {
+                    let linkInput = document.createElement('input');
+                    linkInput.type = 'hidden';
+                    linkInput.name = `Links_${i}_${j+1}[]`;
+                    linkInput.value = link;
+                    tr.appendChild(linkInput);
+                });
     
                 tr.appendChild(claseInput);
                 tr.appendChild(descripcionInput);

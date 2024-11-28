@@ -154,7 +154,7 @@ try {
             }
     
             // Insert or update class (clase) with video (if provided)
-            $db->query("CALL sp_update_clases(?,?,?,?,?,?,?)", [
+            $ID_clase = $db->query("CALL sp_update_clases(?,?,?,?,?,?,?)", [
                 $opcion, 
                 $ID_curso['ID_curso'], 
                 $ID_nivel['ID_nivel'], 
@@ -165,6 +165,73 @@ try {
             ])->find();
     
             logMessage("Clase added/updated. Clase: $clase");
+            logMessage("Clase ID: " . json_encode($ID_clase));
+
+            $materials = $_POST["Materials_" . ($nivelKey + 1) . "_" . ($claseKey + 1)];
+            $links = $_POST["Links_" . ($nivelKey + 1) . "_" . ($claseKey + 1)];
+
+            // Log materials and links
+            logMessage("Materials: " . json_encode($materials));
+            logMessage("Links: " . json_encode($links));
+
+            // Process materials
+            foreach ($materials as $material) {
+                if (empty($material)) {
+                    logMessage("Error: Empty material found for clase: $clase");
+                    continue;
+                }
+                $materialFileName = $material;
+                $materialFilePath = __DIR__ . '/../../APIs/uploads/' . $materialFileName;
+                logMessage("Processing material: $materialFileName");
+    
+                if (file_exists($materialFilePath)) {
+                    $materialContent = file_get_contents($materialFilePath); // Read the material file content as binary
+                    logMessage("Material file found: $materialFileName");
+                    $materialMimeType = mime_content_type($materialFilePath);
+                    logMessage("Material MIME type: $materialMimeType");
+                    logMessage("Material content length: " . strlen($materialContent));
+                } else {
+                    logMessage("Error: Material not found at path: $materialFilePath");
+                    $_SESSION['errors'] = "El material no se encontró. " . $materialFilePath;
+                    return;
+                }
+    
+                // Insert material
+                $db->query("CALL sp_update_recursos(?,?,?,?,?,?,?)", [
+                    $opcion, 
+                    $ID_curso['ID_curso'], 
+                    $ID_nivel['ID_nivel'], 
+                    $ID_clase['ID_clase'], 
+                    null,
+                    $materialContent,
+                    $materialMimeType
+                ])->find();
+    
+                logMessage("Material added. Material: $materialFileName");
+                logMessage("Parameters: " . json_encode([$opcion, $ID_curso['ID_curso'], $ID_nivel['ID_nivel'], $ID_clase['ID_clase'], null, $materialContent, $materialMimeType]));
+            }
+
+            // Process links
+            foreach ($links as $link) {
+                if (empty($link)) {
+                    logMessage("Error: Empty link found for clase: $clase");
+                    continue;
+                }
+    
+                // Insert link
+                $db->query("CALL sp_update_links(?,?,?,?,?,?)", [
+                    $opcion, 
+                    $ID_curso['ID_curso'], 
+                    $ID_nivel['ID_nivel'], 
+                    $ID_clase['ID_clase'], 
+                    null,
+                    $link
+                ])->find();
+    
+                logMessage("Link added. Link: $link");
+                logMessage("Parameters: " . json_encode([$opcion, $ID_curso['ID_curso'], $ID_nivel['ID_nivel'], $ID_clase['ID_clase'], null, $link]));
+                logMessage("query would look like: " . "CALL sp_update_links('". $opcion ."', '" . $ID_curso['ID_curso'] . "', '" . $ID_nivel['ID_nivel'] . "', '" . $ID_clase['ID_clase'] . "', null, '" . $link . "')");
+            }
         }
     }
     

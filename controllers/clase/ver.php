@@ -15,9 +15,26 @@ $claseInfo = $db->query("SELECT titulo, descripcion FROM CLASES WHERE ID_curso =
     $ID_clase
 ])->find();
 
+$recursos = $db->query("SELECT ID_recurso FROM RECURSOS WHERE ID_curso = ? AND ID_nivel = ? AND ID_clase = ?", [
+    $ID_curso,
+    $ID_nivel,
+    $ID_clase
+])->get();
+
+$links = $db->query("SELECT link FROM LINKS WHERE ID_curso = ? AND ID_nivel = ? AND ID_clase = ?", [
+    $ID_curso,
+    $ID_nivel,
+    $ID_clase
+])->get();
+
 if ($claseInfo) {
     
-    echo json_encode($claseInfo);
+    echo json_encode([
+        'titulo' => $claseInfo['titulo'],
+        'descripcion' => $claseInfo['descripcion'],
+        'recursos' => $recursos,
+        'links' => $links
+    ]);
 
     try {
         $db->query("INSERT INTO ESTUDIANTES_CLASES (ID_estudiante, ID_curso, ID_nivel, ID_clase) VALUES (?, ?, ?, ?)", [

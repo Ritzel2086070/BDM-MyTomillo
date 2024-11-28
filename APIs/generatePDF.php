@@ -47,7 +47,7 @@ $pdf->SetXY(88, 108); // Set position of the text
 $pdf->Cell(53, 10, 'Itzel Hernández', 0 /*border*/, 1, 'C');
 
 $pdf->SetXY(38, 95); // Set position of the text
-$pdf->Cell(100, 10, $fecha, 0 /*border*/, 1, 'L');
+$pdf->Cell(100, 10, formatDate($fecha), 0 /*border*/, 1, 'L');
 
 $pdf->SetFont('Helvetica', '', 14);
 $pdf->SetXY(25, 61); // Set position of the text

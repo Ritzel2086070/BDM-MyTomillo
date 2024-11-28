@@ -11,9 +11,13 @@ $info = $db->query("SELECT nombres, apellido_paterno, apellido_materno, f_nacimi
 $categorias = $db->query("SELECT ID_categoria, nombre, descripcion, f_registro FROM CATEGORIAS WHERE ID_creador = ?", [
     $_SESSION['user']['id_rol']
 ])->get();
+$estudiantes = $db->query("SELECT * FROM v_estudiantesReportes")->get();
+$profesores = $db->query("SELECT * FROM v_profesoresReportes")->get();
 
 view("profile/admin.php",  [
     'generos' => $generos,
     'usuario' => $info,
-    'categorias' => $categorias
+    'categorias' => $categorias,
+    'estudiantes' => $estudiantes,
+    'profesores' => $profesores
 ]);

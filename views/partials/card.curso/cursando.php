@@ -12,7 +12,7 @@
         <p class="data">
             <?php
                 $fecha = new DateTime($adquirido["f_inscripcion"]);
-                echo $fecha->format('d/m/Y');
+                echo $fecha->format('d/M/Y');
             ?>
         </p>
     </div>
@@ -27,7 +27,7 @@
             }
 
             $fecha = new DateTime($fecha);
-            echo $fecha->format('d/m/Y');
+            echo $fecha->format('d/M/Y');
         ?>
         </p>
     </div>

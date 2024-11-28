@@ -65,7 +65,7 @@
                     <?php foreach($comentarios as $comentario): ?>
                         <?php if ($comentario['f_eliminacion'] != null): ?>
                             <div class="banned mb-3">
-                                <p><?= $comentario['f_eliminacion'] ?>. Este mensaje ha sido eliminado por comportamiento inapropiado</p>
+                                <p><?= formatDate($comentario['f_eliminacion']) ?>. Este mensaje ha sido eliminado por comportamiento inapropiado</p>
                             </div>
                         <?php else: ?>
                             <?php if($_SESSION['user'] ?? false): ?>
@@ -92,7 +92,30 @@
                                         </div>
                                     </div>
                                     <div class="comment mb-3">
-                                        <p class="info"><?= $comentario['f_creacion'] ?></p>
+                                        <p class="info"><?= formatDate($comentario['f_creacion']) ?></p>
+                                        <p><?= $comentario['comentario'] ?></p>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="d-flex bd-highlight align-items-center">
+                                        <div class="p-0 bd-highlight">
+                                            <button type="button" class="profile d-flex justify-content-center align-items-center">
+                                                <img src="images/tomilloprofile.png" alt="Logo">
+                                            </button>
+                                        </div>
+                                        <div class="p-0 bd-highlight">
+                                            <p style="margin: 0rem;"><?= $comentario['nombres'] . " " . $comentario['apellido_paterno'] . " " . $comentario['apellido_materno'] ?></p>
+                                            <div class="star-container" style="width: 9rem;">
+                                                <?php for($i = 0; $i < round($comentario['calificacion']) ; $i++): ?>
+                                                    <img src="images/estrella.png" alt="estrella">
+                                                <?php endfor; ?>
+                                                <?php for($i = 0; $i < 5 - round($comentario['calificacion']) ; $i++): ?>
+                                                    <img src="images/estrellaMala.png" alt="estrella">
+                                                <?php endfor; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment mb-3">
+                                        <p class="info"><?= formatDate($comentario['f_creacion']) ?></p>
                                         <p><?= $comentario['comentario'] ?></p>
                                     </div>
                                 <?php endif; ?>
@@ -116,7 +139,7 @@
                                     </div>
                                 </div>
                                 <div class="comment mb-3">
-                                    <p class="info"><?= $comentario['f_creacion'] ?></p>
+                                    <p class="info"><?= formatDate($comentario['f_creacion']) ?></p>
                                     <p><?= $comentario['comentario'] ?></p>
                                 </div>
                             <?php endif; ?>
