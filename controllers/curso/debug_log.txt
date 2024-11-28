@@ -49,3 +49,147 @@
 [2024-11-28 06:31:15] Material added. Material: Diploma_BDM__2_.pdf
 [2024-11-28 06:31:15] Parameters: 
 [2024-11-28 06:31:15] Course registration successful.
+[2024-11-28 18:51:55] Script execution started.
+[2024-11-28 18:51:55] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:51:55] Option: agregar
+[2024-11-28 18:51:55] Image found. Preparing to save image data.
+[2024-11-28 18:51:55] Course created/updated. Course ID: {"ID_curso":27}
+[2024-11-28 18:51:55] Adding/updating aprendizaje: adwda (ID: )
+[2024-11-28 18:51:55] Adding/updating nivel: addw with price 0 (ID: )
+[2024-11-28 18:51:55] Nivel ID: {"ID_nivel":1}
+[2024-11-28 18:51:55] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:51:55] Clases: ["qwe"]
+[2024-11-28 18:51:55] Descripciones: ["awdwad"]
+[2024-11-28 18:51:55] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:51:55] Processing clase: qwe, Video Name: compressed_test.mp4
+[2024-11-28 18:51:55] Processing clase: qwe, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:51:55] Video file found: compressed_test.mp4
+[2024-11-28 18:51:55] Clase added/updated. Clase: qwe
+[2024-11-28 18:51:55] Clase ID: {"ID_clase":1}
+[2024-11-28 18:51:55] Materials: null
+[2024-11-28 18:51:55] Links: null
+[2024-11-28 18:51:55] Adding/updating nivel: adwad with price 100 (ID: )
+[2024-11-28 18:51:55] Nivel ID: {"ID_nivel":2}
+[2024-11-28 18:51:55] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:51:55] Clases: ["awd"]
+[2024-11-28 18:51:55] Descripciones: ["awdwad"]
+[2024-11-28 18:51:55] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:51:55] Processing clase: awd, Video Name: compressed_test.mp4
+[2024-11-28 18:51:55] Processing clase: awd, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:51:55] Video file found: compressed_test.mp4
+[2024-11-28 18:51:55] Clase added/updated. Clase: awd
+[2024-11-28 18:51:55] Clase ID: {"ID_clase":1}
+[2024-11-28 18:51:55] Materials: null
+[2024-11-28 18:51:55] Links: null
+[2024-11-28 18:51:55] Adding/updating nivel: wdwa with price 0 (ID: )
+[2024-11-28 18:51:55] Nivel ID: {"ID_nivel":3}
+[2024-11-28 18:51:55] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:51:55] Clases: ["awd"]
+[2024-11-28 18:51:55] Descripciones: ["awd"]
+[2024-11-28 18:51:55] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:51:55] Processing clase: awd, Video Name: compressed_test.mp4
+[2024-11-28 18:51:55] Processing clase: awd, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:51:55] Video file found: compressed_test.mp4
+[2024-11-28 18:51:55] Clase added/updated. Clase: awd
+[2024-11-28 18:51:55] Clase ID: {"ID_clase":1}
+[2024-11-28 18:51:55] Materials: null
+[2024-11-28 18:51:55] Links: null
+[2024-11-28 18:51:55] Adding/updating nivel: adwaw with price 100 (ID: )
+[2024-11-28 18:51:55] Nivel ID: {"ID_nivel":4}
+[2024-11-28 18:51:55] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:51:55] Clases: ["54"]
+[2024-11-28 18:51:55] Descripciones: ["awd"]
+[2024-11-28 18:51:55] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:51:55] Processing clase: 54, Video Name: compressed_test.mp4
+[2024-11-28 18:51:55] Processing clase: 54, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:51:55] Video file found: compressed_test.mp4
+[2024-11-28 18:51:55] Clase added/updated. Clase: 54
+[2024-11-28 18:51:55] Clase ID: {"ID_clase":1}
+[2024-11-28 18:51:55] Materials: null
+[2024-11-28 18:51:55] Links: null
+[2024-11-28 18:51:55] Adding/updating nivel: dawd with price 100 (ID: )
+[2024-11-28 18:51:55] Nivel ID: {"ID_nivel":5}
+[2024-11-28 18:51:55] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:51:55] Clases: ["adw"]
+[2024-11-28 18:51:55] Descripciones: ["awd"]
+[2024-11-28 18:51:55] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:51:55] Processing clase: adw, Video Name: compressed_test.mp4
+[2024-11-28 18:51:55] Processing clase: adw, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:51:55] Video file found: compressed_test.mp4
+[2024-11-28 18:51:56] Clase added/updated. Clase: adw
+[2024-11-28 18:51:56] Clase ID: {"ID_clase":1}
+[2024-11-28 18:51:56] Materials: null
+[2024-11-28 18:51:56] Links: null
+[2024-11-28 18:51:56] Course registration successful.
+[2024-11-28 18:55:26] Script execution started.
+[2024-11-28 18:55:26] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:55:26] Option: agregar
+[2024-11-28 18:55:26] Image found. Preparing to save image data.
+[2024-11-28 18:55:26] Course created/updated. Course ID: {"ID_curso":28}
+[2024-11-28 18:55:26] Adding/updating aprendizaje: adwda (ID: )
+[2024-11-28 18:55:26] Adding/updating nivel: addw with price 0 (ID: )
+[2024-11-28 18:55:26] Nivel ID: {"ID_nivel":1}
+[2024-11-28 18:55:26] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:55:26] Clases: ["qwe"]
+[2024-11-28 18:55:26] Descripciones: ["awdwad"]
+[2024-11-28 18:55:26] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:55:26] Processing clase: qwe, Video Name: compressed_test.mp4
+[2024-11-28 18:55:26] Processing clase: qwe, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:55:26] Video file found: compressed_test.mp4
+[2024-11-28 18:55:27] Clase added/updated. Clase: qwe
+[2024-11-28 18:55:27] Clase ID: {"ID_clase":1}
+[2024-11-28 18:55:27] Materials: null
+[2024-11-28 18:55:27] Links: null
+[2024-11-28 18:55:27] Adding/updating nivel: adwad with price 100 (ID: )
+[2024-11-28 18:55:27] Nivel ID: {"ID_nivel":2}
+[2024-11-28 18:55:27] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:55:27] Clases: ["awd"]
+[2024-11-28 18:55:27] Descripciones: ["awdwad"]
+[2024-11-28 18:55:27] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:55:27] Processing clase: awd, Video Name: compressed_test.mp4
+[2024-11-28 18:55:27] Processing clase: awd, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:55:27] Video file found: compressed_test.mp4
+[2024-11-28 18:55:27] Clase added/updated. Clase: awd
+[2024-11-28 18:55:27] Clase ID: {"ID_clase":1}
+[2024-11-28 18:55:27] Materials: null
+[2024-11-28 18:55:27] Links: null
+[2024-11-28 18:55:27] Adding/updating nivel: wdwa with price 0 (ID: )
+[2024-11-28 18:55:27] Nivel ID: {"ID_nivel":3}
+[2024-11-28 18:55:27] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:55:27] Clases: ["awd"]
+[2024-11-28 18:55:27] Descripciones: ["awd"]
+[2024-11-28 18:55:27] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:55:27] Processing clase: awd, Video Name: compressed_test.mp4
+[2024-11-28 18:55:27] Processing clase: awd, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:55:27] Video file found: compressed_test.mp4
+[2024-11-28 18:55:27] Clase added/updated. Clase: awd
+[2024-11-28 18:55:27] Clase ID: {"ID_clase":1}
+[2024-11-28 18:55:27] Materials: null
+[2024-11-28 18:55:27] Links: null
+[2024-11-28 18:55:27] Adding/updating nivel: adwaw with price 100 (ID: )
+[2024-11-28 18:55:27] Nivel ID: {"ID_nivel":4}
+[2024-11-28 18:55:27] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:55:27] Clases: ["54"]
+[2024-11-28 18:55:27] Descripciones: ["awd"]
+[2024-11-28 18:55:27] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:55:27] Processing clase: 54, Video Name: compressed_test.mp4
+[2024-11-28 18:55:27] Processing clase: 54, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:55:27] Video file found: compressed_test.mp4
+[2024-11-28 18:55:27] Clase added/updated. Clase: 54
+[2024-11-28 18:55:27] Clase ID: {"ID_clase":1}
+[2024-11-28 18:55:27] Materials: null
+[2024-11-28 18:55:27] Links: null
+[2024-11-28 18:55:27] Adding/updating nivel: dawd with price 100 (ID: )
+[2024-11-28 18:55:27] Nivel ID: {"ID_nivel":5}
+[2024-11-28 18:55:27] POST Data: {"inputNombreCurso":"test test","inputCategoria":"4","inputPrecio":"500","aprendizajes":["adwda"],"ID_aprendizaje":[""],"inputDescripcion":"adwwda","NumNiveles":"5","NombreNivel":["addw","adwad","wdwa","adwaw","dawd"],"PrecioNivel":["0","100","0","100","100"],"ID_nivel":["","","","",""],"NumClasesNivel":["1","1","1","1","1"],"clasesNivel_1":["qwe"],"descripcionesNivel_1":["awdwad"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"],"clasesNivel_2":["awd"],"descripcionesNivel_2":["awdwad"],"ID_clase_2":[""],"CompressedVideos_2":["compressed_test.mp4"],"clasesNivel_3":["awd"],"descripcionesNivel_3":["awd"],"ID_clase_3":[""],"CompressedVideos_3":["compressed_test.mp4"],"clasesNivel_4":["54"],"descripcionesNivel_4":["awd"],"ID_clase_4":[""],"CompressedVideos_4":["compressed_test.mp4"],"clasesNivel_5":["adw"],"descripcionesNivel_5":["awd"],"ID_clase_5":[""],"CompressedVideos_5":["compressed_test.mp4"]}
+[2024-11-28 18:55:27] Clases: ["adw"]
+[2024-11-28 18:55:27] Descripciones: ["awd"]
+[2024-11-28 18:55:27] Videos: ["compressed_test.mp4"]
+[2024-11-28 18:55:27] Processing clase: adw, Video Name: compressed_test.mp4
+[2024-11-28 18:55:27] Processing clase: adw, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 18:55:27] Video file found: compressed_test.mp4
+[2024-11-28 18:55:27] Clase added/updated. Clase: adw
+[2024-11-28 18:55:27] Clase ID: {"ID_clase":1}
+[2024-11-28 18:55:27] Materials: null
+[2024-11-28 18:55:27] Links: null
+[2024-11-28 18:55:27] Course registration successful.
