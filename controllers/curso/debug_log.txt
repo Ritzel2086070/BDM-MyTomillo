@@ -193,3 +193,88 @@
 [2024-11-28 18:55:27] Materials: null
 [2024-11-28 18:55:27] Links: null
 [2024-11-28 18:55:27] Course registration successful.
+[2024-11-28 23:04:38] Script execution started.
+[2024-11-28 23:04:38] POST Data: {"inputNombreCurso":"Curso de Modelado Basico con Blender","inputCategoria":"5","inputPrecio":"800","aprendizajes":["Aprenderas las bases del modelado para videojuegos en Blender"],"ID_aprendizaje":[""],"inputDescripcion":"Principios de la topologia y el texturizado para modelos hechos para motored de videojuegos, haremos una gallina y la texturizaremos en Susbstance Painter, para posteriormente subirla a un motor para videojuegos","NumNiveles":"1","NombreNivel":["Bienvenida"],"PrecioNivel":["800"],"ID_nivel":[""],"NumClasesNivel":["1"],"clasesNivel_1":["Introduccion a Blender"],"descripcionesNivel_1":["Las bases de Blender y de su interfaz"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"]}
+[2024-11-28 23:04:38] Option: agregar
+[2024-11-28 23:04:38] Image found. Preparing to save image data.
+[2024-11-28 23:04:38] Course created/updated. Course ID: {"ID_curso":29}
+[2024-11-28 23:04:38] Adding/updating aprendizaje: Aprenderas las bases del modelado para videojuegos en Blender (ID: )
+[2024-11-28 23:04:38] Adding/updating nivel: Bienvenida with price 800 (ID: )
+[2024-11-28 23:04:38] Nivel ID: {"ID_nivel":1}
+[2024-11-28 23:04:38] POST Data: {"inputNombreCurso":"Curso de Modelado Basico con Blender","inputCategoria":"5","inputPrecio":"800","aprendizajes":["Aprenderas las bases del modelado para videojuegos en Blender"],"ID_aprendizaje":[""],"inputDescripcion":"Principios de la topologia y el texturizado para modelos hechos para motored de videojuegos, haremos una gallina y la texturizaremos en Susbstance Painter, para posteriormente subirla a un motor para videojuegos","NumNiveles":"1","NombreNivel":["Bienvenida"],"PrecioNivel":["800"],"ID_nivel":[""],"NumClasesNivel":["1"],"clasesNivel_1":["Introduccion a Blender"],"descripcionesNivel_1":["Las bases de Blender y de su interfaz"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"]}
+[2024-11-28 23:04:38] Clases: ["Introduccion a Blender"]
+[2024-11-28 23:04:38] Descripciones: ["Las bases de Blender y de su interfaz"]
+[2024-11-28 23:04:38] Videos: ["compressed_test.mp4"]
+[2024-11-28 23:04:38] Processing clase: Introduccion a Blender, Video Name: compressed_test.mp4
+[2024-11-28 23:04:38] Processing clase: Introduccion a Blender, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-28 23:04:38] Video file found: compressed_test.mp4
+[2024-11-28 23:04:38] Clase added/updated. Clase: Introduccion a Blender
+[2024-11-28 23:04:38] Clase ID: {"ID_clase":1}
+[2024-11-28 23:04:38] Materials: null
+[2024-11-28 23:04:38] Links: null
+[2024-11-28 23:04:38] Course registration successful.
+[2024-11-28 23:05:10] Script execution started.
+[2024-11-28 23:05:10] POST Data: {"ID_cur":"29","inputNombreCurso":"Curso de Modelado Basico con Blender","inputCategoria":"5","inputPrecio":"800.00","aprendizajes":["Aprenderas las bases del modelado para videojuegos en Blender","aprendizaje 2"],"ID_aprendizaje":["39",""],"inputDescripcion":"Principios de la topologia y el texturizado para modelos hechos para motored de videojuegos, haremos una gallina y la texturizaremos en Susbstance Painter, para posteriormente subirla a un motor para videojuegos","NumNiveles":"1","NombreNivel":["Bienvenida"],"PrecioNivel":["800.00"],"ID_nivel":[""],"NumClasesNivel":["1"],"clasesNivel_1":["Introduccion a Blender"],"descripcionesNivel_1":["Las bases de Blender y de su interfaz"],"ID_clase_1":["1"],"CompressedVideos_1":[""]}
+[2024-11-28 23:05:10] Option: actualizar
+[2024-11-28 23:05:10] Course created/updated. Course ID: {"ID_curso":29}
+[2024-11-28 23:05:10] Adding/updating aprendizaje: Aprenderas las bases del modelado para videojuegos en Blender (ID: 39)
+[2024-11-28 23:05:10] Adding/updating aprendizaje: aprendizaje 2 (ID: )
+[2024-11-28 23:05:10] Adding/updating nivel: Bienvenida with price 800.00 (ID: 1)
+[2024-11-28 23:05:10] Nivel ID: {"ID_nivel":1}
+[2024-11-28 23:05:10] POST Data: {"ID_cur":"29","inputNombreCurso":"Curso de Modelado Basico con Blender","inputCategoria":"5","inputPrecio":"800.00","aprendizajes":["Aprenderas las bases del modelado para videojuegos en Blender","aprendizaje 2"],"ID_aprendizaje":["39",""],"inputDescripcion":"Principios de la topologia y el texturizado para modelos hechos para motored de videojuegos, haremos una gallina y la texturizaremos en Susbstance Painter, para posteriormente subirla a un motor para videojuegos","NumNiveles":"1","NombreNivel":["Bienvenida"],"PrecioNivel":["800.00"],"ID_nivel":[""],"NumClasesNivel":["1"],"clasesNivel_1":["Introduccion a Blender"],"descripcionesNivel_1":["Las bases de Blender y de su interfaz"],"ID_clase_1":["1"],"CompressedVideos_1":[""]}
+[2024-11-28 23:05:10] Clases: ["Introduccion a Blender"]
+[2024-11-28 23:05:10] Descripciones: ["Las bases de Blender y de su interfaz"]
+[2024-11-28 23:05:10] Videos: [""]
+[2024-11-28 23:05:10] Processing clase: Introduccion a Blender, Video Name: 
+[2024-11-28 23:05:10] No video provided for clase: Introduccion a Blender
+[2024-11-28 23:05:10] Clase added/updated. Clase: Introduccion a Blender
+[2024-11-28 23:05:10] Clase ID: {"ID_clase":1}
+[2024-11-28 23:05:10] Materials: null
+[2024-11-28 23:05:10] Links: null
+[2024-11-28 23:05:10] Course registration successful.
+[2024-11-28 23:05:27] Script execution started.
+[2024-11-28 23:05:27] POST Data: {"ID_cur":"29","inputNombreCurso":"Curso de Modelado Basico con Blender","inputCategoria":"5","inputPrecio":"800.00","aprendizajes":["Aprenderas las bases del modelado para videojuegos en Blender"],"ID_aprendizaje":["39"],"inputDescripcion":"Principios de la topologia y el texturizado para modelos hechos para motored de videojuegos, haremos una gallina y la texturizaremos en Susbstance Painter, para posteriormente subirla a un motor para videojuegos","NumNiveles":"1","NombreNivel":["Bienvenida"],"PrecioNivel":["800.00"],"ID_nivel":[""],"NumClasesNivel":["1"],"clasesNivel_1":["Introduccion a Blender"],"descripcionesNivel_1":["Las bases de Blender y de su interfaz"],"ID_clase_1":["1"],"CompressedVideos_1":[""]}
+[2024-11-28 23:05:27] Option: actualizar
+[2024-11-28 23:05:27] Course created/updated. Course ID: {"ID_curso":29}
+[2024-11-28 23:05:27] Adding/updating aprendizaje: Aprenderas las bases del modelado para videojuegos en Blender (ID: 39)
+[2024-11-28 23:05:27] Adding/updating nivel: Bienvenida with price 800.00 (ID: 1)
+[2024-11-28 23:05:27] Nivel ID: {"ID_nivel":1}
+[2024-11-28 23:05:27] POST Data: {"ID_cur":"29","inputNombreCurso":"Curso de Modelado Basico con Blender","inputCategoria":"5","inputPrecio":"800.00","aprendizajes":["Aprenderas las bases del modelado para videojuegos en Blender"],"ID_aprendizaje":["39"],"inputDescripcion":"Principios de la topologia y el texturizado para modelos hechos para motored de videojuegos, haremos una gallina y la texturizaremos en Susbstance Painter, para posteriormente subirla a un motor para videojuegos","NumNiveles":"1","NombreNivel":["Bienvenida"],"PrecioNivel":["800.00"],"ID_nivel":[""],"NumClasesNivel":["1"],"clasesNivel_1":["Introduccion a Blender"],"descripcionesNivel_1":["Las bases de Blender y de su interfaz"],"ID_clase_1":["1"],"CompressedVideos_1":[""]}
+[2024-11-28 23:05:27] Clases: ["Introduccion a Blender"]
+[2024-11-28 23:05:27] Descripciones: ["Las bases de Blender y de su interfaz"]
+[2024-11-28 23:05:27] Videos: [""]
+[2024-11-28 23:05:27] Processing clase: Introduccion a Blender, Video Name: 
+[2024-11-28 23:05:27] No video provided for clase: Introduccion a Blender
+[2024-11-28 23:05:27] Clase added/updated. Clase: Introduccion a Blender
+[2024-11-28 23:05:27] Clase ID: {"ID_clase":1}
+[2024-11-28 23:05:27] Materials: null
+[2024-11-28 23:05:27] Links: null
+[2024-11-28 23:05:27] Course registration successful.
+[2024-11-29 00:25:25] Script execution started.
+[2024-11-29 00:25:25] POST Data: {"ID_cur":"1","inputNombreCurso":"curso HTTYD","inputCategoria":"5","inputPrecio":"1000.00","inputDescripcion":"ola ???","NumNiveles":"1","NombreNivel":["nivel edicion"],"PrecioNivel":["500"],"ID_nivel":[""],"NumClasesNivel":["1"],"Materials_1_1":["Actividad__B__squeda_del_tesoro_FCFM.docx"],"Links_1_1":["https:\/\/www.blender.org"],"clasesNivel_1":["TEST"],"descripcionesNivel_1":["edicion"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"]}
+[2024-11-29 00:25:25] Option: actualizar
+[2024-11-29 00:25:25] Image found. Preparing to save image data.
+[2024-11-29 00:25:25] Course created/updated. Course ID: {"ID_curso":1}
+[2024-11-29 00:25:25] Adding/updating nivel: nivel edicion with price 500 (ID: )
+[2024-11-29 00:25:25] Nivel ID: {"ID_nivel":null}
+[2024-11-29 00:25:25] POST Data: {"ID_cur":"1","inputNombreCurso":"curso HTTYD","inputCategoria":"5","inputPrecio":"1000.00","inputDescripcion":"ola ???","NumNiveles":"1","NombreNivel":["nivel edicion"],"PrecioNivel":["500"],"ID_nivel":[""],"NumClasesNivel":["1"],"Materials_1_1":["Actividad__B__squeda_del_tesoro_FCFM.docx"],"Links_1_1":["https:\/\/www.blender.org"],"clasesNivel_1":["TEST"],"descripcionesNivel_1":["edicion"],"ID_clase_1":[""],"CompressedVideos_1":["compressed_test.mp4"]}
+[2024-11-29 00:25:25] Clases: ["TEST"]
+[2024-11-29 00:25:25] Descripciones: ["edicion"]
+[2024-11-29 00:25:25] Videos: ["compressed_test.mp4"]
+[2024-11-29 00:25:25] Processing clase: TEST, Video Name: compressed_test.mp4
+[2024-11-29 00:25:25] Processing clase: TEST, Video Path: C:\Users\estra\Downloads\7° semester\Base de Datos Multimedia\BDM-MyTomillo\controllers\curso/../../APIs/uploads/compressed_test.mp4
+[2024-11-29 00:25:25] Video file found: compressed_test.mp4
+[2024-11-29 00:25:25] Clase added/updated. Clase: TEST
+[2024-11-29 00:25:25] Clase ID: {"ID_clase":0}
+[2024-11-29 00:25:25] Materials: ["Actividad__B__squeda_del_tesoro_FCFM.docx"]
+[2024-11-29 00:25:25] Links: ["https:\/\/www.blender.org"]
+[2024-11-29 00:25:25] Processing material: Actividad__B__squeda_del_tesoro_FCFM.docx
+[2024-11-29 00:25:25] Material file found: Actividad__B__squeda_del_tesoro_FCFM.docx
+[2024-11-29 00:25:25] Material MIME type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+[2024-11-29 00:25:25] Material content length: 13058
+[2024-11-29 00:25:25] Material added. Material: Actividad__B__squeda_del_tesoro_FCFM.docx
+[2024-11-29 00:25:25] Parameters: 
+[2024-11-29 00:25:25] Link added. Link: https://www.blender.org
+[2024-11-29 00:25:25] Parameters: ["actualizar",1,null,0,null,"https:\/\/www.blender.org"]
+[2024-11-29 00:25:25] query would look like: CALL sp_update_links('actualizar', '1', '', '0', null, 'https://www.blender.org')
+[2024-11-29 00:25:25] Course registration successful.
