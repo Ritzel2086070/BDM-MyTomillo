@@ -110,9 +110,9 @@
                         <div class="form-group d-flex flex-column align-items-start">
                             <p>Ingrese la cantidad de niveles que tendrá su curso:</p>
                             <?php if($title == 'Editar curso'): ?>
-                                <input class="form-control" type="number" id="NumNiveles" name="NumNiveles" min="1" max="20" value="<?=$curso['n_niveles']?>">
+                                <input class="form-control" type="number" id="NumNiveles" name="NumNiveles" min="0" max="20" value="<?=$curso['n_niveles']?>">
                             <?php else: ?>
-                                <input class="form-control" type="number" id="NumNiveles" name="NumNiveles" min="1" max="20" value="0">
+                                <input class="form-control" type="number" id="NumNiveles" name="NumNiveles" min="0" max="20" value="0">
                             <?php endif; ?>
                         </div>
                     </div>
