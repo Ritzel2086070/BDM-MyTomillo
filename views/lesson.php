@@ -50,7 +50,7 @@
                 <div id="container" class="lessons d-flex flex-column bd-highlight mt-3 ">
                     <?php foreach ($niveles as $nivel): ?>
                             <div class="header p-0 bd-highlight">
-                                <p class="p-2 bd-highlight">Nivel 1. <?= $nivel['titulo'] ?></p>
+                                <p class="p-2 bd-highlight">Nivel. <?= $nivel['titulo'] ?></p>
                             </div>
                             <div class="lesson">
                                 <?php foreach ($clases as $clase): ?>
